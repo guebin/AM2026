@@ -10,11 +10,11 @@ execute:
   freeze: true
   
 website:
-  title: "DL2026"
+  title: "AM2026"
   navbar:
     right:
       - icon: github    
-        href: https://github.com/guebin/DL2026
+        href: https://github.com/guebin/AM2026
       - icon: youtube
         href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&sort=dd&shelf_id=2
 format:
