@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2026-09-22">
+
+<title>04wk-1: 생명표와 선택 — 왜 실무는 함수 대신 표를 쓰는가 – AM2026</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3f45afad82f6f61b8e9a9dbccecbbb9f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">AM2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/AM2026"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#이-주에-답할-물음-하나" id="toc-이-주에-답할-물음-하나" class="nav-link active" data-scroll-target="#이-주에-답할-물음-하나">이 주에 답할 물음 하나</a></li>
+  <li><a href="#생명표-숫자-한-열로-끝낸다" id="toc-생명표-숫자-한-열로-끝낸다" class="nav-link" data-scroll-target="#생명표-숫자-한-열로-끝낸다">1. 생명표 — 숫자 한 열로 끝낸다</a></li>
+  <li><a href="#표-한-장에서-확률을-꺼낸다" id="toc-표-한-장에서-확률을-꺼낸다" class="nav-link" data-scroll-target="#표-한-장에서-확률을-꺼낸다">2. 표 한 장에서 확률을 꺼낸다</a></li>
+  <li><a href="#그래서-왜-표인가" id="toc-그래서-왜-표인가" class="nav-link" data-scroll-target="#그래서-왜-표인가">3. 그래서 왜 표인가</a></li>
+  <li><a href="#어느-표를-쓸-것인가-여기서부터가-진짜다" id="toc-어느-표를-쓸-것인가-여기서부터가-진짜다" class="nav-link" data-scroll-target="#어느-표를-쓸-것인가-여기서부터가-진짜다">4. 어느 표를 쓸 것인가 — 여기서부터가 진짜다</a></li>
+  <li><a href="#선택의-효과는-시간이-지나면-닳는다" id="toc-선택의-효과는-시간이-지나면-닳는다" class="nav-link" data-scroll-target="#선택의-효과는-시간이-지나면-닳는다">5. 선택의 효과는 시간이 지나면 닳는다</a></li>
+  <li><a href="#선택생존모형-나이-하나로는-부족하다" id="toc-선택생존모형-나이-하나로는-부족하다" class="nav-link" data-scroll-target="#선택생존모형-나이-하나로는-부족하다">6. 선택생존모형 — 나이 하나로는 부족하다</a></li>
+  <li><a href="#선택생명표-거꾸로-세운다" id="toc-선택생명표-거꾸로-세운다" class="nav-link" data-scroll-target="#선택생명표-거꾸로-세운다">7. 선택생명표 — 거꾸로 세운다</a></li>
+  <li><a href="#표가-다르면-값이-다르다-한-줄-경고" id="toc-표가-다르면-값이-다르다-한-줄-경고" class="nav-link" data-scroll-target="#표가-다르면-값이-다르다-한-줄-경고">8. 표가 다르면 값이 다르다 — 한 줄 경고</a></li>
+  <li><a href="#정리-그리고-5주차로-가는-다리" id="toc-정리-그리고-5주차로-가는-다리" class="nav-link" data-scroll-target="#정리-그리고-5주차로-가는-다리">9. 정리 — 그리고 5주차로 가는 다리</a></li>
+  <li><a href="#확인-문제" id="toc-확인-문제" class="nav-link" data-scroll-target="#확인-문제">확인 문제</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>04wk-1: 생명표와 선택 — 왜 실무는 함수 대신 표를 쓰는가</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 22, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="이-주에-답할-물음-하나" class="level2">
+<h2 class="anchored" data-anchor-id="이-주에-답할-물음-하나">이 주에 답할 물음 하나</h2>
+<blockquote class="blockquote">
+<p><strong>3주차에서 <span class="math inline">\(\mu_x\)</span> 하나로 모든 것을 얻었다. 그런데 실무는 그 함수를 쓰지 않고 숫자가 죽 박힌 표를 쓴다. 왜인가?</strong></p>
+</blockquote>
+<p>그리고 물음이 하나 더 붙는다. 표를 쓴다 치자 — <strong>어느 표를 쓸 것인가?</strong> 40세 남성의 사망률을 국민 전체 통계에서 가져오면 되는가?</p>
+<p>★★★ <strong>둘째 물음의 답이 「아니오」이고, 그 「아니오」가 이 주의 절반이다.</strong></p>
+<hr>
+</section>
+<section id="생명표-숫자-한-열로-끝낸다" class="level2">
+<h2 class="anchored" data-anchor-id="생명표-숫자-한-열로-끝낸다">1. 생명표 — 숫자 한 열로 끝낸다</h2>
+<p>생존모형 <span class="math inline">\({}_{t}p_{x}\)</span> 가 주어져 있다고 하자. 여기서 <strong>표</strong>를 만든다.</p>
+<p>시작 나이 <span class="math inline">\(x_0\)</span> 에서 극한연령 <span class="math inline">\(\omega\)</span> 까지, 함수 <span class="math inline">\(\{l_x\}\)</span> 를 이렇게 정의한다.</p>
+<p><span class="math display">\[l_{x_0} = \text{아무 양수} \qquad\text{그리고}\qquad l_{x_0+t} = l_{x_0}\;{}_{t}p_{x_0}\]</span></p>
+<p>첫 값 <span class="math inline">\(l_{x_0}\)</span> 를 <strong>기수</strong>(radix)라 하고, <strong>아무 수나 잡아도 된다.</strong> 보통 10,000 이나 100,000 을 쓴다.</p>
+<section id="기수가-아무-수여도-되는-이유" class="level3">
+<h3 class="anchored" data-anchor-id="기수가-아무-수여도-되는-이유">1.1 기수가 아무 수여도 되는 이유</h3>
+<p>정의를 두 번 쓰면 이런 관계가 나온다.</p>
+<p><span class="math display">\[l_{x+t} = l_x\;{}_{t}p_{x}
+\qquad\Longleftrightarrow\qquad
+\boxed{\;{}_{t}p_{x} = \frac{l_{x+t}}{l_x}\;}\]</span></p>
+<p>★★★ <strong>우리는 <span class="math inline">\(l\)</span> 을 언제나 「비」로만 쓴다.</strong> <span class="math inline">\(l_y/l_x\)</span> 는 분자·분모에 같은 수를 곱해도 안 변하므로, <span class="math inline">\(l_x\)</span> 를 전부 100배 해도 <strong>생존모형은 조금도 안 바뀐다.</strong> 기수는 <strong>표의 눈금</strong>일 뿐이다.</p>
+</section>
+<section id="l_x-를-사람-수로-읽는-법" class="level3">
+<h3 class="anchored" data-anchor-id="l_x-를-사람-수로-읽는-법">1.2 <span class="math inline">\(l_x\)</span> 를 「사람 수」로 읽는 법</h3>
+<p><span class="math inline">\(l_x\)</span> 가 정수라고 하자. 그러면 <span class="math inline">\(l_{x+t}\)</span> 를 <strong>말 그대로 사람 수</strong>로 읽을 수 있다.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(x\)</span> 세인 사람 <span class="math inline">\(l_x\)</span> 명이 서로 독립으로 산다면, <span class="math inline">\(x+t\)</span> 세까지 살아남는 사람 수는 <strong>이항분포</strong> <span class="math inline">\(L_{x,t} \sim B(l_x,\ {}_{t}p_{x})\)</span> 를 따르고, 그 <strong>기댓값이 정확히 <span class="math inline">\(l_{x+t}\)</span></strong> 다.</p>
+</blockquote>
+<p><span class="math display">\[\mathrm{E}[L_{x,t}] = l_x\;{}_{t}p_{x} = l_{x+t}\]</span></p>
+<p>★★ <strong>그래서 표를 「10,000명이 태어나 해마다 몇 명씩 남는가」로 읽어도 된다.</strong> 그 읽기가 직관을 준다 — 다만 <strong>정본은 비</strong>이지 사람 수가 아니다.</p>
+<hr>
+</section>
+</section>
+<section id="표-한-장에서-확률을-꺼낸다" class="level2">
+<h2 class="anchored" data-anchor-id="표-한-장에서-확률을-꺼낸다">2. 표 한 장에서 확률을 꺼낸다</h2>
+<p>생명표에는 <span class="math inline">\(l_x\)</span> 말고 <span class="math inline">\(d_x\)</span> 가 함께 실리기도 한다.</p>
+<p><span class="math display">\[d_x = l_x - l_{x+1} \qquad\text{(그 해에 죽는 사람 수)}\]</span></p>
+<p>여기서 곧바로 따라 나온다.</p>
+<p><span class="math display">\[d_x = l_x\left(1 - \frac{l_{x+1}}{l_x}\right) = l_x(1-p_x) = l_x\,q_x\]</span></p>
+<section id="실제로-꺼내-보자" class="level3">
+<h3 class="anchored" data-anchor-id="실제로-꺼내-보자">2.1 실제로 꺼내 보자</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(l_x\)</span></th>
+<th><span class="math inline">\(d_x\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>30</td>
+<td>10 000.00</td>
+<td>34.78</td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>9 965.22</td>
+<td>38.10</td>
+</tr>
+<tr class="odd">
+<td>35</td>
+<td>9 789.29</td>
+<td>55.17</td>
+</tr>
+<tr class="even">
+<td>36</td>
+<td>9 734.12</td>
+<td>60.56</td>
+</tr>
+<tr class="odd">
+<td>39</td>
+<td>9 534.08</td>
+<td>80.11</td>
+</tr>
+</tbody>
+</table>
+<p>이 표만으로 다음이 전부 나온다.</p>
+<p><span class="math display">\[
+\begin{aligned}
+l_{40} &amp;= l_{39} - d_{39} = 9534.08 - 80.11 = 9453.97 \\[3pt]
+{}_{10}p_{30} &amp;= \frac{l_{40}}{l_{30}} = \frac{9453.97}{10000} = 0.94540 \\[3pt]
+q_{35} &amp;= \frac{d_{35}}{l_{35}} = \frac{55.17}{9789.29} = 0.00564 \\[3pt]
+{}_{5}q_{30} &amp;= \frac{l_{30}-l_{35}}{l_{30}} = 0.02107 \\[3pt]
+{}_{5\vert}q_{30} &amp;= \frac{l_{35}-l_{36}}{l_{30}} = \frac{d_{35}}{l_{30}} = 0.00552
+\end{aligned}
+\]</span></p>
+<p>★★★ <strong>마지막 두 줄을 견주어 보라.</strong> 분모가 <strong>둘 다 <span class="math inline">\(l_{30}\)</span></strong> 이다. <span class="math inline">\({}_{5}q_{30}\)</span> 은 <em>“30세가 5년 안에 죽는다”</em>, <span class="math inline">\({}_{5\vert}q_{30}\)</span> 은 <em>“30세가 5년은 살고 그다음 1년에 죽는다”</em> — <strong>기준이 언제나 「지금 30세인 그 사람」</strong>이라 분모가 안 바뀐다.</p>
+<p>★ <strong>표에서 확률을 꺼낼 때 실수가 나는 자리가 정확히 분모다.</strong> <em>“35세까지 살았으니 이제 분모는 <span class="math inline">\(l_{35}\)</span>”</em> 로 바꾸면 그건 <strong>다른 확률</strong>(<span class="math inline">\(q_{35}\)</span>)이 된다.</p>
+<hr>
+</section>
+</section>
+<section id="그래서-왜-표인가" class="level2">
+<h2 class="anchored" data-anchor-id="그래서-왜-표인가">3. 그래서 왜 표인가</h2>
+<p>3주차의 <span class="math inline">\(\mu_x\)</span> 는 아름답지만, 실무자가 하루에 수백 번 하는 일은 <strong>적분이 아니라 나눗셈</strong>이다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>함수 (<span class="math inline">\(\mu_x\)</span>)</th>
+<th>표 (<span class="math inline">\(l_x\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\({}_{t}p_{x}\)</span> 를 얻으려면</td>
+<td><span class="math inline">\(\exp\{-\int \mu\}\)</span> 를 계산</td>
+<td>★ <strong>나눗셈 한 번</strong></td>
+</tr>
+<tr class="even">
+<td>필요한 것</td>
+<td>모형과 모수</td>
+<td>★ <strong>숫자 한 열</strong></td>
+</tr>
+<tr class="odd">
+<td>누가 만드나</td>
+<td>모형을 세운 사람</td>
+<td>통계기관·보험협회가 발표</td>
+</tr>
+<tr class="even">
+<td>약점</td>
+<td>실제 자료와 어긋날 수 있다</td>
+<td>★ <strong>정수 나이에만 값이 있다</strong></td>
+</tr>
+</tbody>
+</table>
+<p>★★★ <strong>마지막 줄이 5주차 전체다.</strong> 표는 정수 나이에서만 값을 주는데, 계약은 아무 때나 끝난다.</p>
+<hr>
+</section>
+<section id="어느-표를-쓸-것인가-여기서부터가-진짜다" class="level2">
+<h2 class="anchored" data-anchor-id="어느-표를-쓸-것인가-여기서부터가-진짜다">4. 어느 표를 쓸 것인가 — 여기서부터가 진짜다</h2>
+<p>50세 남성이 10년 만기 정기보험에 가입한다. 그의 사망률을 <strong>국민생명표</strong>에서 가져와도 되는가?</p>
+<p>영국 자료로 실제 두 값을 견주어 보자. 사망력 <span class="math inline">\(\mu_x\)</span> 의 <span class="math inline">\(10^5\)</span> 배다.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>ELTM 17 (국민 전체)</th>
+<th>CMI A14 (50세에 정기보험 가입자)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>50</td>
+<td>297</td>
+<td>★ <strong>78</strong></td>
+</tr>
+<tr class="even">
+<td>54</td>
+<td>437</td>
+<td>240</td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>643</td>
+<td>454</td>
+</tr>
+<tr class="even">
+<td>60</td>
+<td>768</td>
+<td>573</td>
+</tr>
+</tbody>
+</table>
+<p>★★★ <strong>50세에서 4배 가까이 차이 난다.</strong> 국민생명표를 그대로 쓰면 보험료가 <strong>크게 비싸진다.</strong> 왜 이렇게 다른가 — 이유가 셋이다.</p>
+<section id="자료의-시기가-다르다" class="level3">
+<h3 class="anchored" data-anchor-id="자료의-시기가-다르다">4.1 자료의 시기가 다르다</h3>
+<p>ELTM 17 은 2010–2012, CMI 는 1999–2002 자료다. 사망률은 <strong>내려가는 추세</strong>이므로 <strong>최근 자료인 ELTM 쪽이 오히려 낮아야</strong> 한다. ★ <strong>그런데 반대다</strong> — 그러니 이것만으로는 설명이 안 된다.</p>
+</section>
+<section id="모집단이-다르다" class="level3">
+<h3 class="anchored" data-anchor-id="모집단이-다르다">4.2 모집단이 다르다</h3>
+<p>ELTM 은 <strong>잉글랜드·웨일스 남성 전체</strong>이고, CMI 는 <strong>정기보험을 산 남성</strong>이다. 소득·직업이 사망률과 연결되고, <strong>보험을 사는 사람은 대체로 형편이 나은 쪽</strong>이다.</p>
+</section>
+<section id="그리고-가장-큰-것-언더라이팅" class="level3">
+<h3 class="anchored" data-anchor-id="그리고-가장-큰-것-언더라이팅">4.3 그리고 가장 큰 것 — 언더라이팅</h3>
+<p>보험사는 계약 전에 <strong>건강 심사</strong>를 한다. 그래서 CMI 의 50세는 <strong><em>“방금 건강 심사를 통과한 50세”</em></strong> 이고, ELTM 의 50세는 <strong>건강한 사람과 아픈 사람이 섞인 50세</strong>다.</p>
+<p>★★★ <strong>이것이 「선택」(selection)이다.</strong> 그리고 이 절의 나머지가 전부 여기서 나온다.</p>
+<hr>
+</section>
+</section>
+<section id="선택의-효과는-시간이-지나면-닳는다" class="level2">
+<h2 class="anchored" data-anchor-id="선택의-효과는-시간이-지나면-닳는다">5. 선택의 효과는 시간이 지나면 닳는다</h2>
+<p>같은 CMI 자료를 <strong>가입 나이별로</strong> 갈라 보면 무슨 일이 일어나는지 보인다.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>현재 나이 <span class="math inline">\(x\)</span></th>
+<th>50세 가입</th>
+<th>52세 가입</th>
+<th>54세 가입</th>
+<th>56세 가입</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>56</td>
+<td>360</td>
+<td>295</td>
+<td>227</td>
+<td>★ <strong>136</strong></td>
+</tr>
+<tr class="even">
+<td>58</td>
+<td>454</td>
+<td>454</td>
+<td>364</td>
+<td>278</td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td>573</td>
+<td>573</td>
+<td>573</td>
+<td>448</td>
+</tr>
+<tr class="even">
+<td>62</td>
+<td>★ <strong>725</strong></td>
+<td>★ <strong>725</strong></td>
+<td>★ <strong>725</strong></td>
+<td>★ <strong>725</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>두 줄만 보면 된다.</strong></p>
+<p><strong>56세 행</strong> — 같은 56세인데 값이 넷 다 다르다. <strong>최근에 가입한 사람일수록 사망력이 낮다.</strong> 56세에 막 심사를 통과한 사람은 <span class="math inline">\(0.00136\)</span>, 6년 전에 통과한 사람은 <span class="math inline">\(0.00360\)</span> — <strong>2.6배</strong>다.</p>
+<p>★★ <strong>왜 그런가.</strong> 50세에 심사를 통과한 사람이 56세가 되었을 때 우리가 아는 것은 <em>“6년 전에는 건강했다”</em> 뿐이다. <strong>그 사이에 병을 얻었을 수 있다.</strong></p>
+<p><strong>62세 행</strong> — 네 값이 <strong>전부 같다</strong>(<span class="math inline">\(0.00725\)</span>). 언제 가입했는지가 <strong>더 이상 상관없다.</strong></p>
+<p>★★★ <strong>선택 효과가 다 닳은 것이다.</strong> 그리고 이 「닳는 데 걸리는 기간」에 이름이 붙는다.</p>
+<hr>
+</section>
+<section id="선택생존모형-나이-하나로는-부족하다" class="level2">
+<h2 class="anchored" data-anchor-id="선택생존모형-나이-하나로는-부족하다">6. 선택생존모형 — 나이 하나로는 부족하다</h2>
+<p>3주차까지의 모형은 <strong>현재 나이 <span class="math inline">\(x\)</span> 하나</strong>로 미래를 정했다. 그런 모형을 <strong>총괄생존모형</strong> (aggregate survival model)이라 한다. 위 표는 그것이 <strong>깨지는</strong> 자리다.</p>
+<p><strong>선택생존모형</strong>은 다음 둘을 만족하는 모형이다.</p>
+<blockquote class="blockquote">
+<p><strong>(a)</strong> 미래 생존확률이 <strong>현재 나이</strong>와 <strong>그 집단에 들어온 나이</strong> 둘에 달려 있다. <strong>(b)</strong> 어떤 양수 <span class="math inline">\(d\)</span> 가 있어서, <strong><span class="math inline">\(d\)</span> 년보다 전에 들어온 사람은 현재 나이만으로 정해진다.</strong></p>
+</blockquote>
+<p><span class="math inline">\(d\)</span> 를 <strong>선택기간</strong>(select period)이라 한다. 위 CMI 표에서는 62세 행이 같아졌으므로 <span class="math inline">\(d\)</span> 는 <strong>6년 이하</strong>이고, 실제로는 <strong>5년</strong>이다.</p>
+<section id="기호-대괄호가-들어온-나이다" class="level3">
+<h3 class="anchored" data-anchor-id="기호-대괄호가-들어온-나이다">6.1 기호 — 대괄호가 「들어온 나이」다</h3>
+<p><span class="math display">\[[x] \;=\; \text{나이 } x \text{ 에 선택되었다(그 집단에 들어왔다)}\]</span></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>기호</th>
+<th>뜻</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\({}_{t}p_{[x]+s}\)</span></td>
+<td><span class="math inline">\(x\)</span> 세에 선택되어 지금 <span class="math inline">\(x+s\)</span> 세인 사람이 <strong><span class="math inline">\(t\)</span> 년 더 산다</strong></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\({}_{t}q_{[x]+s}\)</span></td>
+<td>같은 사람이 <strong><span class="math inline">\(t\)</span> 년 안에 죽는다</strong></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\mu_{[x]+s}\)</span></td>
+<td>같은 사람의 <strong>지금 사망력</strong></td>
+</tr>
+</tbody>
+</table>
+<p>★ <strong>3주차 식이 전부 그대로 산다.</strong> 기호만 바뀐다.</p>
+<p><span class="math display">\[{}_{t}p_{[x]+s} = \exp\left\{-\int_0^t \mu_{[x]+s+u}\,du\right\}\]</span></p>
+</section>
+<section id="선택기간이-지나면-대괄호를-뗀다" class="level3">
+<h3 class="anchored" data-anchor-id="선택기간이-지나면-대괄호를-뗀다">6.2 선택기간이 지나면 대괄호를 뗀다</h3>
+<p><span class="math inline">\(s + t \ge d\)</span> 이면 선택 정보는 <strong>아무 값이 없다.</strong> 그래서 그냥 <strong>현재 나이</strong>로 쓴다.</p>
+<p><span class="math display">\[\mu_{[x-t]+t} \;\equiv\; \mu_{x} \qquad (t \ge d)\]</span></p>
+<p>★★ <strong>앞부분을 「선택 부분」, 뒷부분을 「최종 부분」(ultimate)이라 부른다.</strong> 모형 하나가 <strong>선택 구간 <span class="math inline">\(d\)</span> 년 + 그 뒤의 최종 구간</strong>으로 되어 있다.</p>
+<hr>
+</section>
+</section>
+<section id="선택생명표-거꾸로-세운다" class="level2">
+<h2 class="anchored" data-anchor-id="선택생명표-거꾸로-세운다">7. 선택생명표 — 거꾸로 세운다</h2>
+<p>이제 표를 만든다. <strong>최종 부분은 3주차 방식 그대로</strong>다 — <span class="math inline">\(y &gt; x \ge x_0+d\)</span> 에 대해</p>
+<p><span class="math display">\[l_y = {}_{y-x}p_{x}\; l_x\]</span></p>
+<p>문제는 <strong>선택 부분</strong>이다. 여기는 <strong>뒤에서부터 거꾸로</strong> 채운다.</p>
+<p><span class="math display">\[
+{}_{d-t}p_{[x]+t} = \frac{l_{x+d}}{l_{[x]+t}}
+\qquad\Longrightarrow\qquad
+\boxed{\;l_{[x]+t} = \frac{l_{x+d}}{{}_{d-t}p_{[x]+t}}\;}
+\]</span></p>
+<p>★★★ <strong>왜 거꾸로인가.</strong> 선택기간이 끝나는 자리 <span class="math inline">\(l_{x+d}\)</span> 는 <strong>최종 표에 이미 있다.</strong> 그 값에서 <strong>되돌아 나누며</strong> 선택 부분을 채우는 것이다.</p>
+<section id="표는-이렇게-생겼다" class="level3">
+<h3 class="anchored" data-anchor-id="표는-이렇게-생겼다">7.1 표는 이렇게 생겼다</h3>
+<p>선택기간 2년짜리 표의 한 조각이다(Makeham 최종 부분, <span class="math inline">\(l_{20}=100{,}000\)</span>).</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th><span class="math inline">\(l_{[x]}\)</span></th>
+<th><span class="math inline">\(l_{[x]+1}\)</span></th>
+<th><span class="math inline">\(l_{x+2}\)</span></th>
+<th><span class="math inline">\(x+2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20</td>
+<td>99 995.08</td>
+<td>99 973.75</td>
+<td>99 949.71</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>99 970.04</td>
+<td>99 948.40</td>
+<td>99 923.98</td>
+<td>23</td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>98 552.51</td>
+<td>98 450.67</td>
+<td>98 326.19</td>
+<td>52</td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>75 153.97</td>
+<td>73 050.22</td>
+<td>70 507.19</td>
+<td>82</td>
+</tr>
+</tbody>
+</table>
+<p>★★ <strong>한 행을 「같은 사람의 시간 흐름」으로 읽는다</strong> — 20세에 가입 → 21세 → 22세. 그리고 22세부터는 <strong>대괄호가 없다.</strong> 선택기간이 끝났기 때문이다.</p>
+<p>★★★ <strong>읽을 때 조심할 것</strong> — 마지막 열의 나이는 <span class="math inline">\(x+2\)</span> 이지 <span class="math inline">\(x\)</span> 가 아니다. <strong>표마다 배치가 다르므로 열 머리를 반드시 확인한다.</strong></p>
+</section>
+<section id="써-보자" class="level3">
+<h3 class="anchored" data-anchor-id="써-보자">7.2 써 보자</h3>
+<p><strong>선택기간 10년</strong> 모형에서, 지금 52세이고 <strong>50세에 선택</strong>된 사람을 생각하자.</p>
+<p><span class="math display">\[
+\begin{aligned}
+{}_{6}p_{[50]+2} &amp;= \frac{l_{[50]+8}}{l_{[50]+2}}
+   \quad (\because 2+6=8 &lt; 10,\ \text{아직 선택 구간 안이다}) \\[4pt]
+{}_{10}p_{[50]+2} &amp;= \frac{l_{[50]+12}}{l_{[50]+2}} = \frac{l_{62}}{l_{[50]+2}}
+   \quad (\because 2+10=12 \ge 10,\ \text{선택 구간을 넘었다})
+\end{aligned}
+\]</span></p>
+<p>★★★ <strong>분자에서만 대괄호가 사라진다.</strong> 분모는 <strong>여전히 선택 구간 안의 사람</strong>이라 그대로다. <strong>이 한 줄을 손으로 여러 번 써 보는 것이 이 절의 전부다.</strong></p>
+<hr>
+</section>
+</section>
+<section id="표가-다르면-값이-다르다-한-줄-경고" class="level2">
+<h2 class="anchored" data-anchor-id="표가-다르면-값이-다르다-한-줄-경고">8. 표가 다르면 값이 다르다 — 한 줄 경고</h2>
+<p>같은 사람이라도 <strong>어느 표를 쓰느냐</strong>로 답이 달라진다. 흔히 갈라 만드는 축은 이렇다.</p>
+<ul>
+<li><strong>성별</strong> · <strong>흡연 여부</strong> · <strong>상품 종류</strong>(정기보험 · 종신 · 연금)</li>
+<li>★ <strong>연금은 방향이 반대다</strong> — 오래 살 자신이 있는 사람이 연금을 산다. 그래서 <strong>연금 가입자의 사망률은 더 낮다.</strong> 이것을 <strong>역선택</strong>이라 한다.</li>
+</ul>
+<p>★★ <strong>2주차에서 「연금에는 언더라이팅이 없다」고 한 것과 이어진다.</strong> 보험은 아픈 사람을 걸러내지만, 연금은 <strong>건강한 사람이 알아서 몰려온다.</strong></p>
+<hr>
+</section>
+<section id="정리-그리고-5주차로-가는-다리" class="level2">
+<h2 class="anchored" data-anchor-id="정리-그리고-5주차로-가는-다리">9. 정리 — 그리고 5주차로 가는 다리</h2>
+<blockquote class="blockquote">
+<p><strong>생명표는 <span class="math inline">\(l_x\)</span> 한 열로 모든 생존확률을 나눗셈으로 준다. 그런데 「어느 <span class="math inline">\(l_x\)</span> 냐」가 값을 크게 바꾸고, 보험가입자는 심사를 통과한 사람들이라 나이 하나로는 부족하다 — 들어온 나이까지 필요하다.</strong></p>
+</blockquote>
+<p><span class="math display">\[\underbrace{l_x}_{\text{총괄}} \;\longrightarrow\; \underbrace{l_{[x]+t}}_{\text{선택}}
+\qquad
+{}_{t}p_{x} = \frac{l_{x+t}}{l_x}
+\;\longrightarrow\;
+{}_{t}p_{[x]+s} = \frac{l_{[x]+s+t}}{l_{[x]+s}}\]</span></p>
+<p>그런데 표에는 <strong>정수 나이의 값만</strong> 있다. 계약은 정수 나이에 끝나 주지 않는다.</p>
+<p><span class="math display">\[\boxed{\;l_{40} \text{ 과 } l_{41} \text{ 만 아는데 } {}_{0.4}p_{40} \text{ 을 어떻게 구하나?}\;}\]</span></p>
+<p><strong>5주차가 그 답이다</strong> — 단수연령 보간(UDD·CFM). ★ 3주차에서 <em>“사람에게는 못 쓴다”</em> 며 접어 두었던 <strong>균등분포와 일정사망력</strong>이 거기서 다시 나온다. <strong>한 살 안에서만 쓰면 쓸 만하다.</strong></p>
+<hr>
+</section>
+<section id="확인-문제" class="level2">
+<h2 class="anchored" data-anchor-id="확인-문제">확인 문제</h2>
+<ol type="1">
+<li>생명표의 기수 <span class="math inline">\(l_{x_0}\)</span> 를 10,000 에서 1,000,000 으로 바꾸면 <span class="math inline">\({}_{t}p_{x}\)</span> 는 어떻게 되는가? 왜인가?</li>
+<li><span class="math inline">\(d_x = l_x q_x\)</span> 를 <strong>말로</strong> 읽어라.</li>
+<li>§2.1 표에서 <span class="math inline">\({}_{4}q_{31}\)</span> 을 구하라. 분모가 무엇인지 먼저 적어라.</li>
+<li>ELTM 17 과 CMI A14 의 50세 값이 4배 가까이 다른 이유 셋 중, <strong>자료 시기</strong>만으로는 설명이 안 되는 까닭을 쓰라.</li>
+<li>Table 3.4 의 <strong>62세 행이 전부 같다</strong>는 것은 무엇을 뜻하는가? 그로부터 선택기간 <span class="math inline">\(d\)</span> 에 대해 무엇을 말할 수 있는가?</li>
+<li>선택기간이 5년인 모형에서 <span class="math inline">\({}_{3}p_{[60]+1}\)</span> 과 <span class="math inline">\({}_{7}p_{[60]+1}\)</span> 을 각각 <span class="math inline">\(l\)</span> 로 쓰라. <strong>어느 쪽에서 대괄호가 사라지는가?</strong></li>
+<li>선택생명표를 <strong>거꾸로</strong> 채우는 이유를 한 문장으로 대라.</li>
+<li>연금 가입자의 사망률이 정기보험 가입자보다 <strong>낮은</strong> 이유를 「역선택」으로 설명하라.</li>
+</ol>
+<hr>
+<p><strong>출처</strong></p>
+<p>Dickson, Hardy &amp; Waters (2020), <em>Actuarial Mathematics for Life Contingent Risks</em>, 3rd ed., Cambridge University Press — <strong>Chapter 3</strong> (책 58–60, 70–83쪽). 도서관 <code>BOOK_DicksonEt_2020_LifeContingentRisks3e.pdf</code> · 발췌 <code>W04_생명표와선택표.pdf</code>.</p>
+<p>절 대응 — 3.2 생명표 · 3.5 보험가입자 생존모형 · 3.6 언더라이팅 · 3.7 선택생존모형 · 3.8 선택모형 기호 · 3.9 선택생명표. 표 3.1 · 3.3 · 3.4 · 3.7 의 수치는 원전 그대로다.</p>
+<p>★ <strong>3.3–3.4(단수연령 가정)는 5주차</strong>로 넘겼다 — 강의계획서가 그렇게 가른다.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
