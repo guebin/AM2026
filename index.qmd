@@ -20,4 +20,9 @@ title-block-banner: false
 **공지**
 
 
+**참고문헌**
+
+- Dickson, D. C. M., Hardy, M. R., and Waters, H. R. (2020). *Actuarial Mathematics for Life Contingent Risks*, 3rd edition. Cambridge University Press. (International Series on Actuarial Science)
+
+
 **강의노트** 

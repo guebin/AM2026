@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2026-09-03">
+
+<title>01wk-2: 장래생존기간 확률변수 – AM2026</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">AM2026</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/guebin/AM2026"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&amp;sort=dd&amp;shelf_id=2"> <i class="bi bi-youtube" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
+  <li><a href="#기호-x" id="toc-기호-x" class="nav-link" data-scroll-target="#기호-x">2. 기호 <span class="math inline">\((x)\)</span></a></li>
+  <li><a href="#장래생존기간-t_x" id="toc-장래생존기간-t_x" class="nav-link" data-scroll-target="#장래생존기간-t_x">3. 장래생존기간 <span class="math inline">\(T_x\)</span></a></li>
+  <li><a href="#분포함수-f_x-와-생존함수-s_x" id="toc-분포함수-f_x-와-생존함수-s_x" class="nav-link" data-scroll-target="#분포함수-f_x-와-생존함수-s_x">4. 분포함수 <span class="math inline">\(F_x\)</span> 와 생존함수 <span class="math inline">\(S_x\)</span></a></li>
+  <li><a href="#t_0-과-t_x-를-잇는-관계" id="toc-t_0-과-t_x-를-잇는-관계" class="nav-link" data-scroll-target="#t_0-과-t_x-를-잇는-관계">5. <span class="math inline">\(T_0\)</span> 과 <span class="math inline">\(T_x\)</span> 를 잇는 관계</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>01wk-2</strong>: 장래생존기간 확률변수</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 3, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>이 노트는 Dickson, Hardy, and Waters (2020), <em>Actuarial Mathematics for Life Contingent Risks</em>, 3rd ed., Chapter 2 — Survival models 를 따라 구성했다.</p>
+</blockquote>
+<section id="강의영상" class="level1">
+<h1>1. 강의영상</h1>
+</section>
+<section id="기호-x" class="level1">
+<h1>2. 기호 <span class="math inline">\((x)\)</span></h1>
+<p><code>-</code> <span class="math inline">\((x)\)</span> 는 지금 나이가 <span class="math inline">\(x\)</span> 인 사람 한 명을 가리키는 기호이다.</p>
+<ul>
+<li>여기서 <span class="math inline">\(x \ge 0\)</span> 이다.</li>
+<li><span class="math inline">\((x)\)</span> 를 「연령 <span class="math inline">\(x\)</span> 인 생명」이라고 읽으면 된다..</li>
+</ul>
+<p><code># 예제1</code> 이은지 34세, 미미 30세, 이영지 23세, 안유진 23세이다. 다음 중 옳지 않은 것은?</p>
+<ol type="1">
+<li>이은지는 <span class="math inline">\((34)\)</span> 로 나타낼 수 있다.</li>
+<li>미미는 <span class="math inline">\((30)\)</span> 으로 나타낼 수 있다.</li>
+<li>이영지는 <span class="math inline">\((23)\)</span> 으로 나타낼 수 있다.</li>
+<li>안유진은 <span class="math inline">\((24)\)</span> 로 나타낼 수 있다.</li>
+</ol>
+<p><code>(풀이)</code> 답은 4. <span class="math inline">\((x)\)</span> 의 <span class="math inline">\(x\)</span> 는 지금 나이다. 안유진은 지금 23세이므로 <span class="math inline">\((23)\)</span> 이다. 이영지와 나이가 같으므로 두 사람 다 <span class="math inline">\((23)\)</span> 으로 쓴다.</p>
+<p><code># 예제2</code> 미미는 30세이다. <span class="math inline">\((30)\)</span> 은 무엇을 뜻하는가?</p>
+<ol type="1">
+<li>미미</li>
+<li>30세인 어떤 한 사람</li>
+</ol>
+<p><code>(풀이)</code> 답은 2. <span class="math inline">\((x)\)</span> 의 <span class="math inline">\(x\)</span> 는 나이이지 사람 이름이 아니다. 미미는 <span class="math inline">\((30)\)</span> 의 한 예일 뿐이다.</p>
+<p><code>-</code> <span class="math inline">\((x)\)</span> 는 지금 살아 있는 사람이다. 「지금 나이가 <span class="math inline">\(x\)</span> 」라는 말에 이미 살아 있다는 뜻이 들어 있다. 죽은 사람은 나이가 더 늘지 않기 때문이다.</p>
+</section>
+<section id="장래생존기간-t_x" class="level1">
+<h1>3. 장래생존기간 <span class="math inline">\(T_x\)</span></h1>
+<p><code>-</code> <span class="math inline">\((x)\)</span> 는 <span class="math inline">\(x\)</span> 보다 큰 어느 나이에서든 죽을 수 있다. <span class="math inline">\((x)\)</span> 가 앞으로 더 사는 햇수를 <span class="math inline">\(T_x\)</span> 라 쓰고, 이를 <span class="math inline">\((x)\)</span> 의 장래생존기간(future lifetime)이라 부른다. <span class="math inline">\(T_x\)</span> 는 미리 알 수 없는 양이므로 연속확률변수로 모형화한다. 그러면 사망시연령은 <span class="math inline">\(x + T_x\)</span> 가 되고, 이것도 확률변수다.</p>
+<ul>
+<li><span class="math inline">\(x + T_x\)</span> 에서 <span class="math inline">\(x\)</span> 는 정해진 수이고 <span class="math inline">\(T_x\)</span> 만 확률변수다. 지금 나이는 알고, 앞으로 살 햇수는 모른다.</li>
+<li>느낌으로는 <span class="math inline">\(x\)</span> 와 <span class="math inline">\(T_x\)</span> 가 서로 깎아먹는 사이다. <span class="math inline">\(x\)</span> 가 커질수록 <span class="math inline">\(T_x\)</span> 는 작아지는 쪽이다.</li>
+</ul>
+<p><code># 가짜예제</code> <span class="math inline">\(T_1\)</span> 과 <span class="math inline">\(T_{100}\)</span> 중 어느 쪽의 값이 더 큰 가?</p>
+<ol type="1">
+<li><span class="math inline">\(T_1\)</span></li>
+<li><span class="math inline">\(T_{100}\)</span></li>
+</ol>
+<p><code>(풀이)</code> 답은 1. 1세 아이는 보통 수십 년을 더 살고, 100세 노인은 몇 년 남지 않았다. 다만 둘 다 확률변수라서 「값」을 바로 비교할 수는 없다. 그래서 이 문제는 잘못낸 문제다. 제대로 비교하려면 분포끼리 비교해야 하고, 그 얘기는 뒤에서 한다.</p>
+<p><code># 가짜예제</code> 가로축을 <span class="math inline">\(x\)</span>, 세로축을 <span class="math inline">\(T_x\)</span> 로 놓고 그린다면 어느 그림이 어울리는가?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/fig1_x_vs_Tx.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li>그림 1</li>
+<li>그림 2</li>
+<li>그림 3</li>
+</ol>
+<p><code>(풀이)</code> 답은 2. <span class="math inline">\(x\)</span> 가 커질수록 <span class="math inline">\(T_x\)</span> 는 작아지는 쪽이다. 다만 <span class="math inline">\(T_x\)</span> 는 확률변수라서 <span class="math inline">\(x\)</span> 하나에 값이 하나로 정해지지 않으므로 이런 그래프는 엄밀히는 그릴 수 없다. 그래서 이 문제도 잘못 낸 문제다. 제대로 그리려면 <span class="math inline">\(x\)</span> 마다 <span class="math inline">\(T_x\)</span> 의 평균을 찍어야 하고, 그 얘기는 뒤에서 한다.</p>
+<p><code># 가짜예제</code> 네 히스토그램은 <span class="math inline">\(x = 10, 20, 50, 100\)</span> 인 <span class="math inline">\(T_x\)</span> 를 각각 많이 뽑아 그린 것이다. <span class="math inline">\(x = 100\)</span> 인 것은 어느 것인가?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/fig3_hist4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li>A</li>
+<li>B</li>
+<li>C</li>
+<li>D</li>
+</ol>
+<p><code>(풀이)</code> 답은 3이지 않을까? 100세는 앞으로 살 햇수가 몇 년 안 되므로 <span class="math inline">\(T_{100}\)</span> 은 0 근처에 몰린다.</p>
+<p><code># 가짜예제</code> 네 줄 A, B, C, D 는 서로 다른 나이 <span class="math inline">\(x\)</span> 의 <span class="math inline">\(T_x\)</span> 를 각각 많이 뽑아 그린 것이다. 왼쪽은 <span class="math inline">\(T_x\)</span> 의 히스토그램(뽑은 값이 <span class="math inline">\(t\)</span> 근처에 떨어진 개수), 오른쪽은 <span class="math inline">\(\Pr[T_x \le t]\)</span> 의 그래프다. 빨간 점은 <span class="math inline">\(T_x\)</span> 의 평균이다. 나이 <span class="math inline">\(x\)</span> 가 적은 것부터 순서대로 나열하면?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/fig4_pair4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li>B, D, A, C</li>
+<li>C, A, D, B</li>
+<li>A, B, C, D</li>
+<li>B, A, D, C</li>
+</ol>
+<p><code>(풀이)</code> 답은 1이 아닐까?</p>
+</section>
+<section id="분포함수-f_x-와-생존함수-s_x" class="level1">
+<h1>4. 분포함수 <span class="math inline">\(F_x\)</span> 와 생존함수 <span class="math inline">\(S_x\)</span></h1>
+<p><code>-</code> <span class="math inline">\(F_x\)</span> 를 <span class="math inline">\(T_x\)</span> 의 분포함수라 하자. 즉 <span class="math inline">\(F_x(t) = \Pr[T_x \le t]\)</span> 이다. 우리는 <span class="math inline">\(F_x\)</span> 를 연령 <span class="math inline">\(x\)</span> 로부터의 생애분포(lifetime distribution)라 부른다.</p>
+<ul>
+<li><span class="math inline">\(t\)</span> 가 커질수록 <span class="math inline">\(F_x(t)\)</span> 는 1 에 가까워진다. <span class="math inline">\((x)\)</span> 가 언젠가는 죽는다는 뜻이다.</li>
+<li><span class="math inline">\(F_x\)</span> 는 죽음의 느낌을 가진 함수이다.</li>
+</ul>
+<p><code># 예제3</code> 아래 그림은 <span class="math inline">\(x = 20, 40, 60, 80\)</span> 네 나이에 대한 <span class="math inline">\(F_x(t)\)</span> 를 <span class="math inline">\(t\)</span> 에 대해 그린 것이다. 옳지 않은 것은?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/fig5_Fx_by_x.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol type="1">
+<li><span class="math inline">\(x\)</span> 를 고정하면, <span class="math inline">\(t\)</span> 가 커질수록 <span class="math inline">\(F_x(t)\)</span> 는 커진다.</li>
+<li><span class="math inline">\(x\)</span> 를 고정하면, <span class="math inline">\(t\)</span> 가 작아질수록 <span class="math inline">\(F_x(t)\)</span> 는 작아진다.</li>
+<li><span class="math inline">\(t\)</span> 를 고정하면, <span class="math inline">\(x\)</span> 가 커질수록 <span class="math inline">\(F_x(t)\)</span> 는 커진다.</li>
+<li><span class="math inline">\(t\)</span> 를 고정하면, <span class="math inline">\(x\)</span> 가 작아질수록 <span class="math inline">\(F_x(t)\)</span> 는 작아진다.</li>
+<li><span class="math inline">\(x\)</span> 가 커질수록, 그리고 <span class="math inline">\(t\)</span> 가 커질수록 <span class="math inline">\(F_x(t)\)</span> 는 커진다.</li>
+<li><span class="math inline">\(t\)</span> 를 고정하면, <span class="math inline">\(x\)</span> 가 작아질수록 <span class="math inline">\(F_x(t)\)</span> 는 커진다.</li>
+</ol>
+<p><code>(풀이)</code> 답은 6.</p>
+<p><code>-</code> <span class="math inline">\(F_x(t)\)</span> 는 <span class="math inline">\(t\)</span> 가 커질수록 확실하게 커진다. <span class="math inline">\(x\)</span> 는 살짝 애매하긴 한데, 대부분 <span class="math inline">\(x\)</span>가 커질수록 <span class="math inline">\(F_x(t)\)</span> 도 커진다.</p>
+<ul>
+<li><span class="math inline">\(x\)</span> 는 지금 나이이고, <span class="math inline">\(t\)</span> 는 지금부터 흐르는 시간이니깐.. 통상적으로는 <span class="math inline">\(x\)</span>가 커질수록 그리고 <span class="math inline">\(t\)</span>가 커질수록 <span class="math inline">\(F_x(t)\)</span>는 커짐.<br>
+</li>
+<li>그런데 사실 <span class="math inline">\(x\)</span> 쪽은 아닐 수도 있다. 나이가 들수록 죽을 위험이 커진다는 것은 성인의 이야기다. 갓난아기는 다섯 살 아이보다 한 해 안에 죽을 확률이 클 수도 있다.</li>
+</ul>
+<p><code>-</code> 생존함수(survival function)를 <span class="math inline">\(S_x(t) = 1 - F_x(t) = \Pr[T_x &gt; t]\)</span> 와 같이 정의한다. (많은 생명보험 문제에서 우리는 사망보다 생존의 확률에 관심이 있다.)</p>
+<p><code>-</code> 아래 그림은 <span class="math inline">\(x = 24\)</span> 에 대해 <span class="math inline">\(F_{24}(t)\)</span> 와 <span class="math inline">\(S_{24}(t)\)</span> 를 같이 그린 것이다. 빨간 선이 <span class="math inline">\(F_{24}(t)\)</span>, 파란 선이 <span class="math inline">\(S_{24}(t)\)</span> 다. 둘을 더하면 어느 <span class="math inline">\(t\)</span> 에서나 1 이다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/fig6_F24_S24.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p><code>-</code> 빨간 선과 파란 선이 만나는 점에서는 <span class="math inline">\(F_{24}(t) = S_{24}(t)\)</span> 이고 둘의 합이 1 이므로 각각 0.5 다. 이 <span class="math inline">\(t\)</span> 는 <span class="math inline">\(T_{24}\)</span> 의 중앙값이다. 위 그림의 모형에서는 <span class="math inline">\(t \approx 64\)</span>, 나이로는 88 세쯤이다.</p>
+<p><code># 예제4</code> 위 그림에서 <span class="math inline">\(F_{24}(t)\)</span> 와 <span class="math inline">\(S_{24}(t)\)</span> 가 <span class="math inline">\(t \approx 64\)</span> 에서 만났다. 이 사실의 해석으로 옳은 것은?</p>
+<ol type="1">
+<li><span class="math inline">\(t \approx 64\)</span>, 나이로는 <span class="math inline">\(x + t \approx 88\)</span> 이 되면 생존할 확률이 0.5 다. 이 시점부터는 죽느냐 사느냐가 반반이므로, 매일매일 동전을 던지는 심정으로 사는 것이다.</li>
+<li>「24세인 사람이 앞으로 64년을 넘겨 살까」라는 물음 하나의 답이 공정한 동전 한 번과 같다.</li>
+</ol>
+<p><code>(풀이)</code> 답은 2. 24세인 사람이 「앞으로 64년을 넘길까」라는 물음 하나에 대한 확률이 0.5 인 것이지, 하루하루가 0.5 인 것이 아니다.</p>
+</section>
+<section id="t_0-과-t_x-를-잇는-관계" class="level1">
+<h1>5. <span class="math inline">\(T_0\)</span> 과 <span class="math inline">\(T_x\)</span> 를 잇는 관계</h1>
+<p><code>-</code> 그런데 가만히 생각해보면 아래식이 성립함을 직관적으로 알 수 있다.</p>
+<p><span class="math display">\[
+\Pr[T_x \le t] = \Pr[T_0 \le x + t \mid T_0 &gt; x]
+\]</span> (왜?) – 딱 보면..</p>
+<ul>
+<li>좌변뜻 = 지금 <span class="math inline">\(x\)</span> 살인 사람이 앞으로 <span class="math inline">\(t\)</span> 년 안에 죽을 확률.</li>
+<li>우변뜻 = 갓 태어난 사람이 <span class="math inline">\(x\)</span> 살까지는 살았다고 할 때, 그 사람이 <span class="math inline">\(x + t\)</span> 살 전에 죽을 확률.</li>
+</ul>
+<p>둘 다 「<span class="math inline">\(x\)</span> 살까지 살아 있는 사람이 앞으로 <span class="math inline">\(t\)</span> 년 안에 죽는다」는 같은 말이다. 보는 시점만 다르다.</p>
+<p><code>-</code> 이제 <span class="math inline">\(\Pr[T_x \le t] = \Pr[T_0 \le x + t \mid T_0 &gt; x]\)</span> 를 재료삼아 수학기계를 적당히 샥샥 활용하면 아래를 얻어낼 수 있다.</p>
+<p><span class="math display">\[S_0(x + t) = S_0(x)\, S_x(t)\]</span></p>
+<p>(왜?)</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; F_x(t) &amp;&amp;= \Pr[T_x \le t] \\
+&amp; &amp;&amp;= \Pr[T_0 \le x + t \mid T_0 &gt; x] \\
+&amp; &amp;&amp;= \frac{\Pr[x &lt; T_0 \le x + t]}{\Pr[T_0 &gt; x]} \\
+&amp; &amp;&amp;= \frac{F_0(x + t) - F_0(x)}{S_0(x)} \\[6pt]
+\Leftrightarrow\quad &amp; S_x(t) &amp;&amp;= 1 - F_x(t) \\
+&amp; &amp;&amp;= \frac{S_0(x) - F_0(x + t) + F_0(x)}{S_0(x)} \\
+&amp; &amp;&amp;= \frac{1 - F_0(x + t)}{S_0(x)} \\
+&amp; &amp;&amp;= \frac{S_0(x + t)}{S_0(x)} \\[6pt]
+\Leftrightarrow\quad &amp; S_0(x + t) &amp;&amp;= S_0(x)\, S_x(t).
+\end{aligned}
+\]</span></p>
+<p><code>-</code> 이는 출생부터 연령 <span class="math inline">\(x + t\)</span> 까지 생존할 확률을 다음 둘의 곱으로 해석할 수 있음을 보인다.</p>
+<ol type="1">
+<li>출생부터 연령 <span class="math inline">\(x\)</span> 까지 생존할 확률, 그리고</li>
+<li>연령 <span class="math inline">\(x\)</span> 까지 생존했다는 조건 아래, 연령 <span class="math inline">\(x + t\)</span> 까지 더 생존할 확률.</li>
+</ol>
+<p><code>-</code> 여기서 한번 더 생각하면 아래의 수식을 금방 얻을 수 있다.</p>
+<p><span class="math display">\[
+S_x(t + u) = S_x(t)\, S_{x+t}(u)
+\]</span> (왜?) – 직관적으로</p>
+<ul>
+<li>좌변 = 지금 <span class="math inline">\(x\)</span> 살인 사람이 앞으로 <span class="math inline">\(t + u\)</span> 년을 넘겨 살 확률.</li>
+<li>우변 = (지금 <span class="math inline">\(x\)</span> 살인 사람이 앞으로 <span class="math inline">\(t\)</span> 년을 넘겨 살 확률) <span class="math inline">\(\times\)</span> (<span class="math inline">\(x + t\)</span> 살까지 살았다고 할 때, 그 사람이 다시 <span class="math inline">\(u\)</span> 년을 넘겨 살 확률).</li>
+</ul>
+<p><span class="math inline">\(t + u\)</span> 년을 넘기려면 먼저 <span class="math inline">\(t\)</span> 년을 넘겨야 하고, 넘긴 다음에 <span class="math inline">\(u\)</span> 년을 더 넘겨야 한다. 두 관문을 차례로 통과할 확률이라 곱이 된다. 바로 위의 <span class="math inline">\(S_0(x + t) = S_0(x)\, S_x(t)\)</span> 에서 출발점을 0 살에서 <span class="math inline">\(x\)</span> 살로 옮긴 것이다.</p>
+<p>(왜??) – 샤샤삭</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; S_0(x + t) &amp;&amp;= S_0(x)\, S_x(t) \\
+\Leftrightarrow\quad &amp; S_x(t) &amp;&amp;= \frac{S_0(x + t)}{S_0(x)} \\
+\Leftrightarrow\quad &amp; S_x(t + u) &amp;&amp;= \frac{S_0(x + t + u)}{S_0(x)} \\
+&amp; &amp;&amp;= \frac{S_0(x + t)}{S_0(x)} \cdot \frac{S_0(x + t + u)}{S_0(x + t)} \\
+&amp; &amp;&amp;= S_x(t)\, S_{x+t}(u)
+\end{aligned}
+\]</span></p>
+<p>첫 줄은 <span class="math inline">\(S_x(t) = S_0(x + t) / S_0(x)\)</span> 의 <span class="math inline">\(t\)</span> 자리에 <span class="math inline">\(t + u\)</span> 를 넣은 것이다. 둘째 줄은 <span class="math inline">\(S_0(x + t)\)</span> 로 나누고 다시 곱한 것뿐이다. 셋째 줄은 같은 식을 <span class="math inline">\(x\)</span> 에서 한 번, <span class="math inline">\(x + t\)</span> 에서 한 번 쓴 것이다.</p>
+<p><code>-</code> 절단은 두 번이 아니어도 된다. 몇 번을 자르든 같은 꼴로 곱해진다.</p>
+<p><span class="math display">\[
+S_x(t_1 + t_2 + \cdots + t_n)
+= S_x(t_1)\, S_{x+t_1}(t_2)\, S_{x+t_1+t_2}(t_3) \cdots S_{x+t_1+\cdots+t_{n-1}}(t_n)
+\]</span></p>
+<p>(왜?) – 직관적으로</p>
+<ul>
+<li>「거기까지 살아남았다」는 조건을 한 칸씩 옮겨 가며 곱하는 것이다. 각 조각은 그 나이에 서 있는 사람의 확률이다.</li>
+<li>두 조각 식을 <span class="math inline">\(n - 1\)</span> 번 되풀이한 것이다. 관문이 둘이든 <span class="math inline">\(n\)</span> 개든 차례로 통과할 확률은 곱이다.</li>
+</ul>
+<p>(왜??) – 샤샤삭</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; S_x(t_1)\, S_{x+t_1}(t_2) \cdots S_{x+t_1+\cdots+t_{n-1}}(t_n) \\
+&amp;= \frac{S_0(x+t_1)}{S_0(x)} \cdot \frac{S_0(x+t_1+t_2)}{S_0(x+t_1)} \cdots \frac{S_0(x+t_1+\cdots+t_n)}{S_0(x+t_1+\cdots+t_{n-1})} \\
+&amp;= \frac{S_0(x+t_1+\cdots+t_n)}{S_0(x)} \\
+&amp;= S_x(t_1+\cdots+t_n)
+\end{aligned}
+\]</span></p>
+<p>각 조각을 <span class="math inline">\(S_0\)</span> 의 비로 쓰면 앞 조각의 분자가 뒤 조각의 분모와 같아서 차례로 지워진다.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
