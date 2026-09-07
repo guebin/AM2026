@@ -143,6 +143,38 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
  <!-- /main -->
+<style>
+#replBtn {
+  position: fixed; right: 20px; bottom: 20px; z-index: 1000;
+  padding: 8px 14px; border: 1px solid #d7dce3; border-radius: 999px;
+  background: #fff; color: #1b1f24; font-size: 14px; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12);
+}
+#replBtn:hover { background: #f4f6f9; }
+#replBox {
+  position: fixed; right: 20px; bottom: 68px; z-index: 1000;
+  width: 440px; height: 540px;
+  border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
+  background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  resize: both; min-width: 320px; min-height: 260px;
+}
+#replBox iframe { width: 100%; height: 100%; border: 0; display: block; }
+#replBar {
+  display: flex; gap: 6px; align-items: center; justify-content: flex-end;
+  padding: 4px 8px; border-bottom: 1px solid #e7ebf2; background: #fafbfc;
+  font-size: 12px; color: #6b7480;
+}
+#replBar .grow { margin-right: auto; }
+#replBar button {
+  border: 1px solid #d7dce3; border-radius: 6px; background: #fff;
+  padding: 2px 8px; font-size: 12px; cursor: pointer; color: #1b1f24;
+}
+#replBox.wide { width: 78vw; height: 78vh; }
+@media (max-width: 700px) {
+  #replBox { right: 10px; left: 10px; width: auto; height: 60vh; }
+}
+</style>
+
 <!-- 떠 있는 실행창 — AM2026-Play (JupyterLite · R webR / Python Pyodide) -->
 <button id="replBtn" type="button">▶ 실행창</button>
 
