@@ -183,6 +183,61 @@ ul.task-list li input[type="checkbox"] {
 </section>
 
 </main> <!-- /main -->
+<!-- 떠 있는 실행창 — AM2026-Play (JupyterLite · R webR / Python Pyodide) -->
+<button id="replBtn" type="button">▶ 실행창</button>
+
+<div id="replBox" hidden="">
+  <div id="replBar">
+    <span class="grow">실행창</span>
+    <button type="button" data-kernel="webr">R</button>
+    <button type="button" data-kernel="python">Python</button>
+    <button type="button" id="replWide">⤢</button>
+    <button type="button" id="replClose">✕</button>
+  </div>
+  <iframe id="replFrame" title="AM2026 실행창" loading="lazy"></iframe>
+</div>
+
+<script>
+(function () {
+  var BASE = "https://guebin.github.io/AM2026-Play/repl/index.html";
+  var btn = document.getElementById("replBtn");
+  var box = document.getElementById("replBox");
+  var frame = document.getElementById("replFrame");
+  if (!btn || !box || !frame) return;
+
+  var loaded = {};                       // 커널별로 한 번만 띄운다
+  var current = localStorage.getItem("am2026-repl-kernel") || "webr";
+
+  function load(kernel) {
+    current = kernel;
+    try { localStorage.setItem("am2026-repl-kernel", kernel); } catch (e) {}
+    var want = BASE + "?kernel=" + kernel + "&toolbar=1";
+    if (frame.getAttribute("src") !== want) frame.setAttribute("src", want);
+    loaded[kernel] = true;
+    box.querySelectorAll("[data-kernel]").forEach(function (b) {
+      b.style.fontWeight = (b.dataset.kernel === kernel) ? "700" : "400";
+    });
+  }
+
+  btn.addEventListener("click", function () {
+    box.hidden = !box.hidden;                       // 접어도 iframe 은 살아 있다 (변수 유지)
+    btn.textContent = box.hidden ? "▶ 실행창" : "▼ 실행창";
+    if (!box.hidden && !frame.getAttribute("src")) load(current);
+  });
+
+  box.querySelectorAll("[data-kernel]").forEach(function (b) {
+    b.addEventListener("click", function () { load(b.dataset.kernel); });
+  });
+
+  document.getElementById("replClose").addEventListener("click", function () {
+    box.hidden = true; btn.textContent = "▶ 실행창";
+  });
+
+  document.getElementById("replWide").addEventListener("click", function () {
+    box.classList.toggle("wide");
+  });
+})();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
