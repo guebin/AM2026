@@ -372,6 +372,15 @@ Author
 
   document.getElementById("replWide").addEventListener("click", function () {
     box.classList.toggle("wide");
+    // ★ iframe 은 «뜰 때의 크기»로 안쪽 레이아웃을 굳힌다 — 창만 키우면 안 따라온다.
+    //   커널 버튼이 멀쩡한 이유가 src 를 다시 붙이기 때문이라, 여기서도 같은 일을 한다.
+    //   크기가 실제로 바뀐 «뒤»에 붙여야 하므로 한 프레임 기다린다.
+    var src = frame.getAttribute("src");
+    if (src) {
+      requestAnimationFrame(function () {
+        frame.setAttribute("src", src);   // 다시 붙이면 새 크기로 레이아웃을 잡는다
+      });
+    }
   });
 
   document.getElementById("replLab").addEventListener("click", function () {
