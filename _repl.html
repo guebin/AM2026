@@ -101,8 +101,12 @@
       if (!start) return;
       var w = start.w - (e.clientX - start.x);
       var h = start.h - (e.clientY - start.y);
-      box.style.width  = Math.max(320, Math.min(w, window.innerWidth  - 40)) + "px";
-      box.style.height = Math.max(240, Math.min(h, window.innerHeight - 96)) + "px";
+      // ★ 위로는 네비바(상단 배너) 아래까지만 — 그 위로 올라가면 가려서 못 쓴다
+      var nav = document.querySelector(".navbar, header#quarto-header, #quarto-header");
+      var top = nav ? nav.getBoundingClientRect().bottom + 8 : 8;
+      var maxH = window.innerHeight - top - 76;      // 76 = 아래 버튼 자리
+      box.style.width  = Math.max(320, Math.min(w, window.innerWidth - 40)) + "px";
+      box.style.height = Math.max(240, Math.min(h, maxH)) + "px";
     });
     function end(e) { if (start) { start = null; try { grip.releasePointerCapture(e.pointerId); } catch (_) {} } }
     grip.addEventListener("pointerup", end);
