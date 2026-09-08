@@ -410,14 +410,6 @@ window.Quarto = {
 
   document.getElementById("replWide").addEventListener("click", function () {
     box.classList.toggle("wide");
-    // ★ iframe 안쪽(JupyterLite)이 새 높이를 못 따라가 아래에 빈칸이 남는다.
-    //    리플로우를 강제해 안쪽이 다시 레이아웃을 잡게 한다.
-    var h = frame.style.height;
-    frame.style.height = "99%";
-    requestAnimationFrame(function () {
-      frame.style.height = h || "";
-      window.dispatchEvent(new Event("resize"));
-    });
   });
 
   document.getElementById("replLab").addEventListener("click", function () {
