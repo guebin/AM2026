@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>02wk-1: 생존모형 (2) – AM2026</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -34,15 +37,14 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-de63f62b328812d8e578a4d74e282472.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-09bcd2438ddda8166a810b4ec224e0a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -201,7 +203,7 @@ window.Quarto = {
 <li>좌변뜻 = 지금 <span class="math inline">\(x\)</span> 살인 사람이 앞으로 <span class="math inline">\(t\)</span> 년 안에 죽을 확률.</li>
 <li>우변뜻 = 갓 태어난 사람이 <span class="math inline">\(x\)</span> 살까지는 살았다고 할 때, 그 사람이 <span class="math inline">\(x + t\)</span> 살 전에 죽을 확률.</li>
 </ul>
-<p>둘 다 「<span class="math inline">\(x\)</span> 살까지 살아 있는 사람이 앞으로 <span class="math inline">\(t\)</span> 년 안에 죽는다」는 같은 말이다. 보는 시점만 다르다.</p>
+<p>둘 다 「<span class="math inline">\(x\)</span> 살까지 살아 있는 사람이 앞으로 <span class="math inline">\(t\)</span> 년 안에 죽는다」는 같은 말이다.</p>
 <p><code>-</code> 이제 <span class="math inline">\(\Pr[T_x \le t] = \Pr[T_0 \le x + t \mid T_0 &gt; x]\)</span> 를 재료삼아 수학기계를 적당히 샥샥 활용하면 아래를 얻어낼 수 있다.</p>
 <p><span class="math display">\[S_0(x + t) = S_0(x)\, S_x(t)\]</span></p>
 <p>(왜?)</p>
@@ -250,7 +252,7 @@ S_x(t_1 + t_2 + \cdots + t_n)
 \]</span></p>
 <p>(왜?) – 직관적으로</p>
 <ul>
-<li>「거기까지 살아남았다」는 조건을 한 칸씩 옮겨 가며 곱하는 것이다. 각 조각은 그 나이에 서 있는 사람의 확률이다.</li>
+<li>「거기까지 살아남았다」는 조건을 한 칸씩 옮겨 가며 곱하는 것이다.</li>
 <li>두 조각 식을 <span class="math inline">\(n - 1\)</span> 번 되풀이한 것이다. 관문이 둘이든 <span class="math inline">\(n\)</span> 개든 차례로 통과할 확률은 곱이다.</li>
 </ul>
 <p>(왜??) – 샤샤삭</p>
@@ -263,7 +265,6 @@ S_x(t_1 + t_2 + \cdots + t_n)
 \end{aligned}
 \]</span></p>
 <p>각 조각을 <span class="math inline">\(S_0\)</span> 의 비로 쓰면 앞 조각의 분자가 뒤 조각의 분모와 같아서 차례로 지워진다.</p>
-<p><code>-</code> 우리는 이미 출생부터의 생존확률을 알면 식 (2.4)를 써서 우리의 개인에 대해 임의의 장래 연령 <span class="math inline">\(x\)</span> 로부터의 생존확률도 안다는 것을 보았다. 식 (2.5)는 이를 한 단계 더 나아가게 한다. 이는 임의의 연령 <span class="math inline">\(x\)</span> (<span class="math inline">\(\ge 0\)</span>) 로부터의 생존확률을 알면 임의의 장래 연령 <span class="math inline">\(x + t\)</span> (<span class="math inline">\(\ge x\)</span>) 로부터의 생존확률도 안다는 것을 보인다.</p>
 <p><code># 예제1</code> 은지가 30세이고, 우리는 <span class="math inline">\(S_{30}(t)\)</span> 를 모든 <span class="math inline">\(t &gt; 0\)</span> 에 대해 알고 있다. 이 정보만으로 <span class="math inline">\(S_{50}(10)\)</span> 을 구할 수 있는가?</p>
 <ol type="1">
 <li>구할 수 있다. <span class="math inline">\(S_{50}(10) = \dfrac{S_{30}(30)}{S_{30}(20)}\)</span> 이다.</li>
@@ -277,7 +278,6 @@ S_x(t_1 + t_2 + \cdots + t_n)
 </ol>
 <p><code>(풀이)</code> 답은 2. (2.5)는 <span class="math inline">\(S_x\)</span> 를 알면 <span class="math inline">\(x\)</span> 보다 뒤의 나이 <span class="math inline">\(x + t\)</span> 에 대한 <span class="math inline">\(S_{x+t}\)</span> 를 준다. 30세는 50세보다 앞이므로 이 식으로는 안 나온다.</p>
 <p><code>-</code> 직관: 만약에 <span class="math inline">\(S_0(t)\)</span>를 알면? 임의의 <span class="math inline">\(x,t'\)</span> 에 대하여 <span class="math inline">\(S_{x}(t')\)</span>의 값을 항상 알 수 있다.</p>
-<hr>
 <p><code># 예제3</code> 아래의 <span class="math inline">\(F_0\)</span> 에 대하여</p>
 <p><span class="math display">\[
 F_0(t) = \begin{cases} 1 - (1 - t/120)^{1/6} &amp; 0 \le t &lt; 120 \\ 1 &amp; t \ge 120 \end{cases}
@@ -332,13 +332,17 @@ S_{40}(25) = \frac{S_0(65)}{S_0(40)} = 0.9395
 #replBtn:hover { background: #f4f6f9; }
 #replBox {
   position: fixed; right: 20px; bottom: 68px; z-index: 1000;
-  width: 440px; height: 540px;
+  width: min(460px, calc(100vw - 40px));
+  height: min(320px, calc(100vh - 96px));   /* 낮게 시작 — 출력이 쌓이면 ⤢ 로 키운다 */
+  max-height: calc(100vh - 96px);
+  display: flex; flex-direction: column;
   border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
   background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
-  resize: both; min-width: 320px; min-height: 260px;
+  resize: both; min-width: 300px; min-height: 240px;
 }
-#replBox iframe { width: 100%; height: 100%; border: 0; display: block; }
+#replBox iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
 #replBar {
+  flex: 0 0 auto;
   display: flex; gap: 6px; align-items: center; justify-content: flex-end;
   padding: 4px 8px; border-bottom: 1px solid #e7ebf2; background: #fafbfc;
   font-size: 12px; color: #6b7480;
@@ -348,9 +352,12 @@ S_{40}(25) = \frac{S_0(65)}{S_0(40)} = 0.9395
   border: 1px solid #d7dce3; border-radius: 6px; background: #fff;
   padding: 2px 8px; font-size: 12px; cursor: pointer; color: #1b1f24;
 }
-#replBox.wide { width: 78vw; height: 78vh; }
+#replBox.wide {
+  width: min(900px, calc(100vw - 40px));
+  height: min(680px, calc(100vh - 96px));
+}
 @media (max-width: 700px) {
-  #replBox { right: 10px; left: 10px; width: auto; height: 60vh; }
+  #replBox { right: 10px; left: 10px; width: auto; }
 }
 </style>
 
@@ -362,8 +369,9 @@ S_{40}(25) = \frac{S_0(65)}{S_0(40)} = 0.9395
     <span class="grow">실행창</span>
     <button type="button" data-kernel="webr">R</button>
     <button type="button" data-kernel="python">Python</button>
-    <button type="button" id="replWide">⤢</button>
-    <button type="button" id="replClose">✕</button>
+    <button type="button" id="replWide" title="넓게">⤢</button>
+    <button type="button" id="replLab" title="노트북(JupyterLab) 새 창">↗ Lab</button>
+    <button type="button" id="replClose" title="닫기">✕</button>
   </div>
   <iframe id="replFrame" title="AM2026 실행창" loading="lazy"></iframe>
 </div>
@@ -406,6 +414,20 @@ S_{40}(25) = \frac{S_0(65)}{S_0(40)} = 0.9395
 
   document.getElementById("replWide").addEventListener("click", function () {
     box.classList.toggle("wide");
+  });
+
+  document.getElementById("replLab").addEventListener("click", function () {
+    // ★ 크기를 주면 브라우저가 «별도 창»으로 연다 (탭이 아니라)
+    var w = Math.min(1200, Math.round(screen.availWidth  * 0.8));
+    var h = Math.min(860,  Math.round(screen.availHeight * 0.85));
+    var x = Math.round((screen.availWidth  - w) / 2);
+    var y = Math.round((screen.availHeight - h) / 2);
+    window.open(
+      "https://guebin.github.io/AM2026-Play/lab/index.html",
+      "am2026lab",
+      "popup=yes,width=" + w + ",height=" + h + ",left=" + x + ",top=" + y +
+      ",noopener,resizable=yes,scrollbars=yes"
+    );
   });
 })();
 </script>

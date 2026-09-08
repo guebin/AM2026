@@ -8,13 +8,17 @@
 #replBtn:hover { background: #f4f6f9; }
 #replBox {
   position: fixed; right: 20px; bottom: 68px; z-index: 1000;
-  width: 440px; height: 540px;
+  width: min(460px, calc(100vw - 40px));
+  height: min(320px, calc(100vh - 96px));   /* 낮게 시작 — 출력이 쌓이면 ⤢ 로 키운다 */
+  max-height: calc(100vh - 96px);
+  display: flex; flex-direction: column;
   border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
   background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
-  resize: both; min-width: 320px; min-height: 260px;
+  resize: both; min-width: 300px; min-height: 240px;
 }
-#replBox iframe { width: 100%; height: 100%; border: 0; display: block; }
+#replBox iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
 #replBar {
+  flex: 0 0 auto;
   display: flex; gap: 6px; align-items: center; justify-content: flex-end;
   padding: 4px 8px; border-bottom: 1px solid #e7ebf2; background: #fafbfc;
   font-size: 12px; color: #6b7480;
@@ -24,9 +28,12 @@
   border: 1px solid #d7dce3; border-radius: 6px; background: #fff;
   padding: 2px 8px; font-size: 12px; cursor: pointer; color: #1b1f24;
 }
-#replBox.wide { width: 78vw; height: 78vh; }
+#replBox.wide {
+  width: min(900px, calc(100vw - 40px));
+  height: min(680px, calc(100vh - 96px));
+}
 @media (max-width: 700px) {
-  #replBox { right: 10px; left: 10px; width: auto; height: 60vh; }
+  #replBox { right: 10px; left: 10px; width: auto; }
 }
 </style>
 
@@ -38,8 +45,9 @@
     <span class="grow">실행창</span>
     <button type="button" data-kernel="webr">R</button>
     <button type="button" data-kernel="python">Python</button>
-    <button type="button" id="replWide">⤢</button>
-    <button type="button" id="replClose">✕</button>
+    <button type="button" id="replWide" title="넓게">⤢</button>
+    <button type="button" id="replLab" title="노트북(JupyterLab) 새 창">↗ Lab</button>
+    <button type="button" id="replClose" title="닫기">✕</button>
   </div>
   <iframe id="replFrame" title="AM2026 실행창" loading="lazy"></iframe>
 </div>
@@ -82,6 +90,20 @@
 
   document.getElementById("replWide").addEventListener("click", function () {
     box.classList.toggle("wide");
+  });
+
+  document.getElementById("replLab").addEventListener("click", function () {
+    // ★ 크기를 주면 브라우저가 «별도 창»으로 연다 (탭이 아니라)
+    var w = Math.min(1200, Math.round(screen.availWidth  * 0.8));
+    var h = Math.min(860,  Math.round(screen.availHeight * 0.85));
+    var x = Math.round((screen.availWidth  - w) / 2);
+    var y = Math.round((screen.availHeight - h) / 2);
+    window.open(
+      "https://guebin.github.io/AM2026-Play/lab/index.html",
+      "am2026lab",
+      "popup=yes,width=" + w + ",height=" + h + ",left=" + x + ",top=" + y +
+      ",noopener,resizable=yes,scrollbars=yes"
+    );
   });
 })();
 </script>
