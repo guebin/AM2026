@@ -327,11 +327,18 @@ window.Quarto = {
 #replBox {
   position: fixed; right: 20px; bottom: 68px; z-index: 1000;
   width: 460px; height: 320px;
-  resize: both; min-width: 320px; min-height: 240px;
-  max-width: calc(100vw - 40px); max-height: calc(100vh - 96px);
   display: flex; flex-direction: column;
   border: 1px solid #d7dce3; border-radius: 10px; overflow: hidden;
   background: #fff; box-shadow: 0 6px 24px rgba(0,0,0,.18);
+}
+/* ★ 왼쪽 위 모서리 손잡이 — CSS resize 는 오른쪽 아래만 되고 그 자리가 화면 밖이라 직접 만든다 */
+#replGrip {
+  position: absolute; left: 0; top: 0; width: 18px; height: 18px;
+  cursor: nwse-resize; z-index: 2;
+  background: linear-gradient(135deg, #b9c2cc 0 2px, transparent 2px 5px,
+                              #b9c2cc 5px 7px, transparent 7px 10px,
+                              #b9c2cc 10px 12px, transparent 12px);
+  border-top-left-radius: 10px;
 }
 #replBox iframe { flex: 1 1 auto; width: 100%; border: 0; display: block; min-height: 0; }
 #replBar {
@@ -354,6 +361,7 @@ window.Quarto = {
 <button id="replBtn" type="button">▶ 실행창</button>
 
 <div id="replBox" hidden="">
+  <div id="replGrip" title="끌어서 크기 조절"></div>
   <div id="replBar">
     <span class="grow">실행창</span>
     <button type="button" data-kernel="R" title="R (webR)">R</button>
@@ -397,6 +405,27 @@ window.Quarto = {
   box.querySelectorAll("[data-kernel]").forEach(function (b) {
     b.addEventListener("click", function () { load(b.dataset.kernel); });
   });
+
+  // ★ 왼쪽 위를 끌면 오른쪽·아래는 고정한 채 폭·높이가 는다
+  (function () {
+    var grip = document.getElementById("replGrip");
+    var start = null;
+    grip.addEventListener("pointerdown", function (e) {
+      start = { x: e.clientX, y: e.clientY, w: box.offsetWidth, h: box.offsetHeight };
+      grip.setPointerCapture(e.pointerId);
+      e.preventDefault();
+    });
+    grip.addEventListener("pointermove", function (e) {
+      if (!start) return;
+      var w = start.w - (e.clientX - start.x);
+      var h = start.h - (e.clientY - start.y);
+      box.style.width  = Math.max(320, Math.min(w, window.innerWidth  - 40)) + "px";
+      box.style.height = Math.max(240, Math.min(h, window.innerHeight - 96)) + "px";
+    });
+    function end(e) { if (start) { start = null; try { grip.releasePointerCapture(e.pointerId); } catch (_) {} } }
+    grip.addEventListener("pointerup", end);
+    grip.addEventListener("pointercancel", end);
+  })();
 
   document.getElementById("replClose").addEventListener("click", function () {
     box.hidden = true; btn.textContent = "▶ 실행창";
