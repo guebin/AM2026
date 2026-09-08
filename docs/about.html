@@ -190,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 <div id="replBox" hidden="">
   <div id="replBar">
     <span class="grow">실행창</span>
-    <button type="button" data-kernel="R" title="R (webR) — 안 붙으면 한 번 더 누르십시오">R</button>
+    <button type="button" data-kernel="R" title="R (webR)">R</button>
     <button type="button" data-kernel="python">Python</button>
     <button type="button" id="replWide" title="넓게">⤢</button>
     <button type="button" id="replLab" title="노트북(JupyterLab) 새 창">↗ Lab</button>
@@ -207,16 +207,11 @@ ul.task-list li input[type="checkbox"] {
   var frame = document.getElementById("replFrame");
   if (!btn || !box || !frame) return;
 
-  // ★ R 커널 이름 후보 — 배포본에서 어느 것이 맞는지 확실치 않아 순서대로 시도한다
-  var R_NAMES = ["webR", "webr"];
-  var rIdx = 0;
-  try { rIdx = parseInt(localStorage.getItem("am2026-repl-ridx") || "0", 10) || 0; } catch (e) {}
-
+  // ★ 커널 이름은 대소문자를 가린다 — R 은 "webR" (실측 2026-09-08)
+  var KERNEL = { R: "webR", python: "python" };
   var current = localStorage.getItem("am2026-repl-kernel") || "R";
 
-  function kernelParam(which) {
-    return (which === "python") ? "python" : R_NAMES[rIdx % R_NAMES.length];
-  }
+  function kernelParam(which) { return KERNEL[which] || KERNEL.R; }
 
   function load(which) {
     current = which;
@@ -235,14 +230,7 @@ ul.task-list li input[type="checkbox"] {
   });
 
   box.querySelectorAll("[data-kernel]").forEach(function (b) {
-    b.addEventListener("click", function () {
-      // ★ R 을 이미 보고 있는데 다시 누르면 «다른 이름»으로 바꿔 다시 띄운다
-      if (b.dataset.kernel === "R" && current === "R") {
-        rIdx = (rIdx + 1) % R_NAMES.length;
-        try { localStorage.setItem("am2026-repl-ridx", String(rIdx)); } catch (e) {}
-      }
-      load(b.dataset.kernel);
-    });
+    b.addEventListener("click", function () { load(b.dataset.kernel); });
   });
 
   document.getElementById("replClose").addEventListener("click", function () {
