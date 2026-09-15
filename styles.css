@@ -10,3 +10,48 @@
 .math.inline {
   font-size: 1.0em !important;
 }
+
+/* 콜아웃 — 흑백으로 조용히 · 본문 선 지킴 */
+div.callout.callout-style-default {
+  border: none !important;
+  border-left: 2px solid #e5e5e5 !important;
+  background: none !important;
+  box-shadow: none !important;
+  margin: 0.4em 0 1.3em 0 !important;
+  padding: 0 !important;
+}
+div.callout.callout-style-default > .callout-header {
+  background: none !important;
+  border: none !important;
+  padding: 0 0 0 0.8em !important;
+  margin: 0 !important;
+}
+.callout .callout-icon-container,
+.callout .callout-btn-toggle,
+.callout .screen-reader-only { display: none !important; }
+.callout .callout-title-container {
+  font-size: 0.88rem; font-weight: 400; color: #8a8a8a;
+  background: none !important; padding: 0 !important; flex-grow: 0; cursor: pointer;
+}
+.callout .callout-title-container::before { content: "\25BE  "; color: #c4c4c4; }
+.callout .callout-header.collapsed .callout-title-container::before { content: "\25B8  "; }
+div.callout.callout-style-default > .callout-body-container {
+  border: none !important; background: none !important;
+  padding: 0.2em 0 0 0.8em !important;
+}
+.callout .callout-body > *:first-child { margin-top: 0; }
+.callout .callout-body > *:last-child  { margin-bottom: 0; }
+
+/* 블록 수식 — 왼쪽 정렬 */
+.math.display {
+  text-align: left !important;
+}
+
+mjx-container[jax="CHTML"][display="true"] {
+  text-align: left !important;
+  margin-left: 0 !important;
+}
+
+mjx-container[jax="CHTML"][display="true"] > mjx-math {
+  margin: 0 !important;
+}
