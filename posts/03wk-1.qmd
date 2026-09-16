@@ -1,5 +1,5 @@
 ---
-title: "**02wk-2**: 생존모형 (3)"
+title: "**03wk-2**:"
 author: 최규빈
 date: "09/10/2026 09:00"
 draft: true
@@ -7,7 +7,6 @@ draft: true
 
 # 1. 강의영상
 
-{{<video https://youtu.be/playlist?list=PLH0iIURQIn0s&si=SDpkEFzdwCzARrMG>}}
 
 ## 2. 문제풀어보기
 
