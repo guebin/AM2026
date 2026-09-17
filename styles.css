@@ -41,17 +41,3 @@ div.callout.callout-style-default > .callout-body-container {
 }
 .callout .callout-body > *:first-child { margin-top: 0; }
 .callout .callout-body > *:last-child  { margin-bottom: 0; }
-
-/* 블록 수식 — 왼쪽 정렬 */
-.math.display {
-  text-align: left !important;
-}
-
-mjx-container[jax="CHTML"][display="true"] {
-  text-align: left !important;
-  margin-left: 0 !important;
-}
-
-mjx-container[jax="CHTML"][display="true"] > mjx-math {
-  margin: 0 !important;
-}
