@@ -6,6 +6,7 @@ date: "09/17/2026 09:00"
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLMW3AHNpYL3M&si=UgCSdtISOlX9Ukwv >}}
 
 # 2. 보험료를 얼마로 받아야 하나
 
