@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2026-09-15">
 
-<title>보험수리 (2026) – AM2026</title>
+<title>03wk-1: 생존모형 (3) – AM2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +72,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -130,7 +103,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -140,7 +113,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">AM2026</span>
     </a>
   </div>
@@ -168,25 +141,48 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
+  <li><a href="#우리가-아직-안-정한-것" id="toc-우리가-아직-안-정한-것" class="nav-link" data-scroll-target="#우리가-아직-안-정한-것">2. 우리가 아직 «안» 정한 것</a></li>
+  <li><a href="#사력-mu_x" id="toc-사력-mu_x" class="nav-link" data-scroll-target="#사력-mu_x">3. 사력 <span class="math inline">\(\mu_x\)</span></a></li>
+  <li><a href="#곰페르츠-법칙" id="toc-곰페르츠-법칙" class="nav-link" data-scroll-target="#곰페르츠-법칙">4. 곰페르츠 법칙</a></li>
+  <li><a href="#메이컴-법칙" id="toc-메이컴-법칙" class="nav-link" data-scroll-target="#메이컴-법칙">5. 메이컴 법칙</a></li>
+  <li><a href="#다음-시간에-쓸-것" id="toc-다음-시간에-쓸-것" class="nav-link" data-scroll-target="#다음-시간에-쓸-것">6. 다음 시간에 쓸 것</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">보험수리 (2026)</h1>
+<h1 class="title"><strong>03wk-1</strong>: 생존모형 (3)</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 15, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -196,138 +192,162 @@ window.Quarto = {
 </header>
 
 
-<p><strong>질문하는 방법</strong></p>
+<section id="강의영상" class="level1">
+<h1>1. 강의영상</h1>
+<!-- 강의영상 링크 자리. 다른 주차와 같은 꼴로  한 줄을 넣으시면 됩니다. -->
+</section>
+<section id="우리가-아직-안-정한-것" class="level1">
+<h1>2. 우리가 아직 «안» 정한 것</h1>
+<p><code>-</code> 지난 두 시간에 얻은 것을 모아 보자.</p>
+<p><span class="math display">\[S_x(t) = \frac{S_0(x+t)}{S_0(x)}, \qquad S_x(t+u) = S_x(t)\, S_{x+t}(u)\]</span></p>
+<p><code>-</code> 둘 다 참인데, 가만 보면 이것들은 전부 「<span class="math inline">\(S\)</span> 끼리 어떻게 엮이나」를 말할 뿐이다. 수를 하나도 안 준다.</p>
+<p><code># 예제1</code> 지금 20세인 사람이 앞으로 50년을 더 살 확률 <span class="math inline">\(S_{20}(50)\)</span> 은 얼마인가?</p>
+<p><code>(풀이)</code> 구할 수 없다. 위의 두 식은 <span class="math inline">\(S_{20}(50)\)</span> 을 <span class="math inline">\(S_0(70)/S_0(20)\)</span> 으로 바꿔 줄 뿐이고, <span class="math inline">\(S_0\)</span> 이 무엇인지는 아무도 안 알려줬다.</p>
+<p><code>-</code> 그러니까 우리는 아직 <span class="math inline">\(S_0\)</span> 을 「고르지」 않았다. 이제 그것을 고르는 시간이다. 고르는 길은 크게 둘이다.</p>
 <ul>
-<li>이메일: <a href="mailto:guebin@jbnu.ac.kr" class="email">guebin@jbnu.ac.kr</a></li>
-<li>직접방문: 자연과학대학 본관 205호</li>
-<li>Zoom: <em>이메일로 미리 시간을 정할 것</em></li>
+<li>자료를 모아 나이별로 «표»를 만든다. 이것이 생명표이고 뒤에서 다룬다.</li>
+<li>식 한 줄로 «모양»을 정한다. 이번 시간에 할 일이 이것이다.</li>
 </ul>
-<p><strong>공지</strong></p>
-<p><strong>참고문헌</strong></p>
+</section>
+<section id="사력-mu_x" class="level1">
+<h1>3. 사력 <span class="math inline">\(\mu_x\)</span></h1>
+<p><code>-</code> 그런데 <span class="math inline">\(S_0\)</span> 을 곧바로 고르지 않는다. 한 칸 돌아서 간다. 까닭부터 보자.</p>
+<p><code># 예제2</code> <span class="math inline">\(S_0\)</span> 을 아무 함수나 하나 골라 보라고 하면 어떤 것을 고르겠는가?</p>
+<p><code>(풀이)</code> 아무거나 고르면 안 된다. <span class="math inline">\(S_0(0) = 1\)</span> 이어야 하고, 줄어드는 함수여야 하고, 값이 0 과 1 사이여야 한다. 조건이 셋이나 붙는다. 함수를 손으로 고르면서 이 셋을 매번 지키기는 번거롭다.</p>
+<p><code>-</code> 그래서 <span class="math inline">\(S_0\)</span> 을 고르지 않고 「나이별로 얼마나 위험한가」를 고른다. 이것을 사력(force of mortality)이라 하고 <span class="math inline">\(\mu_x\)</span> 로 쓴다.</p>
+<p><span class="math display">\[\mu_x = \lim_{h \to 0^+} \frac{1}{h}\Pr[T_x \le h]\]</span></p>
 <ul>
-<li>Dickson, D. C. M., Hardy, M. R., and Waters, H. R. (2020). <em>Actuarial Mathematics for Life Contingent Risks</em>, 3rd edition. Cambridge University Press. (International Series on Actuarial Science)</li>
+<li><span class="math inline">\(\Pr[T_x \le h]\)</span> 는 지금 <span class="math inline">\(x\)</span> 살인 사람이 앞으로 <span class="math inline">\(h\)</span> 년 안에 죽을 확률이다.</li>
+<li>그것을 <span class="math inline">\(h\)</span> 로 나누고 <span class="math inline">\(h\)</span> 를 0 으로 보냈다. 즉 「<span class="math inline">\(x\)</span> 살인 사람이 «바로 지금» 죽는 속도」다.</li>
+<li>확률이 아니라 «속도»라서 1 을 넘을 수도 있다. 단위는 「1년당」이다.</li>
 </ul>
-<p><strong>강의노트</strong></p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
+<p><code># 예제3</code> <span class="math inline">\(\mu_{60} = 0.0174\)</span> 이면 60세인 사람이 1년 안에 죽을 확률이 <span class="math inline">\(1.74\%\)</span> 인가?</p>
+<p><code>(풀이)</code> 아니다. <span class="math inline">\(\mu\)</span> 는 그 순간의 속도이고 1년은 「순간」이 아니다. 1년 동안 사력이 계속 오르기 때문에 실제 1년 사망확률은 이것과 다르다. 다만 <span class="math inline">\(h\)</span> 가 아주 작으면 <span class="math inline">\(\Pr[T_{60} \le h] \approx 0.0174\,h\)</span> 로 쓸 수 있다.</p>
+<p><code>-</code> 이제 <span class="math inline">\(\mu\)</span> 와 <span class="math inline">\(S\)</span> 를 잇는다. 결론부터 적으면 아래와 같다.</p>
+<p><span class="math display">\[S_x(t) = \exp\left\{-\int_0^t \mu_{x+s}\,ds\right\}\]</span></p>
+<p>(왜?) – 직관적으로</p>
+<ul>
+<li>오른쪽 지수 안에 있는 것은 「<span class="math inline">\(x\)</span> 살부터 <span class="math inline">\(x+t\)</span> 살까지 지나오는 동안 겪은 위험을 전부 더한 것」이다.</li>
+<li>위험을 많이 겪을수록 지수가 크게 음수가 되고, 살아남을 확률은 그만큼 작아진다.</li>
+<li>겪은 위험이 0 이면 <span class="math inline">\(\exp\{0\} = 1\)</span> 이라 반드시 살아남는다. 말이 맞는다.</li>
+</ul>
+<p>(왜??) – 샤샤삭</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp; &amp; \mu_{x+t} &amp; = \lim_{h \to 0^+} \frac{1}{h}\Pr[T_{x+t} \le h] \\
+&amp; &amp; &amp; = \lim_{h \to 0^+} \frac{1}{h}\left(1 - S_{x+t}(h)\right) \\
+&amp; &amp; &amp; = \lim_{h \to 0^+} \frac{1}{h}\left(1 - \frac{S_x(t+h)}{S_x(t)}\right) \\
+&amp; &amp; &amp; = -\frac{1}{S_x(t)} \lim_{h \to 0^+} \frac{S_x(t+h) - S_x(t)}{h} \\
+&amp; &amp; &amp; = -\frac{S_x'(t)}{S_x(t)} \\[6pt]
+&amp; \Leftrightarrow \quad &amp; \mu_{x+t} &amp; = -\frac{d}{dt}\log S_x(t) \\[6pt]
+&amp; \Leftrightarrow \quad &amp; \int_0^t \mu_{x+s}\,ds &amp; = -\log S_x(t) + \log S_x(0) \\
+&amp; &amp; &amp; = -\log S_x(t) \\[6pt]
+&amp; \Leftrightarrow \quad &amp; S_x(t) &amp; = \exp\left\{-\int_0^t \mu_{x+s}\,ds\right\}.
+\end{aligned}
+\]</span></p>
+<p>셋째 줄에서 지난 시간의 <span class="math inline">\(S_{x+t}(h) = S_x(t+h)/S_x(t)\)</span> 를 썼다. 다섯째 줄 다음은 <span class="math inline">\((\log S)' = S'/S\)</span> 를 거꾸로 읽은 것뿐이다. 마지막에서 <span class="math inline">\(S_x(0) = 1\)</span> 이므로 <span class="math inline">\(\log S_x(0) = 0\)</span> 이다.</p>
+<p><code>-</code> 이 꼴이 좋은 까닭이 둘이다.</p>
+<ul>
+<li><span class="math inline">\(\mu\)</span> 를 «양수인 아무 함수»로 골라도 된다. 그러면 <span class="math inline">\(S_x(t)\)</span> 는 저절로 1 에서 시작해 줄어드는 함수가 된다. 예제2 의 조건 셋을 지킬 필요가 없다.</li>
+<li>지난 시간의 곱 성질이 저절로 따라 나온다. 적분 구간을 쪼개면 지수가 곱으로 갈라지기 때문이다.</li>
+</ul>
+<p><span class="math display">\[\exp\left\{-\int_0^{t+u}\right\} = \exp\left\{-\int_0^{t}\right\}\exp\left\{-\int_t^{t+u}\right\} \quad \Longrightarrow \quad S_x(t+u) = S_x(t)\,S_{x+t}(u)\]</span></p>
+</section>
+<section id="곰페르츠-법칙" class="level1">
+<h1>4. 곰페르츠 법칙</h1>
+<p><code>-</code> 그러면 <span class="math inline">\(\mu_x\)</span> 를 어떤 모양으로 고를까. 가장 많이 쓰는 것이 곰페르츠 법칙(Gompertz’ law)이다.</p>
+<p><span class="math display">\[\mu_x = B\,c^x, \qquad B &gt; 0,\ c &gt; 1\]</span></p>
+<ul>
+<li>사람이 나이를 먹으면 위험이 «지수»로 는다는 말이다.</li>
+<li><span class="math inline">\(c &gt; 1\)</span> 이라 나이에 따라 오르고, <span class="math inline">\(B &gt; 0\)</span> 이라 사력이 늘 양수다. 조건이 이 둘뿐이라 다루기 쉽다.</li>
+</ul>
+<p><code>-</code> <span class="math inline">\(c\)</span> 가 정하는 것은 「몇 년마다 두 배가 되나」이다. <span class="math inline">\(c^d = 2\)</span> 인 <span class="math inline">\(d\)</span> 를 풀면 <span class="math inline">\(d = \log 2 / \log c\)</span> 다.</p>
+<p><code># 예제4</code> <span class="math inline">\(B = 0.0003\)</span>, <span class="math inline">\(c = 1.07\)</span> 로 잡아 보자. 사력이 두 배가 되는 데 몇 년이 걸리는가?</p>
+<p><code>(풀이)</code> <span class="math inline">\(\log 2 / \log 1.07 = 0.6931 / 0.06766 = 10.24\)</span> 년. 열 살을 먹을 때마다 위험이 두 배가 된다.</p>
+<p><code>-</code> 같은 값으로 나이별 사력을 재어 보면 아래와 같다.</p>
+<table class="caption-top table">
 <thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-<th>
-Author
-</th>
-
+<tr class="header">
+<th>나이 <span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>20</th>
+<th>40</th>
+<th>60</th>
+<th>80</th>
 </tr>
 </thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790040893000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="713" data-listing-title-sort="**04wk-1**: 퀴즈2" data-listing-filename-sort="04wk-1.qmd">
-<td>
-<span class="listing-date">Sep 22, 2026</span>
-</td>
-<td>
-<a href="./posts/04wk-1.html" class="title listing-title"><strong>04wk-1</strong>: 퀴즈2</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\mu_x\)</span></td>
+<td>0.00030</td>
+<td>0.00116</td>
+<td>0.00449</td>
+<td>0.01738</td>
+<td>0.06727</td>
 </tr>
-
-<tr data-index="1" data-listing-date-sort="1789603200000" data-listing-file-modified-sort="1789611181354" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1448" data-listing-title-sort="**03wk-2**: 보험급부 (1)" data-listing-filename-sort="03wk-2.qmd">
-<td>
-<span class="listing-date">Sep 17, 2026</span>
-</td>
-<td>
-<a href="./posts/03wk-2.html" class="title listing-title"><strong>03wk-2</strong>: 보험급부 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tr class="even">
+<td>1만명당</td>
+<td>3.0</td>
+<td>11.6</td>
+<td>44.9</td>
+<td>173.8</td>
+<td>672.7</td>
 </tr>
-
-<tr data-index="2" data-listing-date-sort="1789430400000" data-listing-file-modified-sort="1789977661000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1034" data-listing-title-sort="**03wk-1**: 생존모형 (3)" data-listing-filename-sort="03wk-1.qmd">
-<td>
-<span class="listing-date">Sep 15, 2026</span>
-</td>
-<td>
-<a href="./posts/03wk-1.html" class="title listing-title"><strong>03wk-1</strong>: 생존모형 (3)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1788998400000" data-listing-file-modified-sort="1789491151182" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="948" data-listing-title-sort="**02wk-2**: 퀴즈1" data-listing-filename-sort="02wk-2.qmd">
-<td>
-<span class="listing-date">Sep 10, 2026</span>
-</td>
-<td>
-<a href="./posts/02wk-2.html" class="title listing-title"><strong>02wk-2</strong>: 퀴즈1</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1788825600000" data-listing-file-modified-sort="1788844041541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="617" data-listing-title-sort="**02wk-1**: 생존모형 (2)" data-listing-filename-sort="02wk-1.qmd">
-<td>
-<span class="listing-date">Sep 8, 2026</span>
-</td>
-<td>
-<a href="./posts/02wk-1.html" class="title listing-title"><strong>02wk-1</strong>: 생존모형 (2)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1788393600000" data-listing-file-modified-sort="1788822134041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="820" data-listing-title-sort="**01wk-2**: 생존모형 (1)" data-listing-filename-sort="01wk-2.qmd">
-<td>
-<span class="listing-date">Sep 3, 2026</span>
-</td>
-<td>
-<a href="./posts/01wk-2.html" class="title listing-title"><strong>01wk-2</strong>: 생존모형 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-date-sort="1788220800000" data-listing-file-modified-sort="1788369061158" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="68" data-listing-title-sort="**01wk-1**: 강의소개" data-listing-filename-sort="01wk-1.qmd">
-<td>
-<span class="listing-date">Sep 1, 2026</span>
-</td>
-<td>
-<a href="./posts/01wk-1.html" class="title listing-title"><strong>01wk-1</strong>: 강의소개</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<ul>
+<li>20세와 80세 사이가 58배다. 열 살마다 두 배씩 여섯 번이니 <span class="math inline">\(2^6 = 64\)</span> 배 언저리인 것이 맞는다.</li>
+</ul>
+<p><code>-</code> 이제 §3 의 식에 넣어 <span class="math inline">\(S_x(t)\)</span> 를 구한다.</p>
+<p><span class="math display">\[S_x(t) = \exp\left\{-\frac{B}{\log c}\,c^x\left(c^t - 1\right)\right\}\]</span></p>
+<p>(왜??) – 샤샤삭</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int_0^t \mu_{x+s}\,ds
+&amp;= \int_0^t B\,c^{x+s}\,ds \\
+&amp;= B\,c^x \int_0^t c^s\,ds \\
+&amp;= B\,c^x \left[\frac{c^s}{\log c}\right]_0^t \\
+&amp;= \frac{B}{\log c}\,c^x\left(c^t - 1\right)
+\end{aligned}
+\]</span></p>
+<p>둘째 줄에서 <span class="math inline">\(c^{x+s} = c^x c^s\)</span> 로 갈라 <span class="math inline">\(s\)</span> 와 상관없는 <span class="math inline">\(c^x\)</span> 를 밖으로 뺐다. 셋째 줄은 <span class="math inline">\(\int c^s ds = c^s/\log c\)</span> 다.</p>
+<p><code>-</code> 식의 생김새를 읽어 두자.</p>
+<ul>
+<li><span class="math inline">\(c^x\)</span> 가 앞에 붙어 있다. 지금 나이가 많을수록 이 값이 커져 <span class="math inline">\(S_x(t)\)</span> 가 빨리 줄어든다. 출발선이 이미 높은 것이다.</li>
+<li>괄호 안이 <span class="math inline">\(c^t - 1\)</span> 이라 <span class="math inline">\(t\)</span> 가 커지면 «지수의 지수»로 커진다. 그래서 꼬리가 아주 빠르게 0 으로 간다.</li>
+</ul>
+<p><code># 예제5</code> 같은 <span class="math inline">\(B\)</span>, <span class="math inline">\(c\)</span> 로 20세인 사람이 50년을 더 살 확률을 구하라.</p>
+<p><code>(풀이)</code> 먼저 앞의 상수를 잰다.</p>
+<p><span class="math display">\[\frac{B}{\log c}\,c^{20} = \frac{0.0003}{0.06766}\times 3.8697 = 0.01716\]</span></p>
+<p><span class="math inline">\(c^{50} = 1.07^{50} = 29.457\)</span> 이므로</p>
+<p><span class="math display">\[S_{20}(50) = \exp\{-0.01716 \times (29.457 - 1)\} = \exp\{-0.4883\} = 0.6137\]</span></p>
+<p>약 <span class="math inline">\(61\%\)</span> 다. 같은 식으로 80년을 더 살 확률은 <span class="math inline">\(0.0217\)</span> 로 약 <span class="math inline">\(2\%\)</span> 다.</p>
+</section>
+<section id="메이컴-법칙" class="level1">
+<h1>5. 메이컴 법칙</h1>
+<p><code>-</code> 곰페르츠는 「나이가 들어 죽는 것」만 담는다. 그런데 스무 살에도 사고로 죽는다. 그 몫을 상수로 하나 더 얹은 것이 메이컴 법칙(Makeham’s law)이다.</p>
+<p><span class="math display">\[\mu_x = A + B\,c^x, \qquad A,\ B &gt; 0,\ c &gt; 1\]</span></p>
+<ul>
+<li><span class="math inline">\(A\)</span> 는 나이와 상관없이 늘 깔려 있는 위험이다. 우발적 사망을 담으라고 넣은 자리다.</li>
+<li>젊을 때는 <span class="math inline">\(Bc^x\)</span> 가 작아서 <span class="math inline">\(A\)</span> 가 크게 먹히고, 나이가 들면 <span class="math inline">\(Bc^x\)</span> 가 커져 <span class="math inline">\(A\)</span> 가 묻힌다.</li>
+</ul>
+<p><code>-</code> 생존함수는 §4 와 같은 계산에 <span class="math inline">\(\int_0^t A\,ds = At\)</span> 한 항이 더 붙을 뿐이다.</p>
+<p><span class="math display">\[S_x(t) = \exp\left\{-At - \frac{B}{\log c}\,c^x\left(c^t - 1\right)\right\}\]</span></p>
+<p><code>-</code> <span class="math inline">\(A = 0\)</span> 으로 두면 곰페르츠가 된다. 즉 메이컴이 곰페르츠를 품는다.</p>
+<p><code>-</code> 다만 두 법칙 다 전 연령에서 맞지는 않는다. 실제 인구에서는 사력이 나이에 따라 늘 오르기만 하지 않는다. 그럼에도 중년부터 초로기까지의 자료에는 잘 맞아서 널리 쓰인다.</p>
+</section>
+<section id="다음-시간에-쓸-것" class="level1">
+<h1>6. 다음 시간에 쓸 것</h1>
+<p><code>-</code> 이제 우리는 모형 하나를 손에 쥐었다. 다음 시간에는 이것으로 보험료를 구한다.</p>
+<p><span class="math display">\[S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07\]</span></p>
+<ul>
+<li>이 식에서 <span class="math inline">\(T_{20}\)</span> 을 여러 번 뽑을 수 있다. 뽑은 수명 하나하나에 대해 보험금의 지금 값을 계산하면 그것이 보험료 이야기의 출발점이 된다.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;
@@ -863,6 +883,7 @@ Author
   });
   </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
