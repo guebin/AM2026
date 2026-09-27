@@ -561,8 +561,6 @@ S_0(t) = \begin{cases} 1 - t/100 &amp; 0 \le t &lt; 100 \\ 0 &amp; t \ge 100 \en
 F_0(t) = \begin{cases} 1 - (1 - t/100)^2 &amp; 0 \le t &lt; 100 \\ 1 &amp; t \ge 100 \end{cases}
 \]</span> (계산기를 사용하세요)</p>
 <p><code>(a)</code> 20세인 사람이 50세를 넘겨 살 확률</p>
-<p><code>(b)</code> 50세인 사람이 75세 전에 죽을 확률</p>
-<p><code>(c)</code> 20세인 사람이 50세와 75세 사이에 죽을 확률</p>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -575,16 +573,47 @@ F_0(t) = \begin{cases} 1 - (1 - t/100)^2 &amp; 0 \le t &lt; 100 \\ 1 &amp; t \ge
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>(a)</code> <span class="math inline">\((0,20) * (20,30) = (0,50)\)</span> 이므로</p>
+<p><span class="math inline">\((0,20) * (20,30) = (0,50)\)</span> 이므로</p>
 <p><span class="math display">\[
 (20,30) = \frac{(0,50)}{(0,20)} = \frac{0.25}{0.64} = 0.390625
 \]</span></p>
-<p><code>(b)</code> <span class="math inline">\((50,25)\)</span> 를 구한 다음 1 에서 빼자. <span class="math inline">\((0,50) * (50,25) = (0,75)\)</span> 이므로</p>
+</div>
+</div>
+</div>
+<p><code>(b)</code> 50세인 사람이 75세 전에 죽을 확률</p>
+<div class="callout callout-style-default callout-note callout-titled" title="풀이">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>풀이
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\((50,25)\)</span> 를 구한 다음 1 에서 빼자. <span class="math inline">\((0,50) * (50,25) = (0,75)\)</span> 이므로</p>
 <p><span class="math display">\[
 (50,25) = \frac{(0,75)}{(0,50)} = \frac{0.0625}{0.25} = 0.25
 \]</span></p>
 <p>따라서 <span class="math inline">\(1 - 0.25 = 0.75\)</span> 가 답.</p>
-<p><code>(c)</code></p>
+</div>
+</div>
+</div>
+<p><code>(c)</code> 20세인 사람이 50세와 75세 사이에 죽을 확률</p>
+<div class="callout callout-style-default callout-note callout-titled" title="풀이">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>풀이
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><span class="math display">\[
 \Pr(50 &lt; T_0 &lt; 75 \mid T_0 &gt; 20) = \frac{S_0(50) - S_0(75)}{S_0(20)} = \frac{0.25 - 0.0625}{0.64} \approx 0.2930
 \]</span></p>
@@ -602,7 +631,7 @@ S_x(t) = \frac{S_0(x + t)}{S_0(x)} \quad (S_0(x) &gt; 0)
 F_x(t) = \frac{F_0(x + t) - F_0(x)}{1 - F_0(x)}
 \]</span></p>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -611,7 +640,7 @@ F_x(t) = \frac{F_0(x + t) - F_0(x)}{1 - F_0(x)}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[
 \begin{aligned}
@@ -636,9 +665,8 @@ S_x(t) = \frac{S_0(x+t)}{S_0(x)}
 <p><span class="math display">\[
 S_0(t) = \begin{cases} 1 - t/100 &amp; 0 \le t &lt; 100 \\ 0 &amp; t \ge 100 \end{cases}
 \]</span></p>
-<p><code>(b)</code> 학생의 논증에서 <strong>어느 낱말이 잘못이었는지</strong> 한 줄로 써라.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -647,9 +675,8 @@ S_0(t) = \begin{cases} 1 - t/100 &amp; 0 \le t &lt; 100 \\ 0 &amp; t \ge 100 \en
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>(a)</code></p>
 <p><span class="math display">\[
 \begin{aligned}
 S_0(25+25) = S_0(25)\,S_0(25)
@@ -658,7 +685,23 @@ S_0(25+25) = S_0(25)\,S_0(25)
 \end{aligned}
 \]</span></p>
 <p>0.5 와 0.5625 는 다르므로 학생의 주장은 틀렸다.</p>
-<p><code>(b)</code> 「독립」이 잘못이다.</p>
+</div>
+</div>
+</div>
+<p><code>(b)</code> 학생의 논증에서 <strong>어느 낱말이 잘못이었는지</strong> 한 줄로 써라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="풀이">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>풀이
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>「독립」이 잘못이다.</p>
 </div>
 </div>
 </div>
@@ -689,9 +732,8 @@ S_0(25+25) = S_0(25)\,S_0(25)
 </tbody>
 </table>
 <p><code>(a)</code> <span class="math inline">\(S_0(1)\)</span> 과 <span class="math inline">\(S_5(1)\)</span> 을 구하여라.</p>
-<p><code>(b)</code> (a) 의 두 값을 견주어 위 주장을 판정하여라.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -700,13 +742,28 @@ S_0(25+25) = S_0(25)\,S_0(25)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p><code>(a)</code></p>
 <p><span class="math display">\[
 S_0(1) = 0.9, \qquad S_5(1) = \frac{S_0(6)}{S_0(5)} = \frac{0.879}{0.880} = 0.9988636
 \]</span></p>
-<p><code>(b)</code> <span class="math inline">\(S_0(1) &lt; S_5(1)\)</span> 이다. 따라서 위의 주장은 틀렸다.</p>
+</div>
+</div>
+</div>
+<p><code>(b)</code> (a) 의 두 값을 견주어 위 주장을 판정하여라.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="풀이">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>풀이
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(S_0(1) &lt; S_5(1)\)</span> 이다. 따라서 위의 주장은 틀렸다.</p>
 <p>(해설) 갓 태어난 아기의 사망위험이 높다는 사실을 인지해야 이해할 수 있다.</p>
 </div>
 </div>
@@ -721,7 +778,7 @@ S_0(1) = 0.9, \qquad S_5(1) = \frac{S_0(6)}{S_0(5)} = \frac{0.879}{0.880} = 0.99
 </figure>
 </div>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -730,7 +787,7 @@ S_0(1) = 0.9, \qquad S_5(1) = \frac{S_0(6)}{S_0(5)} = \frac{0.879}{0.880} = 0.99
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>생존함수는 항상 non-increasing 이다. 왜냐하면</p>
 <ol type="1">
@@ -758,7 +815,7 @@ S_0(1) = 0.9, \qquad S_5(1) = \frac{S_0(6)}{S_0(5)} = \frac{0.879}{0.880} = 0.99
 </div>
 <p><span class="math inline">\(S_0(60)\)</span> 을 구하라.</p>
 <div class="callout callout-style-default callout-note callout-titled" title="풀이">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -767,7 +824,7 @@ S_0(1) = 0.9, \qquad S_5(1) = \frac{S_0(6)}{S_0(5)} = \frac{0.879}{0.880} = 0.99
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">\[
 S_0(60) = (0,60) = (0,40) * (40,20) = \frac{9}{25} \times \frac{4}{9} = \frac{4}{25}
