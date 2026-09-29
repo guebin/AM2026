@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="최규빈">
+<meta name="dcterms.date" content="2026-09-29">
 
-<title>보험수리 (2026) – AM2026</title>
+<title>05wk-1: 보험급부 (2) – AM2026</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +25,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-3bbbbd466991e281563892c5dce73c3d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -130,7 +101,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -140,7 +111,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">AM2026</span>
     </a>
   </div>
@@ -168,25 +139,45 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
+  <li><a href="#보험료를-얼마로-받아야-하나-2" id="toc-보험료를-얼마로-받아야-하나-2" class="nav-link" data-scroll-target="#보험료를-얼마로-받아야-하나-2">2. 보험료를 얼마로 받아야 하나? (2)</a></li>
+  <li><a href="#가입자를-한-명만-받은-회사가-망할-확률" id="toc-가입자를-한-명만-받은-회사가-망할-확률" class="nav-link" data-scroll-target="#가입자를-한-명만-받은-회사가-망할-확률">3. 가입자를 한 명만 받은 회사가 망할 확률</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">보험수리 (2026)</h1>
+<h1 class="title"><strong>05wk-1</strong>: 보험급부 (2)</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>최규빈 </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 29, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -196,143 +187,149 @@ window.Quarto = {
 </header>
 
 
-<p><strong>질문하는 방법</strong></p>
-<ul>
-<li>이메일: <a href="mailto:guebin@jbnu.ac.kr" class="email">guebin@jbnu.ac.kr</a></li>
-<li>직접방문: 자연과학대학 본관 205호</li>
-<li>Zoom: <em>이메일로 미리 시간을 정할 것</em></li>
-</ul>
-<p><strong>공지</strong></p>
-<ul>
-<li>9월24일 오프라인강의 없음 (추석연휴); 보강은 퀴즈1-2 해설영상으로 대체</li>
-<li>퀴즈1 추가해설영상이 업로드 되었습니다.</li>
-<li>퀴즈2 해설영상이 업로드 되었습니다.</li>
-</ul>
-<p><strong>참고문헌</strong></p>
-<ul>
-<li>Dickson, D. C. M., Hardy, M. R., and Waters, H. R. (2020). <em>Actuarial Mathematics for Life Contingent Risks</em>, 3rd edition. Cambridge University Press. (International Series on Actuarial Science)</li>
-</ul>
-<p><strong>강의노트</strong></p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
+<section id="강의영상" class="level1">
+<h1>1. 강의영상</h1>
+</section>
+<section id="보험료를-얼마로-받아야-하나-2" class="level1">
+<h1>2. 보험료를 얼마로 받아야 하나? (2)</h1>
+<p><code>-</code> “죽는 순간 보험금 <span class="math inline">\(S\)</span> 를 주는 약속”의 지금 값을 <span class="math inline">\(SZ\)</span> 라 하였다(<span class="math inline">\(Z = v^{T_x}\)</span>). 그리고 그 평균 <span class="math inline">\(S\bar{A}_x\)</span> 를 보험료로 받으면 회사의 손익이 평균적으로 0 임을 알게 되었다. 이 평균 <span class="math inline">\(\mathrm{E}[SZ] = S\bar{A}_x\)</span> 를 기대현재가치(expected present value), 줄여서 EPV 라 부른다. 03wk-2 에서 손익분기점이라 부른 것이 이것이다.</p>
+<p><code>-</code> 그러나 「손익이 평균적으로 0 인 것」과 「망하지 않는 것」은 다른 말이었다.</p>
+<p><code>-</code> 퀴즈2 문제11: 남은 수명이 확률 0.5 로 2년, 0.5 로 30년인 사람 한 명에게 1억짜리 보험을 팔 때(<span class="math inline">\(i = 0.05\)</span>) 두 가지 보험료의 비교</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 5%">
+<col style="width: 41%">
+</colgroup>
 <thead>
-<tr>
-
-<th>
-Date
-</th>
-
-<th>
-Title
-</th>
-
-<th>
-Author
-</th>
-
+<tr class="header">
+<th>받은 보험료</th>
+<th>망할 확률</th>
+<th></th>
 </tr>
 </thead>
-<tbody class="list">
-
-<tr data-index="0" data-listing-date-sort="1790640000000" data-listing-file-modified-sort="1790644964000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="964" data-listing-title-sort="**05wk-1**: 보험급부 (2)" data-listing-filename-sort="05wk-1.qmd">
-<td>
-<span class="listing-date">Sep 29, 2026</span>
-</td>
-<td>
-<a href="./posts/05wk-1.html" class="title listing-title"><strong>05wk-1</strong>: 보험급부 (2)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(10^8\,\mathrm{E}[Z] \approx 5{,}692\)</span> 만원 (EPV)</td>
+<td><span class="math inline">\(0.5\)</span></td>
+<td>회사가 위험하다</td>
 </tr>
-
-<tr data-index="1" data-listing-date-sort="1790035200000" data-listing-file-modified-sort="1790633682000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1695" data-listing-title-sort="**04wk-1**: 퀴즈2" data-listing-filename-sort="04wk-1.qmd">
-<td>
-<span class="listing-date">Sep 22, 2026</span>
-</td>
-<td>
-<a href="./posts/04wk-1.html" class="title listing-title"><strong>04wk-1</strong>: 퀴즈2</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
+<tr class="even">
+<td><span class="math inline">\(10^8 v^2 \approx 9{,}070\)</span> 만원</td>
+<td><span class="math inline">\(0\)</span></td>
+<td>30년을 살면 29,201만원이 남는다. (가입자에게 너무 비싸다)</td>
 </tr>
-
-<tr data-index="2" data-listing-date-sort="1789603200000" data-listing-file-modified-sort="1789611181354" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1448" data-listing-title-sort="**03wk-2**: 보험급부 (1)" data-listing-filename-sort="03wk-2.qmd">
-<td>
-<span class="listing-date">Sep 17, 2026</span>
-</td>
-<td>
-<a href="./posts/03wk-2.html" class="title listing-title"><strong>03wk-2</strong>: 보험급부 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="3" data-listing-date-sort="1788998400000" data-listing-file-modified-sort="1790480597000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1190" data-listing-title-sort="**02wk-2**: 퀴즈1" data-listing-filename-sort="02wk-2.qmd">
-<td>
-<span class="listing-date">Sep 10, 2026</span>
-</td>
-<td>
-<a href="./posts/02wk-2.html" class="title listing-title"><strong>02wk-2</strong>: 퀴즈1</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="4" data-listing-date-sort="1788825600000" data-listing-file-modified-sort="1788844041541" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="617" data-listing-title-sort="**02wk-1**: 생존모형 (2)" data-listing-filename-sort="02wk-1.qmd">
-<td>
-<span class="listing-date">Sep 8, 2026</span>
-</td>
-<td>
-<a href="./posts/02wk-1.html" class="title listing-title"><strong>02wk-1</strong>: 생존모형 (2)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="5" data-listing-date-sort="1788393600000" data-listing-file-modified-sort="1788822134041" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="820" data-listing-title-sort="**01wk-2**: 생존모형 (1)" data-listing-filename-sort="01wk-2.qmd">
-<td>
-<span class="listing-date">Sep 3, 2026</span>
-</td>
-<td>
-<a href="./posts/01wk-2.html" class="title listing-title"><strong>01wk-2</strong>: 생존모형 (1)</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
-<tr data-index="6" data-listing-date-sort="1788220800000" data-listing-file-modified-sort="1788369061158" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="68" data-listing-title-sort="**01wk-1**: 강의소개" data-listing-filename-sort="01wk-1.qmd">
-<td>
-<span class="listing-date">Sep 1, 2026</span>
-</td>
-<td>
-<a href="./posts/01wk-1.html" class="title listing-title"><strong>01wk-1</strong>: 강의소개</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+<p><code>-</code> 회사는 평균적으로 손익이 0 인 보험료와 절대 안 망하는 보험료 중 어떤 금액을 받아야 하는가? 평균적으로 손익이 0 인 보험료만 받는다면 보험금을 지급하지 못해 망할 것이다. 절대 안 망하는 보험료를 받는다면 가입자가 없어서 망할 것이다.</p>
+</section>
+<section id="가입자를-한-명만-받은-회사가-망할-확률" class="level1">
+<h1>3. 가입자를 한 명만 받은 회사가 망할 확률</h1>
+<p><code>-</code> 보험금이 <span class="math inline">\(S\)</span> 원인 보험을 가입자 한 명에게 팔고 보험료 <span class="math inline">\(P\)</span> 원을 받았다고 하자. 받은 <span class="math inline">\(P\)</span> 는 <span class="math inline">\(T_x\)</span> 년 뒤에 <span class="math inline">\(P(1+i)^{T_x}\)</span> 가 되고 거기서 <span class="math inline">\(S\)</span> 를 내준다. 따라서</p>
+<p><span class="math display">\[
+\text{잔고가 음수} \iff P(1+i)^{T_x} &lt; S \iff P &lt; S v^{T_x} = SZ
+\]</span></p>
+<p>즉 가입자를 한 명만 받은 회사가 망할 확률은 <span class="math inline">\(\Pr[SZ &gt; P]\)</span> 다.</p>
+<p><code>-</code> <span class="math inline">\(Z\)</span> 에 대한 확률은 <span class="math inline">\(T_x\)</span> 에 대한 확률로 바꿔 구한다. <span class="math inline">\(P(1+i)^u = S\)</span> 를 만족하는 <span class="math inline">\(u\)</span> 를 잡으면</p>
+<p><span class="math display">\[
+\Pr[SZ &gt; P] = \Pr[S v^{T_x} &gt; S v^u] = \Pr[T_x &lt; u] = 1 - S_x(u), \qquad u = \frac{\log(S/P)}{\log(1+i)}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(u\)</span> 는 받은 <span class="math inline">\(P\)</span> 가 불어나 딱 <span class="math inline">\(S\)</span> 가 되는 데 걸리는 시간이다. 가입자가 그보다 일찍 죽으면 회사가 손해다. 그래서 <span class="math inline">\(u\)</span>는 회사입장에서 “가입자가 적어도 이 정도는 살아 줬으면…” 하는 시간이다.</li>
+</ul>
+<p><code># 예제1</code> 20세인 사람에게 죽는 순간 <span class="math inline">\(S = 10^8\)</span> 원(1억)을 주는 보험을 판다. <span class="math inline">\(i = 0.05\)</span> 이고, 남은 수명 <span class="math inline">\(T_{20}\)</span> 의 생존함수는 아래와 같다.</p>
+<p><span class="math display">\[S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07\]</span></p>
+<p>이 모형에서 EPV <span class="math inline">\(S\bar{A}_{20}\)</span> 을 구하려면 어려운 적분값을 계산해야 한다. 여기서는 그 계산을 건너뛰고 컴퓨터로 구한 값을 쓴다. <span class="math inline">\(T_{20}\)</span> 을 10만 번 뽑아 <span class="math inline">\(T_{20}\)</span> 과 <span class="math inline">\(SZ\)</span> 의 히스토그램을 그리고 <span class="math inline">\(SZ\)</span> 의 평균을 구하면 약 <span class="math inline">\(1{,}128.5\)</span> 만원이다(그림의 빨간 파선, 반올림해 1,129).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/05wk_hist_T20_SZ.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ol type="a">
+<li><p>EPV 를 보험료로 받았다. <span class="math inline">\(P(1+i)^u = S\)</span> 인 <span class="math inline">\(u\)</span> 를 구하라.</p></li>
+<li><p>EPV 를 보험료로 받았을 경우 회사가 망할 확률은 얼마인가.</p></li>
+</ol>
+<p><code>(풀이)</code></p>
+<ol type="a">
+<li><span class="math inline">\(P = 1{,}128.5\)</span> 만원, <span class="math inline">\(S = 10{,}000\)</span> 만원이다.</li>
+</ol>
+<p><span class="math display">\[
+u = \frac{\log(S/P)}{\log(1+i)} = \frac{\log(1/\bar{A}_{20})}{\log(1+i)} = \frac{\log(10{,}000/1{,}128.5)}{\log 1.05} = 44.72 \ \text{년}
+\]</span></p>
+<p>20세인 사람이 적어도 44.72년(64.72세까지)은 살아야 회사가 망하지 않는다(잔고가 음수가 되지 않는다).</p>
+<ol start="2" type="a">
+<li>미리 살펴본 식</li>
+</ol>
+<p><span class="math display">\[
+\Pr[SZ &gt; P] = 1 - S_x(u), \qquad u = \frac{\log(S/P)}{\log(1+i)}
+\]</span></p>
+<p>에 <span class="math inline">\(x = 20\)</span> 과 (a) 의 <span class="math inline">\(u = 44.72\)</span> 를 대입하면</p>
+<p><span class="math display">\[
+\Pr[SZ &gt; P] = 1 - S_{20}(44.72)
+\]</span></p>
+<p>이고, <span class="math inline">\(S_{20}(44.72)\)</span> 는 생존함수에 <span class="math inline">\(t = 44.72\)</span> 를 넣어 구한다.</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_{20}(44.72) &amp;= \exp\left\{-\frac{0.0003}{\log 1.07}\times 1.07^{20}\times\left(1.07^{44.72}-1\right)\right\} \\
+&amp;= \exp\left\{-0.004434 \times 3.8697 \times 19.602\right\} = \exp(-0.3363) = 0.7144
+\end{aligned}
+\]</span></p>
+<p>따라서 <span class="math inline">\(\Pr[SZ &gt; P] = 1 - 0.7144 = 0.2856\)</span> 이다.</p>
+<p>해석해 보자. EPV 를 받았는데도 열 번에 세 번꼴로 망한다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/04wk_Z20_loss_side.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ul>
+<li>파란 점선의 값 <span class="math inline">\(\bar{A}_{20} = 0.1129\)</span> 는 <span class="math inline">\(P/S\)</span> 이고, <span class="math inline">\(Z\)</span>의 평균값이다.</li>
+<li>파란 점선의 값 <span class="math inline">\(\bar{A}_{20}\)</span>는 히스토그램이 그리는 <span class="math inline">\(Z\)</span>의 평균값이다. 따라서 파란 선을 기준(0)으로 놓고 히스토그램을 보면, 곧 <span class="math inline">\(Z - \bar{A}_{20}\)</span> 을 보면 그 평균은 0 이다. 손익이 평균적으로 0 이라는 말이 이것이다.</li>
+<li>그러나 파란 점선의 값 <span class="math inline">\(\bar{A}_{20}\)</span>는 히스토그램이 그리는 <span class="math inline">\(Z\)</span>의 중앙값이 아니다. 즉 파란 선을 기준(0)으로 놓고 히스토그램을 볼때, 오른쪽의 넓이는 전체의 <span class="math inline">\(50\%\)</span> 가 아니라 약 <span class="math inline">\(28.56\%\)</span> 다.</li>
+</ul>
+<p><code>#</code></p>
+<p><code># 예제2</code> 20세 한 사람만 받는데 망할 확률을 <span class="math inline">\(5\%\)</span> 로 줄이고 싶다. 보험료를 얼마로 받아야 하는가(<span class="math inline">\(i = 0.05\)</span>, <span class="math inline">\(S = 10^8\)</span>). 생존함수는 예제1 과 같다.</p>
+<p><span class="math display">\[S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07\]</span></p>
+<p><code>(풀이)</code></p>
+<p>망할 확률을 <span class="math inline">\(5\%\)</span> 로 셋팅한다.</p>
+<p><span class="math display">\[
+\Pr[SZ &gt; P] = 1 - S_{20}(u) = 0.05
+\]</span></p>
+<p>이제 <span class="math inline">\(S_{20}(u) = 0.95\)</span> 인 <span class="math inline">\(u\)</span> 를 찾는다.</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_{20}(u) = 0.95
+&amp;\iff \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^u - 1\right)\right\} = 0.95 \\
+&amp;\iff \frac{B}{\log c}\,c^{20}\left(c^u - 1\right) = -\log 0.95 \\
+&amp;\iff c^u = 1 - \frac{\log c}{B c^{20}}\log 0.95 \\
+&amp;\iff u = \frac{1}{\log c}\log\left(1 - \frac{\log c}{B c^{20}}\log 0.95\right)
+\end{aligned}
+\]</span></p>
+<p><span class="math inline">\(B = 0.0003\)</span>, <span class="math inline">\(c = 1.07\)</span> 을 넣으면</p>
+<p><span class="math display">\[
+u = \frac{1}{\log 1.07}\log\left(1 - \frac{\log 1.07}{0.0003 \times 1.07^{20}}\log 0.95\right) = 20.45 \ \text{년}
+\]</span></p>
+<p>따라서</p>
+<p><span class="math display">\[
+P = S v^{u} = 10{,}000 \times 1.05^{-20.45} = 3{,}687 \ \text{만원}
+\]</span></p>
+<p>해석해보자.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/05wk_T20_Z20_5pct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<ul>
+<li>왼쪽은 <span class="math inline">\(T_{20}\)</span>, 오른쪽은 <span class="math inline">\(Z\)</span> 의 히스토그램이다.</li>
+<li>선은 세 쌍이다. 빨간 파선은 망할 확률을 <span class="math inline">\(5\%\)</span> 로 맞춘 <span class="math inline">\(u \approx 20.45\)</span> 와 그때의 보험료 <span class="math inline">\(P/S = v^u \approx 0.3687\)</span> 이다. 파란 점선은 EPV <span class="math inline">\(\bar{A}_{20} \approx 0.1129\)</span> 와 그에 대응하는 <span class="math inline">\(t \approx 44.72\)</span> 다. 검은 점선은 03wk-2 에서 본 평균 수명 <span class="math inline">\(\mathrm{E}[T_{20}] \approx 52.70\)</span> 과 <span class="math inline">\(v^{\mathrm{E}[T_{20}]} \approx 0.0764\)</span> 로, 참고로 그렸다.</li>
+<li>왼쪽 그림에서 <span class="math inline">\(T_{20} &lt; u \approx 20.45\)</span> 인 사람들은 40.45세 전에 죽는 사람들이며, 이 경우가 <span class="math inline">\(5\%\)</span> 다.</li>
+<li>오른쪽 그림에서 파란 점선 EPV <span class="math inline">\(\bar{A}_{20} \approx 0.1129\)</span> 에 해당하는 보험료를 받으면 예제1 에서처럼 <span class="math inline">\(28.6\%\)</span> 로 망한다. 이 파란 선을 오른쪽으로 밀어 빨간 선까지 가야 망할 확률이 <span class="math inline">\(5\%\)</span> 가 된다. 그러다 보니 EPV(1,129만원)의 세 배가 넘는 가격까지 밀어야 한다.</li>
+<li>20세가 40.45세 전에 죽는 <span class="math inline">\(5\%\)</span> 의 경우까지 대비하려면 이만큼 받아야 한다. (그렇지만 너무 비싸서 아무도 가입하지 않을 것이다.)</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
 <style>
 #replBtn {
   position: fixed; right: 20px; bottom: 20px; z-index: 1000;

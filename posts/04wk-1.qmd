@@ -10,17 +10,6 @@ format:
 
 {{<video https://youtu.be/playlist?list=PLPOjDr7JMTH0&si=_WV9nGGsSQuEtWSJ>}}
 
-<style>
-table {
-  width: auto !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-.callout {
-  margin-top: 1.5rem !important;
-}
-</style>
-
 ### 문제1
 
 다음 중 옳지 않은 것은?

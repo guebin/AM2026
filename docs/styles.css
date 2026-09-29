@@ -41,3 +41,10 @@ div.callout.callout-style-default > .callout-body-container {
 }
 .callout .callout-body > *:first-child { margin-top: 0; }
 .callout .callout-body > *:last-child  { margin-bottom: 0; }
+
+/* 표 — 내용 폭으로 줄여 가운데 (첫 화면 글 목록 표는 빼고) */
+table:not(.quarto-listing-table) {
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
