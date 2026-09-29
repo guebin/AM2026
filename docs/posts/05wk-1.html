@@ -197,27 +197,27 @@ window.Quarto = {
 <p><code>-</code> 퀴즈2 문제11: 남은 수명이 확률 0.5 로 2년, 0.5 로 30년인 사람 한 명에게 1억짜리 보험을 팔 때(<span class="math inline">\(i = 0.05\)</span>) 두 가지 보험료의 비교</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 53%">
-<col style="width: 5%">
-<col style="width: 41%">
+<col style="width: 39%">
+<col style="width: 18%">
+<col style="width: 42%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>받은 보험료</th>
-<th>망할 확률</th>
-<th></th>
+<th style="text-align: left;">받은 보험료</th>
+<th style="text-align: center;">망할 확률</th>
+<th style="text-align: left;">비고</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(10^8\,\mathrm{E}[Z] \approx 5{,}692\)</span> 만원 (EPV)</td>
-<td><span class="math inline">\(0.5\)</span></td>
-<td>회사가 위험하다</td>
+<td style="text-align: left;"><span class="math inline">\(10^8\,\mathrm{E}[Z] \approx 5{,}692\)</span> 만원 (EPV)</td>
+<td style="text-align: center;"><span class="math inline">\(0.5\)</span></td>
+<td style="text-align: left;">회사가 위험하다</td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(10^8 v^2 \approx 9{,}070\)</span> 만원</td>
-<td><span class="math inline">\(0\)</span></td>
-<td>30년을 살면 29,201만원이 남는다. (가입자에게 너무 비싸다)</td>
+<td style="text-align: left;"><span class="math inline">\(10^8 v^2 \approx 9{,}070\)</span> 만원</td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;">30년을 살면 29,201만원이 남는다(가입자에게 너무 비싸다)</td>
 </tr>
 </tbody>
 </table>
@@ -242,24 +242,21 @@ window.Quarto = {
 <p>이 모형에서 EPV <span class="math inline">\(S\bar{A}_{20}\)</span> 을 구하려면 어려운 적분값을 계산해야 한다. 여기서는 그 계산을 건너뛰고 컴퓨터로 구한 값을 쓴다. <span class="math inline">\(T_{20}\)</span> 을 10만 번 뽑아 <span class="math inline">\(T_{20}\)</span> 과 <span class="math inline">\(SZ\)</span> 의 히스토그램을 그리고 <span class="math inline">\(SZ\)</span> 의 평균을 구하면 약 <span class="math inline">\(1{,}128.5\)</span> 만원이다(그림의 빨간 파선, 반올림해 1,129).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/05wk_hist_T20_SZ.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="attachments/05wk_hist_T20_SZ.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
-<ol type="a">
-<li><p>EPV 를 보험료로 받았다. <span class="math inline">\(P(1+i)^u = S\)</span> 인 <span class="math inline">\(u\)</span> 를 구하라.</p></li>
-<li><p>EPV 를 보험료로 받았을 경우 회사가 망할 확률은 얼마인가.</p></li>
-</ol>
+<ul>
+<li>오른쪽 그림은 꼬리가 오른쪽으로 너무 길어서 가로축을 4,000만원에서 잘랐다. 4,000만원을 넘는 경우가 약 <span class="math inline">\(4.3\%\)</span> 다.</li>
+</ul>
+<p><code>(a)</code> EPV 를 보험료로 받았다. <span class="math inline">\(P(1+i)^u = S\)</span> 인 <span class="math inline">\(u\)</span> 를 구하라.</p>
+<p><code>(b)</code> EPV 를 보험료로 받았을 경우 회사가 망할 확률은 얼마인가.</p>
 <p><code>(풀이)</code></p>
-<ol type="a">
-<li><span class="math inline">\(P = 1{,}128.5\)</span> 만원, <span class="math inline">\(S = 10{,}000\)</span> 만원이다.</li>
-</ol>
+<p><code>(a)</code> <span class="math inline">\(P = 1{,}128.5\)</span> 만원, <span class="math inline">\(S = 10{,}000\)</span> 만원이다.</p>
 <p><span class="math display">\[
 u = \frac{\log(S/P)}{\log(1+i)} = \frac{\log(1/\bar{A}_{20})}{\log(1+i)} = \frac{\log(10{,}000/1{,}128.5)}{\log 1.05} = 44.72 \ \text{년}
 \]</span></p>
 <p>20세인 사람이 적어도 44.72년(64.72세까지)은 살아야 회사가 망하지 않는다(잔고가 음수가 되지 않는다).</p>
-<ol start="2" type="a">
-<li>미리 살펴본 식</li>
-</ol>
+<p><code>(b)</code> 미리 살펴본 식</p>
 <p><span class="math display">\[
 \Pr[SZ &gt; P] = 1 - S_x(u), \qquad u = \frac{\log(S/P)}{\log(1+i)}
 \]</span></p>
@@ -282,6 +279,7 @@ S_{20}(44.72) &amp;= \exp\left\{-\frac{0.0003}{\log 1.07}\times 1.07^{20}\times\
 </figure>
 </div>
 <ul>
+<li>가로축은 위 그림처럼 0.4 에서 잘랐다. 0.4 를 넘는 약 <span class="math inline">\(4.3\%\)</span> 는 그림 밖에 있고, 아래의 빨간 넓이 <span class="math inline">\(28.56\%\)</span> 에는 이것까지 들어 있다.</li>
 <li>파란 점선의 값 <span class="math inline">\(\bar{A}_{20} = 0.1129\)</span> 는 <span class="math inline">\(P/S\)</span> 이고, <span class="math inline">\(Z\)</span>의 평균값이다.</li>
 <li>파란 점선의 값 <span class="math inline">\(\bar{A}_{20}\)</span>는 히스토그램이 그리는 <span class="math inline">\(Z\)</span>의 평균값이다. 따라서 파란 선을 기준(0)으로 놓고 히스토그램을 보면, 곧 <span class="math inline">\(Z - \bar{A}_{20}\)</span> 을 보면 그 평균은 0 이다. 손익이 평균적으로 0 이라는 말이 이것이다.</li>
 <li>그러나 파란 점선의 값 <span class="math inline">\(\bar{A}_{20}\)</span>는 히스토그램이 그리는 <span class="math inline">\(Z\)</span>의 중앙값이 아니다. 즉 파란 선을 기준(0)으로 놓고 히스토그램을 볼때, 오른쪽의 넓이는 전체의 <span class="math inline">\(50\%\)</span> 가 아니라 약 <span class="math inline">\(28.56\%\)</span> 다.</li>
@@ -315,11 +313,12 @@ P = S v^{u} = 10{,}000 \times 1.05^{-20.45} = 3{,}687 \ \text{만원}
 <p>해석해보자.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/05wk_T20_Z20_5pct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="attachments/05wk_T20_Z20_5pct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <ul>
 <li>왼쪽은 <span class="math inline">\(T_{20}\)</span>, 오른쪽은 <span class="math inline">\(Z\)</span> 의 히스토그램이다.</li>
+<li>오른쪽 그림도 가로축을 0.4 에서 잘랐다. 빨간 <span class="math inline">\(5\%\)</span> 가운데 약 <span class="math inline">\(4.3\%\)</span> 는 0.4 밖에 있어서 오른쪽 그림에서는 빨간 막대가 거의 안 보인다. 같은 사람들이 왼쪽 그림에서는 다 보인다.</li>
 <li>선은 세 쌍이다. 빨간 파선은 망할 확률을 <span class="math inline">\(5\%\)</span> 로 맞춘 <span class="math inline">\(u \approx 20.45\)</span> 와 그때의 보험료 <span class="math inline">\(P/S = v^u \approx 0.3687\)</span> 이다. 파란 점선은 EPV <span class="math inline">\(\bar{A}_{20} \approx 0.1129\)</span> 와 그에 대응하는 <span class="math inline">\(t \approx 44.72\)</span> 다. 검은 점선은 03wk-2 에서 본 평균 수명 <span class="math inline">\(\mathrm{E}[T_{20}] \approx 52.70\)</span> 과 <span class="math inline">\(v^{\mathrm{E}[T_{20}]} \approx 0.0764\)</span> 로, 참고로 그렸다.</li>
 <li>왼쪽 그림에서 <span class="math inline">\(T_{20} &lt; u \approx 20.45\)</span> 인 사람들은 40.45세 전에 죽는 사람들이며, 이 경우가 <span class="math inline">\(5\%\)</span> 다.</li>
 <li>오른쪽 그림에서 파란 점선 EPV <span class="math inline">\(\bar{A}_{20} \approx 0.1129\)</span> 에 해당하는 보험료를 받으면 예제1 에서처럼 <span class="math inline">\(28.6\%\)</span> 로 망한다. 이 파란 선을 오른쪽으로 밀어 빨간 선까지 가야 망할 확률이 <span class="math inline">\(5\%\)</span> 가 된다. 그러다 보니 EPV(1,129만원)의 세 배가 넘는 가격까지 밀어야 한다.</li>
