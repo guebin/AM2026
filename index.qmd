@@ -22,6 +22,11 @@ title-block-banner: false
 - 9월24일 오프라인강의 없음 (추석연휴); 보강은 퀴즈1-2 해설영상으로 대체
 - 퀴즈1 추가해설영상이 업로드 되었습니다. 
 - 퀴즈2 해설영상이 업로드 되었습니다. 
+- 10월1일 강사사정으로 휴강함. 보강은 추후 진도와 무관한 (중간고사 해설등) 영상을 강의사이트에 업로드할 예정
+
+**실습** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" height="20" style="vertical-align:middle;"> Colab
+
+<a href="https://colab.research.google.com/notebook#create=true&language=r" target="_blank" title="R (Colab)" style="text-decoration:none; margin-right:14px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg" height="22" style="vertical-align:middle;"> R</a><a href="https://colab.research.google.com/notebook#create=true&language=python" target="_blank" title="Python (Colab)" style="text-decoration:none; margin-right:14px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" height="22" style="vertical-align:middle;"> Python</a><a href="https://colab.research.google.com/notebook#create=true&language=julia" target="_blank" title="Julia (Colab)" style="text-decoration:none; margin-right:14px;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/julia/julia-original.svg" height="22" style="vertical-align:middle;"> Julia</a>
 
 **참고문헌**
 
