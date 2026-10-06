@@ -1,0 +1,353 @@
+---
+title: "**06wk-1**: 보험급부 (3)"
+author: 최규빈
+date: "10/06/2026 09:00"
+draft: false
+include-in-header:
+  text: |
+    <style>
+    .ztab { border-collapse: collapse; margin: 6px 0 12px 0; font-variant-numeric: tabular-nums; }
+    .ztab th, .ztab td { text-align: center; vertical-align: middle; padding: 3px 6px; white-space: nowrap; }
+    .ztab thead th { font-weight: 600; border-bottom: 1px solid #bbb; }
+    .ztab thead tr.grp th { border-bottom: 1px solid #ddd; color: #555; font-weight: 500; }
+    .ztab thead tr:last-child th { border-bottom: 2px solid #555; }
+    .ztab .sep { border-left: 1px solid #e3e3e3; }
+    .ztab tr.gstart td { border-top: 1px solid #c8c8c8; }
+    .ztab tr.ruin td { color: #C62828; background: #fdf3f3; }
+    .ztab td.const { color: #333 !important; background: #fafafa !important; }
+    .ztab td.dots { color: #aaa !important; line-height: 1; padding: 0 6px; }
+    .ztab tr.dotsrow td { color: #aaa; border-top: 1px solid #c8c8c8; }
+    .ztab tbody tr:last-child td { border-bottom: 2px solid #555; }
+    @media (max-width: 700px) { .hyper-grid { grid-template-columns: 100% !important; }
+    .hyper-left > div { border-right: none !important; padding-right: 0 !important; }
+    }
+    </style>
+---
+
+
+# 1. 강의영상
+
+# 2. 가입자를 한 명만 받은 회사가 망할 확률 (2)
+
+`# 예제1` 보험금이 $S = 10^8$ 원(1억)이고 $i = 0.05$ 다. 보험료로 $P = 5{,}000$ 만원을 받았다. $P(1+i)^u = S$ 인 $u$ 를 구하라.
+
+`(풀이)` $u = \log(S/P)/\log(1+i) = \log 2/\log 1.05 = 14.21$ 년. 받은 보험료 $P$ 가 이자로 불어나 딱 보험금 $S$ 가 되는 데 걸리는 시간이다.
+
+
+`# 예제2` 가입자는 1명이다. 보험료 $P$ 를 받았고, $P(1+i)^u = S$ 인 $u$ 를 잡았다. 옳은 것을 모두 고르라.
+
+1. 가입자가 $u$ 보다 일찍 죽으면 회사는 손해다.
+2. 가입자가 딱 $u$ 년을 살고 죽으면 회사는 이득이다.
+3. 가입자가 $u$ 보다 오래 살면 회사는 이득이다.
+4. 가입자가 딱 $u$ 년을 살고 죽으면 회사는 망하지 않는다.
+
+`(풀이)` 답은 1, 3, 4. 딱 $u$ 년이면 불어난 보험료가 딱 $S$ 라 잔고가 0 이다. 이득도 손해도 아니지만 음수가 아니므로 망하지는 않는다.
+
+`# 예제3` 보험금 $S$ 는 그대로다. 아래 1~4 가 일어나면 $u$ 는 커지는가, 작아지는가?
+
+1. 보험료 $P$ 를 더 많이 받는다.
+2. 보험료 $P$ 를 더 적게 받는다.
+3. 이자율 $i$ 가 오른다.
+4. 이자율 $i$ 가 내린다.
+
+`(풀이)` 1 은 작아진다, 2 는 커진다, 3 은 작아진다, 4 는 커진다. 받은 돈이 많거나 이자가 크면 $S$ 까지 빨리 불어난다.
+
+`# 예제4` 보험금이 1억, 보험료가 5,000만원이다. 이자율이 $i = 0.05$ 에서 $i = 0.10$ 으로 오르면 $u$ 는 몇 년에서 몇 년으로 바뀌는가?
+
+`(풀이)` $u = \log 2/\log 1.05 = 14.21$ 년에서 $u = \log 2/\log 1.10 = 7.27$ 년으로 줄어든다. 이자가 크면 $P$ 가 $S$ 까지 빨리 불어난다.
+
+`# 예제5` 보험금이 1억이고 $i = 0.05$ 다. $u = 10$ 년이 되게 하려면 보험료를 얼마 받아야 하는가?
+
+`(풀이)` $P = S v^{u} = 10{,}000 \times 1.05^{-10} = 6{,}139$ 만원. 10년 뒤 1억의 지금 값이다.
+
+`# 예제6` 20세인 사람에게 보험금 1억인 보험을 팔고 보험료 1,128.5만원을 받았다($i = 0.05$). 20세인 사람이 64.72세 전에 죽을 확률은 $28.56\%$ 다. 회사가 망할 확률은?
+
+1. $5\%$
+2. $28.56\%$
+3. $50\%$
+4. $71.44\%$
+
+`(풀이)` 답은 2. $u = \log(10{,}000/1{,}128.5)/\log 1.05 = 44.72$ 년이므로 가입자가 64.72세 전에 죽으면 망한다. 1,128.5만원은 손익분기점(EPV)인데도 열 번에 세 번꼴로 망한다.
+
+`# 예제7` 20세인 사람에게 보험금 1억인 보험을 팔고 보험료 5,000만원을 받았다($i = 0.05$). 생존함수가 아래와 같을 때 회사가 망할 확률은 얼마인가?
+
+$$S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07$$
+
+`(풀이)` $u = \log 2/\log 1.05 = 14.207$ 년이다. 생존함수에 넣으면
+
+$$
+\begin{aligned}
+S_{20}(14.207) &= \exp\left\{-\frac{0.0003}{\log 1.07}\times 1.07^{20}\times\left(1.07^{14.207}-1\right)\right\} \\
+&= \exp\left\{-0.004434 \times 3.8697 \times 1.6149\right\} = \exp(-0.0277) = 0.9727
+\end{aligned}
+$$
+
+이므로 망할 확률은 $1 - 0.9727 = 0.0273$, 약 $2.7\%$ 다.
+
+
+`# 예제8` -- 20세 한 사람만 받는데 망할 확률을 $5\%$ 로 줄이고 싶다. 보험료를 얼마로 받아야 하는가($i = 0.05$, $S = 10^8$). 생존함수는 아래와 같다.
+
+$$S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07$$
+
+`(풀이)`
+
+망할 확률을 $5\%$ 로 셋팅한다.
+
+$$
+\Pr[SZ > P] = 1 - S_{20}(u) = 0.05
+$$
+
+이제 $S_{20}(u) = 0.95$ 인 $u$ 를 찾는다. 
+
+$$
+\begin{aligned}
+S_{20}(u) = 0.95
+&\iff \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^u - 1\right)\right\} = 0.95 \\
+&\iff \frac{B}{\log c}\,c^{20}\left(c^u - 1\right) = -\log 0.95 \\
+&\iff c^u = 1 - \frac{\log c}{B c^{20}}\log 0.95 \\
+&\iff u = \frac{1}{\log c}\log\left(1 - \frac{\log c}{B c^{20}}\log 0.95\right)
+\end{aligned}
+$$
+
+
+$B = 0.0003$, $c = 1.07$ 을 넣으면
+
+$$
+u = \frac{1}{\log 1.07}\log\left(1 - \frac{\log 1.07}{0.0003 \times 1.07^{20}}\log 0.95\right) = 20.45 \ \text{년}
+$$
+
+따라서 
+
+$$
+P = S v^{u} = 10{,}000 \times 1.05^{-20.45} = 3{,}687 \ \text{만원}
+$$
+
+# 3. $N$ 명을 받으면?
+
+`# 예제10` 남은 수명이 확률 0.2 로 2년, 확률 0.8 로 30년인 사람들이 있다. 이런 사람들을 서로 독립으로 $N$ 명 받는다. 보험금은 1억, $i = 0.05$ 이고, 한 사람당 EPV 를 받는다. $N = 1, 2, \dots, 100$ 일 때 회사가 망할 확률을 각각 구하라.
+
+`(풀이)` 
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.85em; overflow-x: auto;"}
+**$N = 1$**&emsp;//&emsp;망할 확률 $0.2$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.3665 \times 10{,}000 \times 1 = 3{,}665$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="1" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_{1}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 1</td><td rowspan="1">0.8</td><td class="sep">0.231</td><td rowspan="1" class="sep">0.2314</td><td rowspan="1">0.3665</td><td rowspan="1">0.3665</td><td rowspan="1">3,665</td><td rowspan="1" class="sep">4,041</td><td rowspan="1">X</td><td rowspan="1" class="sep">5,840</td><td rowspan="1">X</td></tr>
+<tr class="ruin gstart"><td rowspan="1">1 · 0</td><td rowspan="1">0.2</td><td class="sep">0.907</td><td rowspan="1" class="sep">0.9070</td><td rowspan="1">0.3665</td><td rowspan="1">0.3665</td><td rowspan="1">3,665</td><td rowspan="1" class="sep">−5,959</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−23,361</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N1.png){width=100%}
+
+![](attachments/06wk_hist3_N1.png){width=100%}
+:::::
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.85em; overflow-x: auto;"}
+**$N = 2$**&emsp;//&emsp;망할 확률 $0.36$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.3665 \times 10{,}000 \times 2 = 7{,}330$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="2" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_{1}\)</span></th><th><span class="math inline">\(Z_{2}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 2</td><td rowspan="1">0.64</td><td class="sep">0.231</td><td>0.231</td><td rowspan="1" class="sep">0.4628</td><td rowspan="1">0.3665</td><td rowspan="1">0.7330</td><td rowspan="1">7,330</td><td rowspan="1" class="sep">8,081</td><td rowspan="1">X</td><td rowspan="1" class="sep">11,681</td><td rowspan="1">X</td></tr>
+<tr class="ruin gstart"><td rowspan="2">1 · 1</td><td rowspan="2">0.32</td><td class="sep">0.907</td><td>0.231</td><td rowspan="2" class="sep">1.1384</td><td rowspan="2">0.3665</td><td rowspan="2">0.7330</td><td rowspan="2">7,330</td><td rowspan="2" class="sep">−1,919</td><td rowspan="2"><b>O</b></td><td rowspan="2" class="sep">−17,521</td><td rowspan="2"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="1">2 · 0</td><td rowspan="1">0.04</td><td class="sep">0.907</td><td>0.907</td><td rowspan="1" class="sep">1.8141</td><td rowspan="1">0.3665</td><td rowspan="1">0.7330</td><td rowspan="1">7,330</td><td rowspan="1" class="sep">−11,919</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−46,722</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N2.png){width=100%}
+
+![](attachments/06wk_hist3_N2.png){width=100%}
+:::::
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.85em; overflow-x: auto;"}
+**$N = 3$**&emsp;//&emsp;망할 확률 $0.488$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.3665 \times 10{,}000 \times 3 = 10{,}995$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="3" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_{1}\)</span></th><th><span class="math inline">\(Z_{2}\)</span></th><th><span class="math inline">\(Z_{3}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 3</td><td rowspan="1">0.512</td><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td rowspan="1" class="sep">0.6941</td><td rowspan="1">0.3665</td><td rowspan="1">1.0995</td><td rowspan="1">10,995</td><td rowspan="1" class="sep">12,122</td><td rowspan="1">X</td><td rowspan="1" class="sep">17,521</td><td rowspan="1">X</td></tr>
+<tr class="ruin gstart"><td rowspan="3">1 · 2</td><td rowspan="3">0.384</td><td class="sep">0.907</td><td>0.231</td><td>0.231</td><td rowspan="3" class="sep">1.3698</td><td rowspan="3">0.3665</td><td rowspan="3">1.0995</td><td rowspan="3">10,995</td><td rowspan="3" class="sep">2,122</td><td rowspan="3">X</td><td rowspan="3" class="sep">−11,681</td><td rowspan="3"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="3">2 · 1</td><td rowspan="3">0.096</td><td class="sep">0.907</td><td>0.907</td><td>0.231</td><td rowspan="3" class="sep">2.0454</td><td rowspan="3">0.3665</td><td rowspan="3">1.0995</td><td rowspan="3">10,995</td><td rowspan="3" class="sep">−7,878</td><td rowspan="3"><b>O</b></td><td rowspan="3" class="sep">−40,882</td><td rowspan="3"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="1">3 · 0</td><td rowspan="1">0.008</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td rowspan="1" class="sep">2.7211</td><td rowspan="1">0.3665</td><td rowspan="1">1.0995</td><td rowspan="1">10,995</td><td rowspan="1" class="sep">−17,878</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−70,083</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N3.png){width=100%}
+
+![](attachments/06wk_hist3_N3.png){width=100%}
+:::::
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.85em; overflow-x: auto;"}
+**$N = 4$**&emsp;//&emsp;망할 확률 $0.5904$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.3665 \times 10{,}000 \times 4 = 14{,}660$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="4" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_{1}\)</span></th><th><span class="math inline">\(Z_{2}\)</span></th><th><span class="math inline">\(Z_{3}\)</span></th><th><span class="math inline">\(Z_{4}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 4</td><td rowspan="1">0.4096</td><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td>0.231</td><td rowspan="1" class="sep">0.9255</td><td rowspan="1">0.3665</td><td rowspan="1">1.4660</td><td rowspan="1">14,660</td><td rowspan="1" class="sep">16,163</td><td rowspan="1">X</td><td rowspan="1" class="sep">23,361</td><td rowspan="1">X</td></tr>
+<tr class="ruin gstart"><td rowspan="4">1 · 3</td><td rowspan="4">0.4096</td><td class="sep">0.907</td><td>0.231</td><td>0.231</td><td>0.231</td><td rowspan="4" class="sep">1.6012</td><td rowspan="4">0.3665</td><td rowspan="4">1.4660</td><td rowspan="4">14,660</td><td rowspan="4" class="sep">6,163</td><td rowspan="4">X</td><td rowspan="4" class="sep">−5,840</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td><td>0.231</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.907</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="4">2 · 2</td><td rowspan="4">0.1536</td><td class="sep">0.907</td><td>0.907</td><td>0.231</td><td>0.231</td><td rowspan="4" class="sep">2.2768</td><td rowspan="4">0.3665</td><td rowspan="4">1.4660</td><td rowspan="4">14,660</td><td rowspan="4" class="sep">−3,837</td><td rowspan="4"><b>O</b></td><td rowspan="4" class="sep">−35,042</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.231</td><td>0.907</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="4">3 · 1</td><td rowspan="4">0.0256</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.231</td><td rowspan="4" class="sep">2.9525</td><td rowspan="4">0.3665</td><td rowspan="4">1.4660</td><td rowspan="4">14,660</td><td rowspan="4" class="sep">−13,837</td><td rowspan="4"><b>O</b></td><td rowspan="4" class="sep">−64,243</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.907</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.231</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="1">4 · 0</td><td rowspan="1">0.0016</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.907</td><td rowspan="1" class="sep">3.6281</td><td rowspan="1">0.3665</td><td rowspan="1">1.4660</td><td rowspan="1">14,660</td><td rowspan="1" class="sep">−23,837</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−93,444</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N4.png){width=100%}
+
+![](attachments/06wk_hist3_N4.png){width=100%}
+:::::
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.78em; overflow-x: auto;"}
+**$N = 5$**&emsp;//&emsp;망할 확률 $0.26272$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.3665 \times 10{,}000 \times 5 = 18{,}325$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="5" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_{1}\)</span></th><th><span class="math inline">\(Z_{2}\)</span></th><th><span class="math inline">\(Z_{3}\)</span></th><th><span class="math inline">\(Z_{4}\)</span></th><th><span class="math inline">\(Z_{5}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 5</td><td rowspan="1">0.32768</td><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td>0.231</td><td>0.231</td><td rowspan="1" class="sep">1.1569</td><td rowspan="1">0.3665</td><td rowspan="1">1.8325</td><td rowspan="1">18,325</td><td rowspan="1" class="sep">20,204</td><td rowspan="1">X</td><td rowspan="1" class="sep">29,201</td><td rowspan="1">X</td></tr>
+<tr class="ok gstart"><td rowspan="4">1 · 4</td><td rowspan="4">0.4096</td><td class="sep">0.907</td><td>0.231</td><td>0.231</td><td>0.231</td><td>0.231</td><td rowspan="4" class="sep">1.8325</td><td rowspan="4">0.3665</td><td rowspan="4">1.8325</td><td rowspan="4">18,325</td><td rowspan="4" class="sep">10,204</td><td rowspan="4">X</td><td rowspan="4" class="sep">0</td><td rowspan="4">X</td></tr>
+<tr class="ok"><td class="sep">0.231</td><td>0.907</td><td>0.231</td><td>0.231</td><td>0.231</td></tr>
+<tr class="ok"><td class="sep dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td></tr>
+<tr class="ok"><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="4">2 · 3</td><td rowspan="4">0.2048</td><td class="sep">0.907</td><td>0.907</td><td>0.231</td><td>0.231</td><td>0.231</td><td rowspan="4" class="sep">2.5082</td><td rowspan="4">0.3665</td><td rowspan="4">1.8325</td><td rowspan="4">18,325</td><td rowspan="4" class="sep">204</td><td rowspan="4">X</td><td rowspan="4" class="sep">−29,201</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.231</td><td>0.907</td><td>0.231</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.231</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="4">3 · 2</td><td rowspan="4">0.0512</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.231</td><td>0.231</td><td rowspan="4" class="sep">3.1838</td><td rowspan="4">0.3665</td><td rowspan="4">1.8325</td><td rowspan="4">18,325</td><td rowspan="4" class="sep">−9,796</td><td rowspan="4"><b>O</b></td><td rowspan="4" class="sep">−58,403</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.907</td><td>0.231</td><td>0.907</td><td>0.231</td></tr>
+<tr class="ruin"><td class="sep dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.231</td><td>0.907</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="4">4 · 1</td><td rowspan="4">0.0064</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.907</td><td>0.231</td><td rowspan="4" class="sep">3.8595</td><td rowspan="4">0.3665</td><td rowspan="4">1.8325</td><td rowspan="4">18,325</td><td rowspan="4" class="sep">−19,796</td><td rowspan="4"><b>O</b></td><td rowspan="4" class="sep">−87,604</td><td rowspan="4"><b>O</b></td></tr>
+<tr class="ruin"><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.231</td><td>0.907</td></tr>
+<tr class="ruin"><td class="sep dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td><td class="dots">⋮</td></tr>
+<tr class="ruin"><td class="sep">0.231</td><td>0.907</td><td>0.907</td><td>0.907</td><td>0.907</td></tr>
+<tr class="ruin gstart"><td rowspan="1">5 · 0</td><td rowspan="1">0.00032</td><td class="sep">0.907</td><td>0.907</td><td>0.907</td><td>0.907</td><td>0.907</td><td rowspan="1" class="sep">4.5351</td><td rowspan="1">0.3665</td><td rowspan="1">1.8325</td><td rowspan="1">18,325</td><td rowspan="1" class="sep">−29,796</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−116,805</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N5.png){width=100%}
+
+![](attachments/06wk_hist3_N5.png){width=100%}
+:::::
+
+::::: {layout="[[38,31,31]]" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+⋮
+
+⋮
+
+⋮
+:::::
+
+::::: {.hyper-grid style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;"}
+:::: {.hyper-left}
+::: {style="font-size: 0.85em; overflow-x: auto;"}
+**$N = 100$**&emsp;//&emsp;망할 확률 $0.44054$&emsp;//&emsp;받은 돈 $=$ EPV $\times\, S \times N = 0.366508 \times 10{,}000 \times 100 = 366{,}508$ 만원
+
+```{=html}
+<table class="ztab">
+<thead><tr class="grp"><th rowspan="2">case</th><th rowspan="2">확률</th><th colspan="1" class="sep">사람별 <span class="math inline">\(Z\)</span></th><th colspan="4" class="sep"><span class="math inline">\(t=0\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=2\)</span></th><th colspan="2" class="sep"><span class="math inline">\(t=30\)</span></th></tr><tr><th class="sep"><span class="math inline">\(Z_1, \dots, Z_{100}\)</span></th><th class="sep"><span class="math inline">\(\mathrm{sum}(Z)\)</span></th><th><span class="math inline">\(\mathrm{E}(Z)\)</span></th><th><span class="math inline">\(N\,\mathrm{E}(Z)\)</span></th><th>received</th><th class="sep">남은 돈</th><th>파산</th><th class="sep">남은 돈</th><th>파산</th></tr></thead>
+<tbody>
+<tr class="ok gstart"><td rowspan="1">0 · 100</td><td rowspan="1">0.0000</td><td rowspan="9" class="sep">0.907<br>또는<br>0.231</td><td rowspan="1" class="sep">23.1377</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">404,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">584,026</td><td rowspan="1">X</td></tr>
+<tr class="dotsrow"><td>⋮</td><td>⋮</td><td class="sep">⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td class="sep">⋮</td><td></td><td class="sep">⋮</td><td></td></tr>
+<tr class="ok gstart"><td rowspan="1">18 · 82</td><td rowspan="1">0.0909</td><td rowspan="1" class="sep">35.2995</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">224,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">58,403</td><td rowspan="1">X</td></tr>
+<tr class="ok gstart"><td rowspan="1">19 · 81</td><td rowspan="1">0.0981</td><td rowspan="1" class="sep">35.9751</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">214,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">29,201</td><td rowspan="1">X</td></tr>
+<tr class="ok gstart"><td rowspan="1">20 · 80</td><td rowspan="1">0.0993</td><td rowspan="1" class="sep">36.6508</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">204,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">0</td><td rowspan="1">X</td></tr>
+<tr class="ruin gstart"><td rowspan="1">21 · 79</td><td rowspan="1">0.0946</td><td rowspan="1" class="sep">37.3264</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">194,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">−29,201</td><td rowspan="1"><b>O</b></td></tr>
+<tr class="ruin gstart"><td rowspan="1">22 · 78</td><td rowspan="1">0.0849</td><td rowspan="1" class="sep">38.0021</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">184,075</td><td rowspan="1">X</td><td rowspan="1" class="sep">−58,403</td><td rowspan="1"><b>O</b></td></tr>
+<tr class="dotsrow"><td>⋮</td><td>⋮</td><td class="sep">⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td class="sep">⋮</td><td></td><td class="sep">⋮</td><td></td></tr>
+<tr class="ruin gstart"><td rowspan="1">100 · 0</td><td rowspan="1">0.0000</td><td rowspan="1" class="sep">90.7029</td><td rowspan="1">0.3665</td><td rowspan="1">36.6508</td><td rowspan="1">366,508</td><td rowspan="1" class="sep">−595,925</td><td rowspan="1"><b>O</b></td><td rowspan="1" class="sep">−2,336,103</td><td rowspan="1"><b>O</b></td></tr>
+</tbody>
+</table>
+```
+
+::: {style="font-size: 0.92em; color: #666; margin-top: 4px;"}
+**case** $=$ (2년 시점 사망 수) $\cdot$ (30년 시점 사망 수)
+
+사람별 $Z$ 는 2년 시점에 죽은 사람이면 $0.907$, 30년 시점에 죽은 사람이면 $0.231$ 이다. 예를 들어 case 가 $18 \cdot 82$ 면 $0.907$ 인 사람이 18명, $0.231$ 인 사람이 82명이다.
+:::
+:::
+::::
+
+![](attachments/06wk_balance_N100.png){width=100%}
+
+![](attachments/06wk_hist3_N100.png){width=100%}
+:::::
+
+<div style="height: 1.5em;"></div>
+
+`#` 
+
+`-` 마무리. 한 사람당 EPV 만큼 받으면
+
+- $N$ 이 작을 때: EPV 만큼 받음 $\neq$ 안 망함, EPV 만큼 받음 $\neq$ 50% 만 망함. 
+- $N$ 이 클 때: EPV 만큼 받음 $\neq$ 안 망함, EPV 만큼 받음 $\approx$ 50% 만 망함. 
+
+`-` 위의 예제에서 한 사람당 EPV 만 받으면, $N$ 에 따라 망할 확률이 아래처럼 변한다.
+
+![](attachments/06wk_ruin_vs_N.png){width=100%}
+
+

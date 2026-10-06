@@ -1,11 +1,18 @@
 ---
-title: "**05wk-2**: 보험급부 (3)"
+title: "**06wk-1**: 보험급부 (3)"
 author: 최규빈
-date: "10/01/2026 09:00"
+date: "10/06/2026 09:00"
 draft: true
+include-in-header:
+  text: |
+    <style>
+    .hyper-left table { width: 100% !important; margin: 0 !important; table-layout: fixed; }
+    @media (max-width: 700px) { .hyper-grid { grid-template-columns: 100% !important; }
+    .hyper-left > div { border-right: none !important; padding-right: 0 !important; }
+    }
+    </style>
 ---
 
-<style>.hyper-left table { width: 100% !important; margin: 0 !important; table-layout: fixed; } @media (max-width: 700px) { .hyper-grid { grid-template-columns: 100% !important; } .hyper-left > div { border-right: none !important; padding-right: 0 !important; } }</style>
 
 # 1. 강의영상
 
