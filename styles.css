@@ -47,4 +47,11 @@ table:not(.quarto-listing-table) {
   width: auto !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  font-size: 0.875em;            /* 전역 — 표마다 `: {.sm}` 를 안 붙인다 (대표 2026-10-08) */
 }
+table:not(.quarto-listing-table) th,
+table:not(.quarto-listing-table) td { padding: 0.25rem 0.5rem; }
+
+/* 표 여러 개를 한 줄에 — 가운데 모아 같은 간격으로 (06wk-2 예제7) */
+.tblrow { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 1.5em 4em; margin: 0.5em 0 1.2em; }
+.tblrow table { margin: 0 !important; }
