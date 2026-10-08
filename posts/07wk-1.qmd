@@ -1,0 +1,170 @@
+---
+title: "**07wk-1**: 포트폴리오 (2)"
+author: 최규빈
+date: "10/13/2026 09:00"
+draft: true
+resources:
+  - attachments/06wk_theory6_anim_gompertz.html
+include-in-header:
+  text: |
+    <style>
+    .ztab { border-collapse: collapse; margin: 6px 0 12px 0; font-variant-numeric: tabular-nums; }
+    .ztab th, .ztab td { text-align: center; vertical-align: middle; padding: 3px 6px; white-space: nowrap; }
+    .ztab thead th { font-weight: 600; border-bottom: 1px solid #bbb; }
+    .ztab thead tr.grp th { border-bottom: 1px solid #ddd; color: #555; font-weight: 500; }
+    .ztab thead tr:last-child th { border-bottom: 2px solid #555; }
+    .ztab .sep { border-left: 1px solid #e3e3e3; }
+    .ztab tr.gstart td { border-top: 1px solid #c8c8c8; }
+    .ztab tr.ruin td { color: #C62828; background: #fdf3f3; }
+    .ztab td.const { color: #333 !important; background: #fafafa !important; }
+    .ztab td.dots { color: #aaa !important; line-height: 1; padding: 0 6px; }
+    .ztab tr.dotsrow td { color: #aaa; border-top: 1px solid #c8c8c8; }
+    .ztab tbody tr:last-child td { border-bottom: 2px solid #555; }
+    @media (max-width: 700px) { .hyper-grid { grid-template-columns: 100% !important; }
+    .hyper-left > div { border-right: none !important; padding-right: 0 !important; }
+    }
+    </style>
+---
+
+# 1. 강의영상
+
+{{<video https://youtu.be/playlist?list=PLcNq4yZKgXi4&si=zFsoovhKdW8MrP9j>}}
+
+# 2. 이론 정리
+
+$N$ 명을 받고, 한 사람당 $P$ 를 받으며, 보험금은 $S$, 이자율은 $i$ 라고 하자. 
+
+`# 이론1` -- $\bar Z = \mathrm{sum}(Z)/N$ 의 분포는 $N$ 이 크면 정규분포에 가깝다(중심극한정리). 사람마다의 $Z$ 가 서로 독립이고 분포가 같기 때문이다. 평균과 분산은
+
+$$
+\mathrm{E}[\bar Z] = \mathrm{E}[Z], \qquad \mathrm{V}[\bar Z] = \frac{\mathrm{V}[Z]}{N}
+$$
+
+이라서, $N$ 이 크면 $\bar Z \overset{\cdot}{\sim} N\!\left(\mathrm{E}[Z],\ \dfrac{\mathrm{V}[Z]}{N}\right)$ 이다. 한 사람 $Z$ 의 평균과 분산만 알면 된다.
+
+`# 이론2` -- $t$ 시점의 잔고는
+
+$$
+\text{balance}(t) = (1+i)^t\,\bigl(NP - S\,\mathrm{sum}_t(Z)\bigr)
+$$
+
+이다. 여기서 $\mathrm{sum}_t(Z)$ 는 $t$ 시점까지 죽은 사람들의 $Z$ 만 더한 것이다. 받은 돈 $NP$ 에서 지금까지 내준 돈의 0 시점 값 $S\,\mathrm{sum}_t(Z)$ 를 빼고, 그것을 $t$ 시점 값으로 바꾼 것이다.
+
+`# 이론3` -- 파산하는 사건은 시점 $t$ 에 무관하다. 파산은 모두 죽고 정산할 것을 다 한 뒤에 최종으로 판단하기 때문이다. 식으로 보자. 모두 죽은 뒤(= 줄 거 다 준 뒤)에는 $\mathrm{sum}_t(Z) = \mathrm{sum}(Z)$ 로 굳어 더 변하지 않으므로, 그 뒤 어느 시점 $t$ 에서 잰 남은 돈은
+
+$$
+\text{balance}(t) = (1+i)^t\,\bigl(NP - S\,\mathrm{sum}(Z)\bigr)
+$$
+
+이다. 파산은 이 남은 돈이 음수인 사건이므로
+
+$$
+\begin{aligned}
+\text{파산}
+&\iff (1+i)^t\,\bigl(NP - S\,\mathrm{sum}(Z)\bigr) < 0 \\
+&\iff NP - S\,\mathrm{sum}(Z) < 0 && (\because (1+i)^t > 0) \\
+&\iff S\,\mathrm{sum}(Z) > NP \\
+&\iff \frac{\mathrm{sum}(Z)}{N} > \frac{P}{S} && (\because NS > 0) \\
+&\iff \bar Z > \frac{P}{S}
+\end{aligned}
+$$
+
+이다. 
+
+`# 이론4` -- 모두 죽은 뒤 남은 돈의 분포는 $\mathrm{sum}(Z)$ 의 분포를 **좌우로 뒤집은** 모양이다. 이론3 의 남은 돈 식을 $\mathrm{sum}(Z)$ 에 대해 정리하면
+
+$$
+\text{balance}(t) = \underbrace{(1+i)^t NP}_{\text{상수}} - \underbrace{(1+i)^t S}_{\text{양수}}\cdot \mathrm{sum}(Z)
+$$
+
+이다. $\mathrm{sum}(Z)$ 에 음수를 곱하고 상수를 더한 것이라 분포의 모양은 그대로 두고 좌우만 뒤집히며, 눈금만 달라진다.
+
+`# 이론5` -- 한 사람 $Z$ 의 평균 $\mathrm{E}[Z]$ 는 EPV 를 구하는 식 그대로다. 분산은 $\mathrm{V}[Z] = \mathrm{E}[Z^2] - \mathrm{E}[Z]^2$ 인데, $Z^2 = (v^T)^2 = (v^2)^T$ 이므로 $\mathrm{E}[Z^2]$ 는 **$v$ 대신 $v^2$ 을 넣고 $\mathrm{E}[Z]$ 를 구하는 식을 그대로 돌린 것**이다. 즉 $\mathrm{E}[Z]$ 를 구하는 법만 알면 $\mathrm{E}[Z^2]$ 도 같은 법으로 구할 수 있고, 둘을 빼면 분산이 나온다. 
+
+`# 이론6` -- $N$ 이 클 때 파산할 확률은 이론1 과 이론3 을 합치면 바로 나온다.
+
+$$
+\bar Z \overset{\cdot}{\sim} N\!\left(\mathrm{E}[Z],\ \frac{\mathrm{V}[Z]}{N}\right)
+$$
+
+이고, 파산은 $\bar Z > P/S$ 이므로
+
+$$
+\Pr[\text{파산}] = \Pr\!\left[\bar Z > \frac{P}{S}\right]
+$$
+
+을 이 정규분포에서 읽으면 된다.
+
+
+# 3. 연습문제
+
+
+`# 예제4` -- (이론1) 남은 수명이 확률 $0.2$ 로 2년, 확률 $0.8$ 로 30년인 사람들을 서로 독립으로 $N$ 명 받는다($i = 0.05$). $\bar Z$ 의 분포를 그렸더니 아래와 같았다. (a)(b)(c) 는 $N = 1, 5, 50$ 중 하나씩이다.
+
+![](attachments/06wk_t1_shapes.png){width=100% fig-align="center"}
+
+어느 것이 $N = 50$ 이라고 생각하는가?
+
+`(풀이)` (b) 다. $N$ 이 클수록 종 모양에 가까워지고 좁아진다. (c) 는 값이 둘뿐이니 $N = 1$, (a) 는 여섯 개 값이 보이니 $N = 5$ 다.
+
+`# 예제5` -- (이론3) 남은 수명이 확률 $0.2$ 로 2년, 확률 $0.8$ 로 30년인 사람들을 서로 독립으로 $N = 5$ 명 받는다. 보험금은 $S = 10{,}000$ 만원, $i = 0.05$ 이고, 한 사람당 $P = 4{,}000$ 만원을 받기로 했다. 파산하는 사건을 $\bar Z$ 로 표현하라.
+
+`(풀이)` $P/S = 4{,}000/10{,}000 = 0.4$ 이므로 파산 $\iff \bar Z > 0.4$ 다. ($\mathrm{sum}(Z)$ 로 쓰면 $\mathrm{sum}(Z) > 0.4 \times 5 = 2$ 다.)
+
+`# 예제6` -- (이론4) 남은 수명이 확률 $0.2$ 로 2년, 확률 $0.8$ 로 30년인 사람들을 서로 독립으로 $N = 2$ 명 받고, 한 사람당 EPV 만큼($P = 3{,}665$ 만원) 받았다. 보험금은 $S = 10{,}000$ 만원, $i = 0.05$ 다. 왼쪽은 $\mathrm{sum}(Z)$ 의 분포다 — 값은 $0.46$ (둘 다 30년), $1.14$ (한 명 2년), $1.81$ (둘 다 2년) 이고 확률은 $0.64,\ 0.32,\ 0.04$ 다. 오른쪽 (a)(b)(c) 중 모두 죽은 뒤($t = 30$) 남은 돈의 분포는 어느 것인가?
+
+![](attachments/06wk_t4_flip.png){width=100% fig-align="center"}
+
+`(풀이)` (a) 다. $\mathrm{sum}(Z)$ 의 분포를 좌우로 뒤집은(대칭시킨) 모양이 된다.
+
+`# 예제7` -- (이론5) 남은 수명 $T$ 의 분포가 아래 왼쪽과 같은 사람 한 명이 있다. $i = 0.05$, $v = 1/1.05$ 이고, 필요한 $v$ 의 거듭제곱은 오른쪽에 적어 두었다.
+
+::: {.tblrow}
+
+| $T$ | 2 | 30 |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+| $v^2$ | $v^{30}$ | $v^4$ | $v^{60}$ |
+|---|---|---|---|
+| 0.9070 | 0.2314 | 0.8227 | 0.0535 |
+
+:::
+
+\(1\) $Z = v^T$ 의 분포표를 만들고 $\mathrm{E}[Z]$ 를 구하라.
+
+\(2\) $Z^2$ 의 분포표를 만들고 $\mathrm{E}[Z^2]$ 을 구하라.
+
+\(3\) $\mathrm{V}[Z]$ 를 구하라.
+
+`(풀이)`
+
+\(1\) $Z$ 는 $T$ 가 2 이면 $v^2$, 30 이면 $v^{30}$ 이다. 확률은 $T$ 의 것을 그대로 가져온다.
+
+| $Z = v^T$ | $v^2 = 0.9070$ | $v^{30} = 0.2314$ |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+$\mathrm{E}[Z] = 0.2 \times 0.9070 + 0.8 \times 0.2314 = 0.3665$.
+
+\(2\) $Z^2 = (v^T)^2 = (v^2)^T$ 이므로 $v$ 자리에 $v^2$ 을 넣은 것이다.
+
+| $Z^2 = (v^2)^T$ | $v^4 = 0.8227$ | $v^{60} = 0.0535$ |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+$\mathrm{E}[Z^2] = 0.2 \times 0.8227 + 0.8 \times 0.0535 = 0.2074$.
+
+\(3\) $\mathrm{V}[Z] = \mathrm{E}[Z^2] - \mathrm{E}[Z]^2 = 0.2074 - 0.3665^2 \approx 0.0731$.
+
+`# 예제8` -- (이론6) 20세 $N$ 명을 서로 독립으로 받는다. 생존함수는 
+
+$$
+S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07
+$$
+
+이고, 보험금은 $S = 10^8$ 원(1억), $i = 0.05$ 다. 한 사람의 $Z = v^{T_{20}}$ 는 $\mathrm{E}[Z] = 0.1129$, $\mathrm{V}[Z] = 0.0168$ 이다. 한 사람당 $P/S = \mathrm{E}[Z] + 0.01$, 곧 EPV 보다 $100$ 만원 더 받는다고 하자. $N$ 이 커지면 $\bar Z$ 의 분포 · 파산할 확률 · 기대수익은 어떻게 변하는가? (풀지 말고 보기만 하세요)
+
+`(풀이)` $\bar Z \overset{\cdot}{\sim} N\!\left(0.1129,\ 0.0168/N\right)$ 이고 파산은 $\bar Z > P/S = 0.1229$ 다. 아래 그림은 $N$ 을 $1$ 에서 $10{,}000$ 까지 키우며 이것을 그린 것이다.
+
+<iframe src="attachments/06wk_theory6_anim_gompertz.html" width="100%" height="680" style="border:none;"></iframe>

@@ -167,7 +167,6 @@ window.Quarto = {
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
   <li><a href="#n-명을-받으면" id="toc-n-명을-받으면" class="nav-link" data-scroll-target="#n-명을-받으면">2. <span class="math inline">\(N\)</span> 명을 받으면?</a></li>
   <li><a href="#이론-정리" id="toc-이론-정리" class="nav-link" data-scroll-target="#이론-정리">3. 이론 정리</a></li>
-  <li><a href="#연습문제" id="toc-연습문제" class="nav-link" data-scroll-target="#연습문제">4. 연습문제</a></li>
   </ul>
 </nav>
     </div>
@@ -207,6 +206,7 @@ window.Quarto = {
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLcNq4yZKgXi4&amp;si=zFsoovhKdW8MrP9j" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="n-명을-받으면" class="level1">
 <h1>2. <span class="math inline">\(N\)</span> 명을 받으면?</h1>
@@ -884,7 +884,7 @@ window.Quarto = {
 <p><img src="attachments/06wk_balance_N5.png" class="img-fluid" style="width:100.0%"></p>
 <p><img src="attachments/06wk_hist3_N5.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="quarto-layout-panel" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;" data-layout="[[38,31,31]]">
+<div class="quarto-layout-panel" data-layout="[[38,31,31]]" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 38.0%;justify-content: flex-start;">
 <p>⋮</p>
@@ -1734,7 +1734,7 @@ window.Quarto = {
 <p><img src="attachments/06wk_ex2_balance_N5.png" class="img-fluid" style="width:100.0%"></p>
 <p><img src="attachments/06wk_ex2_hist3_N5.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="quarto-layout-panel" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;" data-layout="[[38,31,31]]">
+<div class="quarto-layout-panel" data-layout="[[38,31,31]]" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 38.0%;justify-content: flex-start;">
 <p>⋮</p>
@@ -1996,7 +1996,7 @@ window.Quarto = {
 <p><img src="attachments/06wk_ex3_balance_N5.png" class="img-fluid" style="width:100.0%"></p>
 <p><img src="attachments/06wk_ex3_hist5_N5.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-<div class="quarto-layout-panel" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;" data-layout="[[38,31,31]]">
+<div class="quarto-layout-panel" data-layout="[[38,31,31]]" style="text-align: center; font-size: 1.5em; line-height: 1.1; border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0 0 -1px 0;">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 38.0%;justify-content: flex-start;">
 <p>⋮</p>
@@ -2076,105 +2076,8 @@ window.Quarto = {
 \Pr[\text{파산}] = \Pr\!\left[\bar Z &gt; \frac{P}{S}\right]
 \]</span></p>
 <p>을 이 정규분포에서 읽으면 된다.</p>
-</section>
-<section id="연습문제" class="level1">
-<h1>4. 연습문제</h1>
-<p><code># 예제4</code> – (이론1) 남은 수명이 확률 <span class="math inline">\(0.2\)</span> 로 2년, 확률 <span class="math inline">\(0.8\)</span> 로 30년인 사람들을 서로 독립으로 <span class="math inline">\(N\)</span> 명 받는다(<span class="math inline">\(i = 0.05\)</span>). <span class="math inline">\(\bar Z\)</span> 의 분포를 그렸더니 아래와 같았다. (a)(b)(c) 는 <span class="math inline">\(N = 1, 5, 50\)</span> 중 하나씩이다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="attachments/06wk_t1_shapes.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-<p>어느 것이 <span class="math inline">\(N = 50\)</span> 이라고 생각하는가?</p>
-<p><code>(풀이)</code> (b) 다. <span class="math inline">\(N\)</span> 이 클수록 종 모양에 가까워지고 좁아진다. (c) 는 값이 둘뿐이니 <span class="math inline">\(N = 1\)</span>, (a) 는 여섯 개 값이 보이니 <span class="math inline">\(N = 5\)</span> 다.</p>
-<p><code># 예제5</code> – (이론3) 남은 수명이 확률 <span class="math inline">\(0.2\)</span> 로 2년, 확률 <span class="math inline">\(0.8\)</span> 로 30년인 사람들을 서로 독립으로 <span class="math inline">\(N = 5\)</span> 명 받는다. 보험금은 <span class="math inline">\(S = 10{,}000\)</span> 만원, <span class="math inline">\(i = 0.05\)</span> 이고, 한 사람당 <span class="math inline">\(P = 4{,}000\)</span> 만원을 받기로 했다. 파산하는 사건을 <span class="math inline">\(\bar Z\)</span> 로 표현하라.</p>
-<p><code>(풀이)</code> <span class="math inline">\(P/S = 4{,}000/10{,}000 = 0.4\)</span> 이므로 파산 <span class="math inline">\(\iff \bar Z &gt; 0.4\)</span> 다. (<span class="math inline">\(\mathrm{sum}(Z)\)</span> 로 쓰면 <span class="math inline">\(\mathrm{sum}(Z) &gt; 0.4 \times 5 = 2\)</span> 다.)</p>
-<p><code># 예제6</code> – (이론4) 남은 수명이 확률 <span class="math inline">\(0.2\)</span> 로 2년, 확률 <span class="math inline">\(0.8\)</span> 로 30년인 사람들을 서로 독립으로 <span class="math inline">\(N = 2\)</span> 명 받고, 한 사람당 EPV 만큼(<span class="math inline">\(P = 3{,}665\)</span> 만원) 받았다. 보험금은 <span class="math inline">\(S = 10{,}000\)</span> 만원, <span class="math inline">\(i = 0.05\)</span> 다. 왼쪽은 <span class="math inline">\(\mathrm{sum}(Z)\)</span> 의 분포다 — 값은 <span class="math inline">\(0.46\)</span> (둘 다 30년), <span class="math inline">\(1.14\)</span> (한 명 2년), <span class="math inline">\(1.81\)</span> (둘 다 2년) 이고 확률은 <span class="math inline">\(0.64,\ 0.32,\ 0.04\)</span> 다. 오른쪽 (a)(b)(c) 중 모두 죽은 뒤(<span class="math inline">\(t = 30\)</span>) 남은 돈의 분포는 어느 것인가?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="attachments/06wk_t4_flip.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-<p><code>(풀이)</code> (a) 다. <span class="math inline">\(\mathrm{sum}(Z)\)</span> 의 분포를 좌우로 뒤집은(대칭시킨) 모양이 된다.</p>
-<p><code># 예제7</code> – (이론5) 남은 수명 <span class="math inline">\(T\)</span> 의 분포가 아래 왼쪽과 같은 사람 한 명이 있다. <span class="math inline">\(i = 0.05\)</span>, <span class="math inline">\(v = 1/1.05\)</span> 이고, 필요한 <span class="math inline">\(v\)</span> 의 거듭제곱은 오른쪽에 적어 두었다.</p>
-<div class="tblrow">
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(T\)</span></th>
-<th>2</th>
-<th>30</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>확률</td>
-<td>0.2</td>
-<td>0.8</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(v^2\)</span></th>
-<th><span class="math inline">\(v^{30}\)</span></th>
-<th><span class="math inline">\(v^4\)</span></th>
-<th><span class="math inline">\(v^{60}\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>0.9070</td>
-<td>0.2314</td>
-<td>0.8227</td>
-<td>0.0535</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>(1) <span class="math inline">\(Z = v^T\)</span> 의 분포표를 만들고 <span class="math inline">\(\mathrm{E}[Z]\)</span> 를 구하라.</p>
-<p>(2) <span class="math inline">\(Z^2\)</span> 의 분포표를 만들고 <span class="math inline">\(\mathrm{E}[Z^2]\)</span> 을 구하라.</p>
-<p>(3) <span class="math inline">\(\mathrm{V}[Z]\)</span> 를 구하라.</p>
-<p><code>(풀이)</code></p>
-<p>(1) <span class="math inline">\(Z\)</span> 는 <span class="math inline">\(T\)</span> 가 2 이면 <span class="math inline">\(v^2\)</span>, 30 이면 <span class="math inline">\(v^{30}\)</span> 이다. 확률은 <span class="math inline">\(T\)</span> 의 것을 그대로 가져온다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(Z = v^T\)</span></th>
-<th><span class="math inline">\(v^2 = 0.9070\)</span></th>
-<th><span class="math inline">\(v^{30} = 0.2314\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>확률</td>
-<td>0.2</td>
-<td>0.8</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math inline">\(\mathrm{E}[Z] = 0.2 \times 0.9070 + 0.8 \times 0.2314 = 0.3665\)</span>.</p>
-<p>(2) <span class="math inline">\(Z^2 = (v^T)^2 = (v^2)^T\)</span> 이므로 <span class="math inline">\(v\)</span> 자리에 <span class="math inline">\(v^2\)</span> 을 넣은 것이다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(Z^2 = (v^2)^T\)</span></th>
-<th><span class="math inline">\(v^4 = 0.8227\)</span></th>
-<th><span class="math inline">\(v^{60} = 0.0535\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>확률</td>
-<td>0.2</td>
-<td>0.8</td>
-</tr>
-</tbody>
-</table>
-<p><span class="math inline">\(\mathrm{E}[Z^2] = 0.2 \times 0.8227 + 0.8 \times 0.0535 = 0.2074\)</span>.</p>
-<p>(3) <span class="math inline">\(\mathrm{V}[Z] = \mathrm{E}[Z^2] - \mathrm{E}[Z]^2 = 0.2074 - 0.3665^2 \approx 0.0731\)</span>.</p>
-<p><code># 예제8</code> – (이론6) 20세 <span class="math inline">\(N\)</span> 명을 서로 독립으로 받는다. 생존함수는</p>
+<hr>
+<p><code># 예제4</code> – (이론6) 20세 <span class="math inline">\(N\)</span> 명을 서로 독립으로 받는다. 생존함수는</p>
 <p><span class="math display">\[
 S_{20}(t) = \exp\left\{-\frac{B}{\log c}\,c^{20}\left(c^t - 1\right)\right\}, \qquad B = 0.0003,\ c = 1.07
 \]</span></p>
