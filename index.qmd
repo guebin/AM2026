@@ -23,6 +23,7 @@ title-block-banner: false
 - 퀴즈1 추가해설영상이 업로드 되었습니다. 
 - 퀴즈2 해설영상이 업로드 되었습니다. 
 - 10월1일 강사사정으로 휴강함. 보강은 추후 진도와 무관한 (중간고사 해설등) 영상을 강의사이트에 업로드할 예정
+- 중간고사: 10월29일 수업시간
 
 **실습** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" height="20" style="vertical-align:middle;"> Colab
 
