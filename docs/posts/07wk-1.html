@@ -219,7 +219,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \text{balance}(t) = (1+i)^t\,\bigl(NP - S\,\mathrm{sum}_t(Z)\bigr)
 \]</span></p>
-<p>이다. 여기서 <span class="math inline">\(\mathrm{sum}_t(Z)\)</span> 는 <span class="math inline">\(t\)</span> 시점까지 죽은 사람들의 <span class="math inline">\(Z\)</span> 만 더한 것이다. 받은 돈 <span class="math inline">\(NP\)</span> 에서 지금까지 내준 돈의 0 시점 값 <span class="math inline">\(S\,\mathrm{sum}_t(Z)\)</span> 를 빼고, 그것을 <span class="math inline">\(t\)</span> 시점 값으로 바꾼 것이다.</p>
+<p>이다. 여기서 <span class="math inline">\(\mathrm{sum}_t(Z)\)</span> 는 <span class="math inline">\(t\)</span> 시점까지 죽은 사람들의 <span class="math inline">\(Z\)</span> 만 더한 것이다.</p>
 <p><code># 이론3</code> – 파산하는 사건은 시점 <span class="math inline">\(t\)</span> 에 무관하다. 파산은 모두 죽고 정산할 것을 다 한 뒤에 최종으로 판단하기 때문이다. 식으로 보자. 모두 죽은 뒤(= 줄 거 다 준 뒤)에는 <span class="math inline">\(\mathrm{sum}_t(Z) = \mathrm{sum}(Z)\)</span> 로 굳어 더 변하지 않으므로, 그 뒤 어느 시점 <span class="math inline">\(t\)</span> 에서 잰 남은 돈은</p>
 <p><span class="math display">\[
 \text{balance}(t) = (1+i)^t\,\bigl(NP - S\,\mathrm{sum}(Z)\bigr)
@@ -240,7 +240,7 @@ window.Quarto = {
 <p><span class="math display">\[
 \text{balance}(t) = \underbrace{(1+i)^t NP}_{\text{상수}} - \underbrace{(1+i)^t S}_{\text{양수}}\cdot \mathrm{sum}(Z)
 \]</span></p>
-<p>이다. <span class="math inline">\(\mathrm{sum}(Z)\)</span> 에 음수를 곱하고 상수를 더한 것이라 분포의 모양은 그대로 두고 좌우만 뒤집히며, 눈금만 달라진다.</p>
+<p>이다. <span class="math inline">\(\mathrm{sum}(Z)\)</span> 에 음수 <span class="math inline">\(-(1+i)^t S\)</span> 를 곱해서 좌우가 뒤집히고, 상수 <span class="math inline">\((1+i)^t NP\)</span> 를 더해서 눈금 위치가 달라진다. 분포의 모양은 그대로다.</p>
 <p><code># 이론5</code> – 한 사람 <span class="math inline">\(Z\)</span> 의 평균 <span class="math inline">\(\mathrm{E}[Z]\)</span> 는 EPV 를 구하는 식 그대로다. 분산은 <span class="math inline">\(\mathrm{V}[Z] = \mathrm{E}[Z^2] - \mathrm{E}[Z]^2\)</span> 인데, <span class="math inline">\(Z^2 = (v^T)^2 = (v^2)^T\)</span> 이므로 <span class="math inline">\(\mathrm{E}[Z^2]\)</span> 는 <strong><span class="math inline">\(v\)</span> 대신 <span class="math inline">\(v^2\)</span> 을 넣고 <span class="math inline">\(\mathrm{E}[Z]\)</span> 를 구하는 식을 그대로 돌린 것</strong>이다. 즉 <span class="math inline">\(\mathrm{E}[Z]\)</span> 를 구하는 법만 알면 <span class="math inline">\(\mathrm{E}[Z^2]\)</span> 도 같은 법으로 구할 수 있고, 둘을 빼면 분산이 나온다.</p>
 <p><code># 이론6</code> – <span class="math inline">\(N\)</span> 이 클 때 파산할 확률은 이론1 과 이론3 을 합치면 바로 나온다.</p>
 <p><span class="math display">\[
