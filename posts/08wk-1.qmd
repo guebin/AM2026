@@ -1,0 +1,69 @@
+---
+title: "**08wk-1**: 포트폴리오 (3)"
+author: 최규빈
+date: "10/20/2026 09:00"
+draft: true
+include-in-header:
+  text: |
+    <style>
+    .ztab { border-collapse: collapse; margin: 6px 0 12px 0; font-variant-numeric: tabular-nums; }
+    .ztab th, .ztab td { text-align: center; vertical-align: middle; padding: 3px 6px; white-space: nowrap; }
+    .ztab thead th { font-weight: 600; border-bottom: 1px solid #bbb; }
+    .ztab thead tr.grp th { border-bottom: 1px solid #ddd; color: #555; font-weight: 500; }
+    .ztab thead tr:last-child th { border-bottom: 2px solid #555; }
+    .ztab .sep { border-left: 1px solid #e3e3e3; }
+    .ztab tr.gstart td { border-top: 1px solid #c8c8c8; }
+    .ztab tr.ruin td { color: #C62828; background: #fdf3f3; }
+    .ztab td.const { color: #333 !important; background: #fafafa !important; }
+    .ztab td.dots { color: #aaa !important; line-height: 1; padding: 0 6px; }
+    .ztab tr.dotsrow td { color: #aaa; border-top: 1px solid #c8c8c8; }
+    .ztab tbody tr:last-child td { border-bottom: 2px solid #555; }
+    @media (max-width: 700px) { .hyper-grid { grid-template-columns: 100% !important; }
+    .hyper-left > div { border-right: none !important; padding-right: 0 !important; }
+    }
+    </style>
+---
+
+# 1. 강의영상
+
+# 2. 연습문제
+
+`# 예제1` -- (이론5) 남은 수명 $T$ 의 분포가 아래 왼쪽과 같은 사람 한 명이 있다. $i = 0.05$, $v = 1/1.05$ 이고, 필요한 $v$ 의 거듭제곱은 오른쪽에 적어 두었다.
+
+::: {.tblrow}
+
+| $T$ | 2 | 30 |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+| $v^2$ | $v^{30}$ | $v^4$ | $v^{60}$ |
+|---|---|---|---|
+| 0.9070 | 0.2314 | 0.8227 | 0.0535 |
+
+:::
+
+\(1\) $Z = v^T$ 의 분포표를 만들고 $\mathrm{E}[Z]$ 를 구하라.
+
+\(2\) $Z^2$ 의 분포표를 만들고 $\mathrm{E}[Z^2]$ 을 구하라.
+
+\(3\) $\mathrm{V}[Z]$ 를 구하라.
+
+`(풀이)`
+
+\(1\) $Z$ 는 $T$ 가 2 이면 $v^2$, 30 이면 $v^{30}$ 이다. 확률은 $T$ 의 것을 그대로 가져온다.
+
+| $Z = v^T$ | $v^2 = 0.9070$ | $v^{30} = 0.2314$ |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+$\mathrm{E}[Z] = 0.2 \times 0.9070 + 0.8 \times 0.2314 = 0.3665$.
+
+\(2\) $Z^2 = (v^T)^2 = (v^2)^T$ 이므로 $v$ 자리에 $v^2$ 을 넣은 것이다.
+
+| $Z^2 = (v^2)^T$ | $v^4 = 0.8227$ | $v^{60} = 0.0535$ |
+|---|---|---|
+| 확률 | 0.2 | 0.8 |
+
+$\mathrm{E}[Z^2] = 0.2 \times 0.8227 + 0.8 \times 0.0535 = 0.2074$.
+
+\(3\) $\mathrm{V}[Z] = \mathrm{E}[Z^2] - \mathrm{E}[Z]^2 = 0.2074 - 0.3665^2 \approx 0.0731$.
