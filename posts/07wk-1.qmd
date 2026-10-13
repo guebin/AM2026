@@ -28,6 +28,8 @@ include-in-header:
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLcMwjiTgHQ1k&si=Rd2m5ooKGiufMwsd >}}
+
 # 2. 이론 정리
 
 $N$ 명을 받고, 한 사람당 $P$ 를 받으며, 보험금은 $S$, 이자율은 $i$ 라고 하자.
