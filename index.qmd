@@ -25,6 +25,7 @@ title-block-banner: false
 - 10월1일 강사사정으로 휴강함. 보강은 추후 진도와 무관한 (중간고사 해설등) 영상을 강의사이트에 업로드할 예정
 - 중간고사: 10월29일 수업시간
 - 10월15일 오프라인수업없음 (개교기념일) // 보강은 추후 진행할 예정
+- 10월22일(목), 10월27일(화) 수업은 온라인수업으로 대체
 
 **실습** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" height="20" style="vertical-align:middle;"> Colab
 
