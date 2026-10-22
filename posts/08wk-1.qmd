@@ -8,6 +8,8 @@ format:
     toc: false
 ---
 
+{{<video https://youtu.be/playlist?list=PLWfazkemlr20&si=czIp3r14jozbXSZX>}}
+
 ### 문제1
 
 20세인 사람 한 명에게 보험금 1억인 보험을 판다($i = 0.05$). 아래는 이 사람의 생존함수 $S_{20}(t)$ 다. 점 A, B 는 $t = 10,\ 44.72$ 에서의 값이다.
