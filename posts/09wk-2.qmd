@@ -8,7 +8,7 @@ format:
     toc: false
 ---
 
-<!-- 해설영상 자리: 까치가 올리는 보험수리 2026-중간고사풀이 (1/3)~(3/3) 재생목록 주소가 오면 여기에 video 한 줄 -->
+{{<video https://youtu.be/playlist?list=PLbQDXvYXX4xk&si=9qsNvArV5IsPcmTD>}}
 
 [중간고사 문제지 (PDF) 내려받기](attachments/261029-보험수리학-중간고사-문제지.pdf){download="보험수리학_중간고사_261029.pdf"}
 
