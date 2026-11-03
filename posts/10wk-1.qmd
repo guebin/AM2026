@@ -2,7 +2,7 @@
 title: "**10wk-1**: 정기보험, 생존보험, 양로보험"
 author: 최규빈
 date: "11/03/2026 09:00"
-draft: true
+draft: false
 ---
 
 
