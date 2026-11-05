@@ -79,7 +79,7 @@ $$S_0(t) = \left(1 - \dfrac{t}{100}\right)^2, \quad 0 \le t \le 100$$
 
 `(풀이)` 이 생존함수를 따르는 수명 $T_0$ 를 히스토그램으로 그리면 아래와 같다. 제3사분위수 $t$ 는 왼쪽 넓이가 $0.75$ 가 되는 자리, 곧 $\Pr(T_0 < t) = 0.75$ 인 $t$ 다.
 
-![](attachments/261105-보험유진-분위수히스토그램.png){width=100%}
+![](attachments/261105-보험유진-분위수히스토그램.png){width=75% fig-align="center"}
 
 $\Pr(T_0 < t) = 0.75$ 이면 $\Pr(T_0 > t) = S_0(t) = 0.25$ 다. $\left(1 - \dfrac{t}{100}\right)^2 = 0.25$ 이므로 $1 - \dfrac{t}{100} = 0.5$ 에서 $t = 50$.
 
@@ -125,7 +125,7 @@ $$
 
 - $\int_0^t \mu_x(s)\,ds$ 는 사력 곡선의 $0 \sim t$ 의 넓이다. 그래서 $S_x(t) = \exp\{-(\mu_x(t) \text{ 의 } 0 \sim t \text{ 의 넓이})\}$ 로 읽는다. 넓이를 알면 적분 없이 $S_x(t)$ 가 나온다.
 
-![](attachments/261105-보험유진-사력넓이.png){width=100%}
+![](attachments/261105-보험유진-사력넓이.png){width=75% fig-align="center"}
 
 `-` 여러 모양의 $S_x(t)$ 에서 $\mu_x(t)$ 를 살펴보자. ($a$, $c$, $A$, $B$ 는 양의 상수다.)
 
@@ -138,7 +138,7 @@ $$
 
 `-` $\mu_x(t) = \dfrac{F_x'(t)}{S_x(t)}$ 로 그려 보자.
 
-![](attachments/261105-보험유진-사력모양-F.png){width=100%}
+![](attachments/261105-보험유진-사력모양-F.png){width=75% fig-align="center"}
 
 
 `-` case1: 사망력이 상수
@@ -159,7 +159,7 @@ $$
 | 9년  | 387.4 | 38.7     | 10% |
 | 10년 | 348.7 | 34.9     | 10% |
 
-![](attachments/261105-보험유진-사력상수표.png){width=100%}
+![](attachments/261105-보험유진-사력상수표.png){width=75% fig-align="center"}
 
 `-` case2: 드무아브르 법칙: $S_x(t) = 1 - \dfrac{t}{a}$, $0 \le t \le a$. 곧 $T_x$ 는 $(0, a)$ 의 균등분포다.
 
@@ -181,7 +181,7 @@ $$
 
 - 그해 죽는 사람은 그대로인데 남은 사람이 줄어서 비가 커진다. 그래서 $\mu_x(t)$ 가 커진다.
 
-![](attachments/261105-보험유진-사력드무아브르표.png){width=100%}
+![](attachments/261105-보험유진-사력드무아브르표.png){width=75% fig-align="center"}
 
 
 # 3. 기출
@@ -316,7 +316,7 @@ $$
 
 `(넓이 풀이)` $S_{40}(20) = \exp\{-(\mu_{40}(t) \text{ 의 } 0 \sim 20 \text{ 의 넓이})\}$ 이다. 사력이 계단 꼴이라 넓이는 직사각형 둘이다.
 
-![](attachments/261105-보험유진-넓이예7.png){width=100%}
+![](attachments/261105-보험유진-넓이예7.png){width=75% fig-align="center"}
 
 $$(\mu_{40}(t) \text{ 의 } 0 \sim 20 \text{ 의 넓이}) = 0.01 \times 5 + 0.02 \times 15 = 0.35$$
 
@@ -349,8 +349,9 @@ $$\mu_0(t) = A + Bt, \quad t \ge 0$$
 
 이로부터 얻은 생존함수 $S_0(t)$ 가 다음 두 조건을 만족할 때, $A$ 를 구하시오.
 
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) $S_0(2) = e^{-0.6}$ \
+::: {style="border: 1px solid #c8c8c8; padding: 16px 14px 0 14px; margin: 0.6em 0;"}
+(가) $S_0(2) = e^{-0.6}$
+
 (나) $-\dfrac{S_0'(2)}{S_0(2)} = 0.5$
 :::
 
@@ -369,7 +370,7 @@ $$
 
 `(넓이 풀이)` $\mu_0(t) = A + Bt$ 의 그래프를 그린다. $t = 0$ 의 높이가 $A$, $t = 2$ 의 높이가 $A + 2B$ 인 직선이다.
 
-![](attachments/261105-보험유진-넓이예8-AB.png){width=100%}
+![](attachments/261105-보험유진-넓이예8-AB.png){width=75% fig-align="center"}
 
 (가) 는 $\mu_0(t)$ 의 $0 \sim 2$ 의 넓이가 $0.6$ 이라는 말이다. $S_0(2) = \exp\{-(\mu_0(t) \text{ 의 } 0 \sim 2 \text{ 의 넓이})\}$ 이기 때문이다. 사력이 직선이라 넓이는 사다리꼴이다.
 
@@ -386,8 +387,9 @@ $$(\text{끝점의 높이}) = \mu_0(2) = A + 2B = 0.5$$
 ::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
 피보험자 $(x)$에 대하여 사력이 다음과 같다. $\mu_x = A + Bx$, $x \ge 0$. 이로부터 얻은 생존함수 ${}_tp_0$가 다음 두 조건을 만족할 때, $A$를 구하시오.
 
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) ${}_2p_0 = e^{-0.6}$ \
+::: {style="border: 1px solid #c8c8c8; padding: 16px 14px 0 14px; margin: 0.6em 0;"}
+(가) ${}_2p_0 = e^{-0.6}$
+
 (나) $\left(-\frac{1}{{}_tp_0}\frac{d}{dt}\,{}_tp_0\right)\Big\vert_{t=2} = 0.5$
 :::
 
