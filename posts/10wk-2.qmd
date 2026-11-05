@@ -159,7 +159,7 @@ $$
 | 9년  | 387.4 | 38.7     | 10% |
 | 10년 | 348.7 | 34.9     | 10% |
 
-![](attachments/261105-보험유진-사력상수표.png){width=75% fig-align="center"}
+![](attachments/261105-보험유진-사력상수표.png){width=100% fig-align="center"}
 
 `-` case2: 드무아브르 법칙: $S_x(t) = 1 - \dfrac{t}{a}$, $0 \le t \le a$. 곧 $T_x$ 는 $(0, a)$ 의 균등분포다.
 
@@ -181,7 +181,7 @@ $$
 
 - 그해 죽는 사람은 그대로인데 남은 사람이 줄어서 비가 커진다. 그래서 $\mu_x(t)$ 가 커진다.
 
-![](attachments/261105-보험유진-사력드무아브르표.png){width=75% fig-align="center"}
+![](attachments/261105-보험유진-사력드무아브르표.png){width=100% fig-align="center"}
 
 
 # 3. 기출
