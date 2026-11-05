@@ -7,6 +7,8 @@ draft: false
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLZ8hcDTf9n7U&si=LFK1by6gG1e83rj0>}}
+
 # 2. 보충방식
 
 `-` 아래 중 하나의 방법으로 하려고 합니다. 
