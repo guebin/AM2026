@@ -208,7 +208,7 @@ window.Quarto = {
 <h1>3. 계리사시험</h1>
 <p><code>-</code> 계리사시험 소개</p>
 <ul>
-<li>보험계리사 시험은 1차와 2차로 나뉜다. 1차에 합격한 뒤, 2차는 과목을 조금씩 붙여 모은다.</li>
+<li>보험계리사 시험은 1차와 2차로 나뉜다. 1차에 합격한 뒤, 2차를 응시한다.</li>
 </ul>
 <table class="caption-top table">
 <colgroup>
@@ -376,11 +376,11 @@ window.Quarto = {
 \end{aligned}
 \]</span></p>
 <ul>
-<li>그냥 “사망력 = 그 순간 죽을 것 같은 확률”로 정의하면 안되나?</li>
+<li>그냥 “사망력 = 그 순간 죽을 확률”로 정의하면 안되나?</li>
 </ul>
-<p><code>-</code> 사력과 생존함수의 관계 <span class="math display">\[S_x(t) = \exp\left\{-\int_0^t \mu_x(s)\,ds\right\}\]</span></p>
+<p><code>-</code> 사력과 생존함수의 관계 <span class="math display">\[S_x(t^\star) = \exp\left\{-\int_0^{t^\star} \mu_x(t)\,dt\right\}\]</span></p>
 <ul>
-<li><span class="math inline">\(\int_0^t \mu_x(s)\,ds\)</span> 는 사력 곡선의 <span class="math inline">\(0 \sim t\)</span> 의 넓이다. 그래서 <span class="math inline">\(S_x(t) = \exp\{-(\mu_x(t) \text{ 의 } 0 \sim t \text{ 의 넓이})\}\)</span> 로 읽는다. 넓이를 알면 적분 없이 <span class="math inline">\(S_x(t)\)</span> 가 나온다.</li>
+<li><span class="math inline">\(\int_0^{t^\star} \mu_x(t)\,dt\)</span> 는 사력 곡선의 <span class="math inline">\(0 \sim t^\star\)</span> 의 넓이다. 그래서 <span class="math inline">\(S_x(t^\star) = \exp\{-(\mu_x(t) \text{ 의 } 0 \sim t^\star \text{ 의 넓이})\}\)</span> 로 읽는다. 넓이를 알면 적분 없이 <span class="math inline">\(S_x(t^\star)\)</span> 가 나온다.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
