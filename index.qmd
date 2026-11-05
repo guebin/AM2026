@@ -26,6 +26,7 @@ title-block-banner: false
 - 중간고사: 10월29일 수업시간
 - 10월15일: 개교기념일
 - 10월22일(목), 10월27일(화): 퀴즈3해설영상, 중간고사해설영상 업로드로 대체
+- 10wk-2 강의영상은 마이크 없이 녹화되어 재촬영했습니다. 가능하면 수업과 똑같이 설명하려고 노력했습니다.
 
 **실습** <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecolab/googlecolab-original.svg" height="20" style="vertical-align:middle;"> Colab
 
