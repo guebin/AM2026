@@ -2,16 +2,37 @@
 title: "**11wk-1**: 계리사 기출문제 풀이 (2)"
 author: 최규빈
 date: "11/10/2026 09:00"
-draft: true
+draft: false
 ---
 
 # 1. 강의영상
 
 # 2. 사력 개념복습
 
-`-` 아래의 그래프를 기억하자. 
+`-` 사력: 죽을기세
+
+`-` 사력의 성질: (몇 살부터 지켜봤는지와 상관없이) 지금 몇 살인지로만 정해진다.
+
+$$\mu_x(t) = \mu_0(x+t)$$
+
+- $x$ 세인 사람의 $t$ 년 뒤 사력은 갓난아기의 $x+t$ 세 사력과 같다. 예를 들어 $\mu_{70}(2.3) = \mu_0(72.3)$ 이다.
+`(이유)` 사력의 정의 $\mu_x(t) = \lim_{h \to 0+} \frac{1}{h}\Pr(T_x \le t+h \mid T_x > t)$ 에$S_x(t) = \dfrac{S_0(x+t)}{S_0(x)}$ 를 넣는다.
+
+$$
+\begin{aligned}
+\Pr(T_x \le t+h \mid T_x > t) &= \frac{S_x(t) - S_x(t+h)}{S_x(t)} \qquad \left(\because \Pr(t < T_x \le t+h) = S_x(t) - S_x(t+h)\right) \\
+&= \frac{S_0(x+t) - S_0(x+t+h)}{S_0(x+t)} \qquad \left(\text{분자와 분모에 같이 있던 } S_0(x) \text{ 가 지워진다}\right) \\
+&= \Pr(T_0 \le x+t+h \mid T_0 > x+t)
+\end{aligned}
+$$
+
+`-` 유용한 그래프: 그래프를 기억하자. 
 
 ![](attachments/261105-보험유진-사력모양-F.png){width=100% fig-align="center"}
+
+- 잠설1: 
+- 잡설2: 아주 짧은 시간 $[t,t+h)$에서 죽을 확률이 모두 같다는 것은 결국 생존시간이 지수분포가 된다는 의미이다. (포아송프로세스로 이항분포를 지수근사로 하는 테크닉) case2는 그걸 설명함 
+
 
 # 3. 기출문제풀이
 
@@ -40,7 +61,7 @@ $$
 &\quad = 1 - (\text{40세인 흡연자가 20년 넘어서 생존할 확률}) \\
 &\quad = 1 - S^{\text{흡연}}_{40}(20) \\
 &\quad = 1 - \left\{S^{\text{비흡연}}_{40}(20)\right\}^2 \\
-&\quad = 1 - \left\{\left(1 - \frac{20}{60}\right)^2\right\}^2 = 1 - \left(\frac23\right)^4 = \frac{65}{81} = 0.80
+&\quad = 1 - \left\{\left(1 - \frac{20}{60}\right)^2\right\}^2 = 1 - \left(\frac23\right)^4 = \frac{65}{81} = 0.8024691\cdots \approx 0.80
 \end{aligned}
 $$
 
@@ -52,7 +73,7 @@ F^{\text{흡연}}_{40}(20) &= 1 - S^{\text{흡연}}_{40}(20) \\
 &= 1 - \exp\left\{-\int_0^{20} \mu_{40}^{\text{흡연}}(t)\,dt\right\} \\
 &= 1 - \exp\left\{-2\int_0^{20} \mu_{40}^{\text{비흡연}}(t)\,dt\right\} \\
 &= 1 - \left[\exp\left\{-\int_0^{20} \mu_{40}^{\text{비흡연}}(t)\,dt\right\}\right]^2 \qquad (e^{-2a} = (e^{-a})^2) \\
-&= 1 - \left\{S^{\text{비흡연}}_{40}(20)\right\}^2 = 1 - \left(\frac23\right)^4 = \frac{65}{81} = 0.80
+&= 1 - \left\{S^{\text{비흡연}}_{40}(20)\right\}^2 = 1 - \left(\frac23\right)^4 = \frac{65}{81} = 0.8024691\cdots \approx 0.80
 \end{aligned}
 $$
 
@@ -99,11 +120,11 @@ S^{\text{철수}}_{70}(1) &= \exp\left\{-\int_0^1 \mu_{70}^{\text{철수}}(t)\,d
 &= \exp\left\{-\int_0^1 \left(0.5\,\mu_{70}^{\text{영수}}(t) + 0.01\right) dt\right\} \\
 &= \exp\left\{-0.5\int_0^1 \mu_{70}^{\text{영수}}(t)\,dt\right\} e^{-0.01} \\
 &= \left[\exp\left\{-\int_0^1 \mu_{70}^{\text{영수}}(t)\,dt\right\}\right]^{0.5} e^{-0.01} \\
-&= \left\{S^{\text{영수}}_{70}(1)\right\}^{0.5} e^{-0.01} = \sqrt{0.99} \times 0.99 = 0.98504
+&= \left\{S^{\text{영수}}_{70}(1)\right\}^{0.5} e^{-0.01} = \sqrt{0.99} \times 0.99 = 0.9850375\cdots
 \end{aligned}
 $$
 
-구하는 확률은 $1 - 0.98504 = 0.01496$ 이고 보기에서 가장 가까운 것은 0.0149 다.
+구하는 확률은 $1 - 0.9850375\cdots = 0.0149624\cdots$ 이고 보기에서 가장 가까운 것은 0.0149 다.
 
 답: ④ 0.0149
 
