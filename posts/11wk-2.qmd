@@ -2,7 +2,7 @@
 title: "**11wk-2**: 계리사 기출문제 풀이 (3)"
 author: 최규빈
 date: "11/12/2026 09:00"
-draft: true
+draft: false
 ---
 
 # 1. 강의영상
