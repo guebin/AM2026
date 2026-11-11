@@ -426,6 +426,7 @@ window.Quarto = {
 <p><img src="attachments/261105-보험유진-사력모양-F.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
+<p><code>-</code> 그림의 <span class="math inline">\(c = 0.02\)</span>, <span class="math inline">\(a = 60\)</span>, <span class="math inline">\(A = 0.002\)</span>, <span class="math inline">\(B = 0.001\)</span> 은 예로 든 값이다. <span class="math inline">\(a\)</span>, <span class="math inline">\(c\)</span>, <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> 는 <span class="math inline">\(t\)</span> 와는 상관없는 상수지만, 상황에 따라(예를 들어 나이 <span class="math inline">\(x\)</span> 에 따라) 값이 달라질 수 있다.</p>
 <p><code>-</code> case1: 사망력이 상수</p>
 <ul>
 <li>나이를 먹어도 죽을 위험이 그대로인 경우다. 해마다 남은 사람의 같은 비율이 죽는다. 처음 1000명이고 비는 10% 라고 하자.</li>
@@ -875,7 +876,7 @@ S_{40}(20) &amp;= \exp\left\{-\int_0^{20} \mu_{40}(t)\,dt\right\} \\
 &amp;= \exp\left\{-\int_0^5 0.01\,dt - \int_5^{20} 0.02\,dt\right\} = e^{-0.35}
 \end{aligned}
 \]</span></p>
-<p>따라서 <span class="math inline">\(S_{40}(20) = (e^{-0.1})^3\,e^{-0.05} = 0.9048^3 \times 0.9512 = 0.705\)</span>.</p>
+<p>따라서 <span class="math inline">\(S_{40}(20) = (e^{-0.1})^3\,e^{-0.05} = 0.9048^3 \times 0.9512 = 0.7045788\cdots \approx 0.70\)</span>.</p>
 <p><code>(넓이 풀이)</code> <span class="math inline">\(S_{40}(20) = \exp\{-(\mu_{40}(t) \text{ 의 } 0 \sim 20 \text{ 의 넓이})\}\)</span> 이다. 사력이 계단 꼴이라 넓이는 직사각형 둘이다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -883,7 +884,7 @@ S_{40}(20) &amp;= \exp\left\{-\int_0^{20} \mu_{40}(t)\,dt\right\} \\
 </figure>
 </div>
 <p><span class="math display">\[(\mu_{40}(t) \text{ 의 } 0 \sim 20 \text{ 의 넓이}) = 0.01 \times 5 + 0.02 \times 15 = 0.35\]</span></p>
-<p>따라서 <span class="math inline">\(S_{40}(20) = e^{-0.35} = (e^{-0.1})^3\,e^{-0.05} = 0.9048^3 \times 0.9512 = 0.705\)</span>.</p>
+<p>따라서 <span class="math inline">\(S_{40}(20) = e^{-0.35} = (e^{-0.1})^3\,e^{-0.05} = 0.9048^3 \times 0.9512 = 0.7045788\cdots \approx 0.70\)</span>.</p>
 <p>답: ① 0.70</p>
 <div class="callout callout-style-default callout-note callout-titled" title="실제 기출은 이러하다">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
