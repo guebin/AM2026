@@ -150,10 +150,7 @@ window.Quarto = {
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
   <li><a href="#기출문제" id="toc-기출문제" class="nav-link" data-scroll-target="#기출문제">2. 기출문제</a></li>
   <li><a href="#남은-수명의-평균" id="toc-남은-수명의-평균" class="nav-link" data-scroll-target="#남은-수명의-평균">3. 남은 수명의 평균</a></li>
-  <li><a href="#기출문제-1" id="toc-기출문제-1" class="nav-link" data-scroll-target="#기출문제-1">4. 기출문제</a>
-  <ul class="collapse">
-  <li><a href="#남은-수명의-평균-1" id="toc-남은-수명의-평균-1" class="nav-link" data-scroll-target="#남은-수명의-평균-1">남은 수명의 평균</a></li>
-  </ul></li>
+  <li><a href="#기출문제-1" id="toc-기출문제-1" class="nav-link" data-scroll-target="#기출문제-1">4. 기출문제</a></li>
   </ul>
 </nav>
     </div>
@@ -600,14 +597,12 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 &amp;\mathrm E[T_x] = \int_0^\infty t\,F_x'(t)\,dt \\
 &amp;\quad = \int_0^\infty t\,\{-S_x'(t)\}\,dt \quad (\because F_x(t) = 1 - S_x(t)) \\
 &amp;\quad = \Big[-t\,S_x(t)\Big]_0^\infty + \int_0^\infty S_x(t)\,dt \quad (\because \text{부분적분}) \\
-&amp;\quad = \int_0^\infty S_x(t)\,dt \quad (\because t \to \infty \text{ 이면 } t\,S_x(t) \to 0)
+&amp;\quad = \int_0^\infty S_x(t)\,dt \quad \left(\because \text{가정(assumption): } \lim_{t \to \infty} t\,S_x(t) = 0\right)
 \end{aligned}
 \]</span></p>
 </section>
 <section id="기출문제-1" class="level1">
 <h1>4. 기출문제</h1>
-<section id="남은-수명의-평균-1" class="level2">
-<h2 class="anchored" data-anchor-id="남은-수명의-평균-1">남은 수명의 평균</h2>
 <p><code># 예제 5 (2021 1차 27번)</code> 연령 <span class="math inline">\([x, x+1)\)</span> 에서 단수부분에 대해 사망자 수가 균등하게 분포한다(UDD)고 가정할 때, 다음의 생명표를 이용하여 <span class="math inline">\(\mathrm E[T_{90}]\)</span> 을 구하시오.</p>
 <table class="caption-top table">
 <thead>
@@ -722,7 +717,6 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 <p><code>#</code></p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

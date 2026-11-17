@@ -237,13 +237,11 @@ $$
 &\mathrm E[T_x] = \int_0^\infty t\,F_x'(t)\,dt \\
 &\quad = \int_0^\infty t\,\{-S_x'(t)\}\,dt \quad (\because F_x(t) = 1 - S_x(t)) \\
 &\quad = \Big[-t\,S_x(t)\Big]_0^\infty + \int_0^\infty S_x(t)\,dt \quad (\because \text{부분적분}) \\
-&\quad = \int_0^\infty S_x(t)\,dt \quad (\because t \to \infty \text{ 이면 } t\,S_x(t) \to 0)
+&\quad = \int_0^\infty S_x(t)\,dt \quad \left(\because \text{가정(assumption): } \lim_{t \to \infty} t\,S_x(t) = 0\right)
 \end{aligned}
 $$
 
 # 4. 기출문제 
-
-## 남은 수명의 평균
 
 `# 예제 5 (2021 1차 27번)` 연령 $[x, x+1)$ 에서 단수부분에 대해 사망자 수가 균등하게 분포한다(UDD)고 가정할 때, 다음의 생명표를 이용하여 $\mathrm E[T_{90}]$ 을 구하시오.
 
