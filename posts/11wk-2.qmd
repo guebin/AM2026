@@ -7,6 +7,8 @@ draft: false
 
 # 1. 강의영상
 
+{{<video https://youtu.be/playlist?list=PLI4cKdyclxIA&si=WOfGhwNpqUKyQhwG>}}
+
 # 2. 사력 (개념 및 기출문제) 
 
 `-` 아래의 그래프를 기억하자.
