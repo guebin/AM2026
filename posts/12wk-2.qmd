@@ -91,7 +91,7 @@ $$
 
 `-` 따라서 원래 생존함수를 $n$ 에서 자르는 느낌이라 보면 된다.
 
-![](attachments/261119-보험유진-생존함수자르기.png){width=100% fig-align="center"}
+![](attachments/261120-보험유진-생존함수자르기-곰페르츠.png){width=100% fig-align="center"}
 
 `-` 평균은 아래와 같이 계산한다. 
 
@@ -109,7 +109,7 @@ $$\mathrm E[\min(T_x, 10)] = 0.2 \times 2 + 0.8 \times 10 = 8.4$$
 
 위의 표를 생존함수로 그린 뒤 $0 \sim 10$ 넓이를 재면 아래와 같다.
 
-![](attachments/261119-보험유진-n년평균넓이.png){width=100% fig-align="center"}
+![](attachments/261120-보험유진-n년평균넓이-가로띠.png){width=100% fig-align="center"}
 
 ## B. 기출문제
 
@@ -140,7 +140,7 @@ $$
 $$S_{40}(t) = \left(1 - \frac{t}{60}\right)^2$$
 임을 알 수 있다. 생존함수가 $\left(1 - \frac{t}{60}\right)^2$ 이면 히스토그램 $F_{40}'(t) = \frac{2(60 - t)}{60^2}$ 은 $t = 0$ 에서 가장 높고 $t = 60$ 에서 0 인 직각삼각형이다(삼각분포). $T_{40}/60$ 의 히스토그램은 $2(1 - u)$, $0 \le u \le 1$ 이라 $\mathrm{Beta}(1, 2)$ 분포이고, 이는 균등분포 둘의 최솟값의 분포와 같다(위키백과 Order statistic). $\mathrm{Beta}(1, 2)$ 는 왼쪽에 직각이 있는 직각삼각형 분포이고(위키백과 Beta distribution), $\mathrm{Beta}(\alpha, \beta)$ 의 평균은 $\frac{\alpha}{\alpha + \beta}$ 이므로 $\mathrm E[T_{40}] = 60 \times \frac{1}{3} = 20$ 이다. $\min(T_{40}, 30)$ 은 30년 넘게 사는 사람의 30년 뒤를 잘라 낸 것이다. 30년 넘게 사는 사람은 $S_{40}(30) = \frac14$ 이고, 이들은 70세에서 사력이 $\mu_{70}(t) = \frac{2}{30 - t}$ 라 $S_{70}(t) = \left(1 - \frac{t}{30}\right)^2$ 이고, 같은 이유로 $T_{70}/30$ 도 $\mathrm{Beta}(1, 2)$ 라 평균 $30 \times \frac{1}{3} = 10$ 년을 더 산다.
 
-![](attachments/261119-보험유진-예제1삼각분포.png){width=75% fig-align="center"}
+![](attachments/261120-보험유진-예제1삼각분포-넓이글귀.png){width=75% fig-align="center"}
 
 $$\mathrm E[\min(T_{40}, 30)] = \mathrm E[T_{40}] - S_{40}(30)\,\mathrm E[T_{70}] = 20 - \frac14 \times 10 = 17.5$$
 

@@ -315,7 +315,7 @@ window.Quarto = {
 <p><code>-</code> 따라서 원래 생존함수를 <span class="math inline">\(n\)</span> 에서 자르는 느낌이라 보면 된다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/261119-보험유진-생존함수자르기.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="attachments/261120-보험유진-생존함수자르기-곰페르츠.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 <p><code>-</code> 평균은 아래와 같이 계산한다.</p>
@@ -342,7 +342,7 @@ window.Quarto = {
 <p>위의 표를 생존함수로 그린 뒤 <span class="math inline">\(0 \sim 10\)</span> 넓이를 재면 아래와 같다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/261119-보험유진-n년평균넓이.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+<p><img src="attachments/261120-보험유진-n년평균넓이-가로띠.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </section>
@@ -369,7 +369,7 @@ window.Quarto = {
 <p><span class="math display">\[S_{40}(t) = \left(1 - \frac{t}{60}\right)^2\]</span> 임을 알 수 있다. 생존함수가 <span class="math inline">\(\left(1 - \frac{t}{60}\right)^2\)</span> 이면 히스토그램 <span class="math inline">\(F_{40}'(t) = \frac{2(60 - t)}{60^2}\)</span> 은 <span class="math inline">\(t = 0\)</span> 에서 가장 높고 <span class="math inline">\(t = 60\)</span> 에서 0 인 직각삼각형이다(삼각분포). <span class="math inline">\(T_{40}/60\)</span> 의 히스토그램은 <span class="math inline">\(2(1 - u)\)</span>, <span class="math inline">\(0 \le u \le 1\)</span> 이라 <span class="math inline">\(\mathrm{Beta}(1, 2)\)</span> 분포이고, 이는 균등분포 둘의 최솟값의 분포와 같다(위키백과 Order statistic). <span class="math inline">\(\mathrm{Beta}(1, 2)\)</span> 는 왼쪽에 직각이 있는 직각삼각형 분포이고(위키백과 Beta distribution), <span class="math inline">\(\mathrm{Beta}(\alpha, \beta)\)</span> 의 평균은 <span class="math inline">\(\frac{\alpha}{\alpha + \beta}\)</span> 이므로 <span class="math inline">\(\mathrm E[T_{40}] = 60 \times \frac{1}{3} = 20\)</span> 이다. <span class="math inline">\(\min(T_{40}, 30)\)</span> 은 30년 넘게 사는 사람의 30년 뒤를 잘라 낸 것이다. 30년 넘게 사는 사람은 <span class="math inline">\(S_{40}(30) = \frac14\)</span> 이고, 이들은 70세에서 사력이 <span class="math inline">\(\mu_{70}(t) = \frac{2}{30 - t}\)</span> 라 <span class="math inline">\(S_{70}(t) = \left(1 - \frac{t}{30}\right)^2\)</span> 이고, 같은 이유로 <span class="math inline">\(T_{70}/30\)</span> 도 <span class="math inline">\(\mathrm{Beta}(1, 2)\)</span> 라 평균 <span class="math inline">\(30 \times \frac{1}{3} = 10\)</span> 년을 더 산다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="attachments/261119-보험유진-예제1삼각분포.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+<p><img src="attachments/261120-보험유진-예제1삼각분포-넓이글귀.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
 </figure>
 </div>
 <p><span class="math display">\[\mathrm E[\min(T_{40}, 30)] = \mathrm E[T_{40}] - S_{40}(30)\,\mathrm E[T_{70}] = 20 - \frac14 \times 10 = 17.5\]</span></p>
