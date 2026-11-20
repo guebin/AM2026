@@ -366,13 +366,7 @@ window.Quarto = {
 \end{aligned}
 \]</span></p>
 <p><code>(풀이2)</code> 사력이 만약에 <span class="math inline">\(\mu_0(t)=\frac{1}{100 - t}\)</span> 이면 case2 에서 <span class="math inline">\(a = 100\)</span> 인 꼴이라 <span class="math inline">\(S_0(t)=1 - \frac{t}{100}\)</span> 이다. 따라서 <span class="math inline">\(S_{40}(t)=1-\frac{t}{60}\)</span>이다. 문제에서 준 사력은 <span class="math inline">\(\mu_0(t)=\frac{2}{100-t}\)</span> 이므로 우리가 원했던 사력의 2배이다. 그런데 사력이 2배면 넓이가 2배이고, 그래서 생존함수는 제곱이라는 사실을 떠올리면</p>
-<p><span class="math display">\[S_{40}(t) = \left(1 - \frac{t}{60}\right)^2\]</span> 임을 알 수 있다. 생존함수가 <span class="math inline">\(\left(1 - \frac{t}{60}\right)^2\)</span> 이면 히스토그램 <span class="math inline">\(F_{40}'(t) = \frac{2(60 - t)}{60^2}\)</span> 은 <span class="math inline">\(t = 0\)</span> 에서 가장 높고 <span class="math inline">\(t = 60\)</span> 에서 0 인 직각삼각형이다(삼각분포). 사력이 2배라는 것은 드므와브르를 따르는 두 사람 가운데 먼저 죽는 때라는 뜻이다. 길이 60 인 막대에 두 사람이 죽는 때를 아무렇게나 찍으면 막대는 세 토막이 나고, 두 점은 서로 바꿔도 같으므로 세 토막의 평균 길이는 같다. 첫 토막이 <span class="math inline">\(T_{40}\)</span> 이므로 <span class="math inline">\(\mathrm E[T_{40}] = \frac{60}{3} = 20\)</span> 이다.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="attachments/261120-보험유진-막대세토막.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
-</figure>
-</div>
-<p><span class="math inline">\(\min(T_{40}, 30)\)</span> 은 30년 넘게 사는 사람의 30년 뒤를 잘라 낸 것이다. 30년 넘게 사는 사람은 <span class="math inline">\(S_{40}(30) = \frac14\)</span> 이고, 이들은 70세에서 사력이 <span class="math inline">\(\mu_{70}(t) = \frac{2}{30 - t}\)</span> 라 <span class="math inline">\(S_{70}(t) = \left(1 - \frac{t}{30}\right)^2\)</span> 이고, 막대가 30 이라 평균 <span class="math inline">\(\frac{30}{3} = 10\)</span> 년을 더 산다.</p>
+<p><span class="math display">\[S_{40}(t) = \left(1 - \frac{t}{60}\right)^2\]</span> 임을 알 수 있다. 생존함수가 <span class="math inline">\(\left(1 - \frac{t}{60}\right)^2\)</span> 이면 히스토그램 <span class="math inline">\(F_{40}'(t) = \frac{2(60 - t)}{60^2}\)</span> 은 <span class="math inline">\(t = 0\)</span> 에서 가장 높고 <span class="math inline">\(t = 60\)</span> 에서 0 인 직각삼각형이다(삼각분포). <span class="math inline">\(\min(T_{40}, 30)\)</span> 은 30년 넘게 사는 사람의 30년 뒤를 잘라 낸 것이다. 30년 넘게 사는 사람은 <span class="math inline">\(S_{40}(30) = \frac14\)</span> 이고, 이들은 70세에서 사력이 <span class="math inline">\(\mu_{70}(t) = \frac{2}{30 - t}\)</span> 라 <span class="math inline">\(S_{70}(t) = \left(1 - \frac{t}{30}\right)^2\)</span> 이고, 막대가 30 이라 평균 <span class="math inline">\(\frac{30}{3} = 10\)</span> 년을 더 산다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="attachments/261119-보험유진-예제1삼각분포.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
