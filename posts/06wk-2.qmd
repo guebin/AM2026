@@ -613,7 +613,7 @@ $$
 \mathrm{E}[\bar Z] = \mathrm{E}[Z], \qquad \mathrm{V}[\bar Z] = \frac{\mathrm{V}[Z]}{N}
 $$
 
-이라서, $N$ 이 크면 $\bar Z \overset{\cdot}{\sim} N\!\left(\mathrm{E}[Z],\ \dfrac{\mathrm{V}[Z]}{N}\right)$ 이다. 한 사람 $Z$ 의 평균과 분산만 알면 된다.
+이라서, $N$ 이 크면 $\bar Z \overset{\cdot}{\sim} N\!\left(\mathrm{E}[Z],\ \frac{\mathrm{V}[Z]}{N}\right)$ 이다. 한 사람 $Z$ 의 평균과 분산만 알면 된다.
 
 `# 이론2` -- $t$ 시점의 잔고는
 

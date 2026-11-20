@@ -1,0 +1,304 @@
+---
+title: "**14wk-1**: 계리사 기출문제 풀이 (7)"
+author: 최규빈
+date: "12/01/2026 09:00"
+draft: true
+---
+
+# 1. 강의영상
+
+
+# 2. 거치 보험
+
+## A. 개념
+
+`-` ★ 거치: $u$ 년이 지나야 보장. $Z_{\text{거치}} = v^{T_x}$ ($T_x > u$), $0$ (그 밖). $\ \mathrm E[Z_{\text{거치}}] = v^u S_x(u) \times$ ($x+u$ 세로 센 $\mathrm E[Z_{\text{종신}}]$). 연말이면 $Z_{\text{연말종신}} - Z_{\text{연말정기}}$.
+
+## B. 기출문제
+
+`# 예제 1 (2025 1차 31번)` 연이율 $i = 0$ 일 때, $\mathrm E[Z_{\text{연말종신}}] - \mathrm E[Z_{\text{연말정기}}]$ ($n = 10$) 와 같은 것을 고르시오.
+
+① 0  ② $S_x(10)$  ③ $F_x(10)$  ④ $S_x(10) - S_x(11)$
+
+`(풀이)` 구하는 것은 $\mathrm E[Z_{\text{연말종신}}] - \mathrm E[Z_{\text{연말정기}}]$ ($n = 10$), 곧 사망한 해의 말에 주는 10년 거치 종신보험의 EPV 이다. $i = 0$ 이면 $v = \frac{1}{1+i} = 1$ 이므로 두 확률변수는 아래와 같다.
+
+$$
+\begin{aligned}
+&Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1} = 1 \\
+&Z_{\text{연말정기}} = \begin{cases} v^{\lfloor T_x \rfloor + 1} = 1, & T_x < 10 \\ 0, & T_x \ge 10 \end{cases}
+\end{aligned}
+$$
+
+그래서 둘의 차 $Z_{\text{연말종신}} - Z_{\text{연말정기}}$ 는 $T_x < 10$ 이면 $1 - 1 = 0$, $T_x \ge 10$ 이면 $1 - 0 = 1$ 이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{연말종신}}] - \mathrm E[Z_{\text{연말정기}}] = \mathrm E[Z_{\text{연말종신}} - Z_{\text{연말정기}}] \\
+&\quad = 0 \times \Pr(T_x < 10) + 1 \times \Pr(T_x \ge 10) \\
+&\quad = \Pr(T_x \ge 10) = S_x(10)
+\end{aligned}
+$$
+
+따라서 구하는 값은 $S_x(10)$ 이다.
+
+답: ② ($S_x(10)$)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+연이율 $i = 0$ 일 때, ${}_{10\vert}A_x$ 와 같은 것을 고르시오.
+
+① 0  ② ${}_{10}p_x$  ③ ${}_{10}q_x$  ④ ${}_{10\vert}q_x$
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
+| ${}_tq_x$ | $x$ 세인 사람이 $t$ 년 안에 죽을 확률 | $F_x(t) = \Pr(T_x \le t)$ |
+| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
+| ${}_{u\vert}A_x$ | $u$ 년 거치 종신보험의 EPV. 사망한 해의 말에 준다 | $\mathrm E[Z_{\text{연말종신}}] - \mathrm E[Z_{\text{연말정기}}]$ ($n = u$) |
+:::
+
+`#`
+
+
+`# 예제 2 (2025 1차 33번)` 아래의 조건을 이용하여 50세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) 35세 · 15년으로 센 $\mathrm E[Z_{\text{연말양로}}] = 0.39$ \
+(나) 35세 · 15년으로 센 $\mathrm E[Z_{\text{연말정기}}] = 0.25$ \
+(다) 35세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.32$
+:::
+
+① 0.35  ② 0.40  ③ 0.45  ④ 0.50
+
+`(풀이)` 구하는 것은 50세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 이고, 이것을 $y$ 라 하자. 35세로 센 종신보험은 15년 정기보험과, 15년을 살면 50세부터 다시 시작하는 종신보험(15년 거치)의 합이고, 거치 부분의 EPV 는 $v^{15}S_{35}(15)\,y$ 이다. 아래의 EPV 는 $y$ 말고는 모두 35세로 센 것이고, 만기가 있는 것은 15년이다.
+
+$$
+\begin{aligned}
+&v^{15}S_{35}(15) = \mathrm E[Z_{\text{생존}}] \quad (\because \mathrm E[Z_{\text{생존}}] = v^n S_x(n)) \\
+&\quad = \mathrm E[Z_{\text{연말양로}}] - \mathrm E[Z_{\text{연말정기}}] \quad (\because Z_{\text{연말양로}} = Z_{\text{연말정기}} + Z_{\text{생존}}) \\
+&\quad = 0.39 - 0.25 = 0.14
+\end{aligned}
+$$
+
+따라서 $y$ 는 아래와 같다.
+
+$$
+\begin{aligned}
+&y = \frac{\mathrm E[Z_{\text{연말종신}}] - \mathrm E[Z_{\text{연말정기}}]}{v^{15}S_{35}(15)} \quad \left(\because \mathrm E[Z_{\text{연말종신}}] = \mathrm E[Z_{\text{연말정기}}] + v^{15}S_{35}(15)\,y\right) \\
+&\quad = \frac{0.32 - 0.25}{0.14} \\
+&\quad = 0.5
+\end{aligned}
+$$
+
+따라서 구하는 값은 $0.5$ 이다.
+
+답: ④ (0.50)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $A_{50}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $A_{35:\overline{15}\vert} = 0.39$ \
+(나) $A^{\,1}_{35:\overline{15}\vert} = 0.25$ \
+(다) $A_{35} = 0.32$
+:::
+
+① 0.35  ② 0.40  ③ 0.45  ④ 0.50
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
+| $A^{\,1}_{x:\overline{n}\vert}$ | 사망한 해의 말에 1 을 주는 $n$ 년 정기보험의 EPV. $x$ 위의 1 은 사망이 만기보다 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{연말정기}}]$ |
+| $A_{x:\overline{n}\vert}$ | 사망한 해의 말 또는 만기 $n$ 에 1 을 주는 양로보험의 EPV | $\mathrm E[Z_{\text{연말양로}}]$ |
+:::
+
+`#`
+
+
+# 3. 보험의 여러 꼴
+
+## A. 개념
+
+`-` 보험금이 바뀌는 보험: 해마다 1 씩 늘면 현가는 $(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}$ 처럼 보험금을 곱한 꼴이다.
+
+`-` ★ 사망률이 일정할 때($F_x(1) = F_{x+1}(1) = \cdots = q$, $p = 1 - q$), 보험금이 1, 2, 3, … 으로 느는 $n$ 년 정기보험의 EPV 는 아래와 같다($r = vp$).
+
+$$
+\begin{aligned}
+&\mathrm E[(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}] = \sum_{k=0}^{n-1} (k+1)\,v^{k+1} p^k q \quad (\because \Pr(\lfloor T_x \rfloor = k) = S_x(k) - S_x(k+1) = p^k q) \\
+&\quad = vq\sum_{k=0}^{n-1} (k+1)\,r^k \\
+&\quad = vq\,\frac{1 - (n+1)\,r^n + n\,r^{n+1}}{(1 - r)^2} \quad \left(\because \sum_{k=0}^{n-1} (k+1)\,r^k = \frac{d}{dr}\,\frac{1 - r^{n+1}}{1 - r}\right) \\
+&\quad = \frac{q(1+i)}{(q+i)^2}\{1 - (n+1)\,r^n + n\,r^{n+1}\} \quad (\because 1 - r = 1 - vp = v(q+i))
+\end{aligned}
+$$
+
+## B. 기출문제
+
+`# 예제 3 (2024 1차 33번)` 사망은 한계연령이 100인 드므와브르(De Moivre)의 법칙을 따르고 이력 $\delta = 0.05$ 일 때, $Z_{\text{거치}} = v^{T_{40}}$ ($T_{40} > 30$ 일 때) · $0$ (그 밖) 에 대하여 $\mathrm E[Z_{\text{거치}}]$ 를 구하시오. (단, $e^{-1.5} = 0.2231$)
+
+① 0.0532  ② 0.0549  ③ 0.0561  ④ 0.0578
+
+`(풀이)` 구하는 것은 $\mathrm E[Z_{\text{거치}}]$ 이다. $Z_{\text{거치}}$ 는 $T_{40}$ 으로 정해지므로 필요한 것은 $T_{40}$ 의 분포이다. 한계연령이 100인 드므와브르 법칙은 $S_0(t) = 1 - \frac{t}{100}$, $0 \le t \le 100$ 이다.
+
+$$
+\begin{aligned}
+&S_{40}(t) = \frac{S_0(40+t)}{S_0(40)} \quad \left(\because S_x(t) = \frac{S_0(x+t)}{S_0(x)}\right) \\
+&\quad = \frac{1 - (40+t)/100}{1 - 40/100} = 1 - \frac{t}{60}, \quad 0 \le t \le 60
+\end{aligned}
+$$
+
+곧 $T_{40}$ 은 $(0, 60)$ 의 균등분포이고 $F_{40}'(t) = -\frac{d}{dt}S_{40}(t) = \frac{1}{60}$ ($0 \le t \le 60$) 이다. 그러면 $\mathrm E[Z_{\text{거치}}]$ 는 아래와 같다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{거치}}] = \int_{30}^{60} v^t\,F_{40}'(t)\,dt \quad (\because Z_{\text{거치}} = v^{T_{40}}\ (T_{40} > 30),\ 0\ (\text{그 밖})) \\
+&\quad = \int_{30}^{60} e^{-0.05t} \times \frac{1}{60}\,dt \quad (\because v^t = e^{-\delta t},\ \delta = 0.05) \\
+&\quad = \frac{1}{60}\left[-\frac{e^{-0.05t}}{0.05}\right]_{30}^{60} \\
+&\quad = \frac{1}{3}\left(e^{-1.5} - e^{-3}\right) \\
+&\quad = \frac{0.2231 - 0.2231^2}{3} \quad (\because e^{-3} = (e^{-1.5})^2) \\
+&\quad = \frac{0.2231 - 0.049774}{3} = 0.05778
+\end{aligned}
+$$
+
+따라서 구하는 값은 $0.05778 \approx 0.0578$ 이다.
+
+답: ④ (0.0578)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+사망은 한계연령이 100인 드므와브르(De Moivre)의 법칙을 따르고 이력 $\delta = 0.05$일 때, ${}_{30\vert}\bar A_{40}$을 구하시오. (단, $e^{-1.5} = 0.2231$)
+
+① 0.0532  ② 0.0549  ③ 0.0561  ④ 0.0578
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $\delta$ | 이력(force of interest). $v^t = e^{-\delta t}$ | $\delta = \log(1+i)$ |
+| ${}_{u\vert}\bar A_x$ | $u$ 년 거치 종신보험의 EPV. 죽는 순간 준다 | $\mathrm E[Z_{\text{거치}}]$ |
+:::
+
+`#`
+
+
+`# 예제 4 (2024 1차 34번)` $F_x(1) = F_{x+1}(1) = \cdots = 0.03$ 이고, $v = 0.95$ 일 때, $\mathrm E[(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}]$ ($n = 10$) 을 구하시오. (단, $0.97^{10} = 0.7374$, $v^{10} = 0.5987$)
+
+① 0.92  ② 0.94  ③ 0.96  ④ 0.98
+
+`(풀이)` 구하는 것은 $\mathrm E[(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}]$ ($n = 10$) 이다. 보험금이 해마다 1 씩 늘어 $\lfloor T_x \rfloor = k$ ($k = 0, 1, \ldots, 9$) 이면 $k+1$ 년 말에 $k+1$ 을 주므로, 필요한 것은 $\lfloor T_x \rfloor$ 의 분포이다. 모든 나이에서 $S_{x+j}(1) = 1 - 0.03 = 0.97$ 이다.
+
+$$
+\begin{aligned}
+&\Pr(\lfloor T_x \rfloor = k) = S_x(k) - S_x(k+1) \\
+&\quad = S_x(k)\,\{1 - S_{x+k}(1)\} = S_x(k)\,F_{x+k}(1) \quad (\because S_x(k+1) = S_x(k)\,S_{x+k}(1)) \\
+&\quad = 0.97^k \times 0.03 \quad (\because S_x(k) = S_x(1)\,S_{x+1}(1) \cdots S_{x+k-1}(1) = 0.97^k)
+\end{aligned}
+$$
+
+구하는 값은 보험금 $k+1$ 과 $v^{k+1}$ 을 곱한 것의 평균이다.
+
+$$
+\begin{aligned}
+&\mathrm E[(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}] = \sum_{k=0}^{9} (k+1)\,v^{k+1}\,\Pr(\lfloor T_x \rfloor = k) \quad (\because Z_{\text{연말정기}} = v^{\lfloor T_x \rfloor + 1}\ (T_x < 10),\ 0\ (\text{그 밖})) \\
+&\quad = \sum_{k=0}^{9} (k+1) \times 0.95^{k+1} \times 0.97^k \times 0.03 \\
+&\quad = 0.95 \times 0.03 \sum_{k=0}^{9} (k+1)\,(0.95 \times 0.97)^k \\
+&\quad = 0.0285 \sum_{k=0}^{9} (k+1)\,r^k, \quad r = 0.95 \times 0.97 = 0.9215
+\end{aligned}
+$$
+
+여기서 $\sum_{k=0}^{9} (k+1)\,r^k$ 는 아래와 같다.
+
+$$
+\begin{aligned}
+&\sum_{k=0}^{9} (k+1)\,r^k = \frac{d}{dr}\,\frac{1 - r^{11}}{1 - r} \quad \left(\because \sum_{k=0}^{9} (k+1)\,r^k = \frac{d}{dr}\sum_{k=0}^{10} r^k,\ \sum_{k=0}^{10} r^k = \frac{1 - r^{11}}{1 - r}\right) \\
+&\quad = \frac{1 - 11\,r^{10} + 10\,r^{11}}{(1 - r)^2} = \frac{1 - r^{10}\,(11 - 10\,r)}{(1 - r)^2} \\
+&\quad = \frac{1 - 0.441481 \times 1.785}{0.0785^2} \quad (\because r^{10} = 0.97^{10}\,v^{10} = 0.7374 \times 0.5987 = 0.441481) \\
+&\quad = \frac{0.211956}{0.00616225} = 34.396
+\end{aligned}
+$$
+
+따라서 구하는 값은 $0.0285 \times 34.396 = 0.9803 \approx 0.980$ 이다.
+
+답: ④ (0.980)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+$q_x = q_{x+1} = \cdots = 0.03$이고, $v = 0.95$일 때, $(IA)^{\,1}_{x:\overline{10}\vert}$을 구하시오. (단, $0.97^{10} = 0.7374$, $v^{10} = 0.5987$)
+
+① 0.92  ② 0.94  ③ 0.96  ④ 0.98
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
+| $(IA)^{\,1}_{x:\overline{n}\vert}$ | 보험금이 해마다 1 씩 느는(1, 2, 3, …) $n$ 년 정기보험의 EPV | $\mathrm E[(\lfloor T_x \rfloor + 1)\,Z_{\text{연말정기}}]$ |
+:::
+
+`#`
+
+
+`# 예제 5 (2024 1차 35번)` 피보험자 $(x)$ 가 사망 즉시 보험금 1을 지급하는 종신보험에 가입하였다. 아래의 조건을 이용하여 $\Pr(Z_{\text{종신}} \ge 0.9)$ 를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Z_{\text{종신}}$ 은 보험금의 현재가치를 나타내는 확률변수임 \
+(나) $\delta = 0.05$ \
+(다) $F_x(1) = 0.1$, $F_{x+1}(1) = 0.2$, $F_{x+2}(1) = 0.3$ \
+(라) UDD($F_x(t) = t \cdot F_x(1)$, $x$ 는 정수, $0 \le t \le 1$)를 가정함 \
+(마) $\log 0.9 = -0.105$
+:::
+
+① 0.30  ② 0.32  ③ 0.34  ④ 0.36
+
+`(풀이)` 구하는 것은 $\Pr(Z_{\text{종신}} \ge 0.9)$ 이다. $Z_{\text{종신}} = v^{T_x}$ 는 $T_x$ 가 클수록 작으므로, $Z_{\text{종신}} \ge 0.9$ 는 $T_x$ 가 어떤 값 이하인 사건이다.
+
+$$
+\begin{aligned}
+&\Pr(Z_{\text{종신}} \ge 0.9) = \Pr(e^{-0.05\,T_x} \ge 0.9) \quad (\because Z_{\text{종신}} = v^{T_x},\ v^t = e^{-\delta t},\ \delta = 0.05) \\
+&\quad = \Pr(-0.05\,T_x \ge \log 0.9) \\
+&\quad = \Pr\left(T_x \le \frac{0.105}{0.05}\right) \quad (\because \log 0.9 = -0.105) \\
+&\quad = \Pr(T_x \le 2.1) = 1 - S_x(2.1)
+\end{aligned}
+$$
+
+여기서 $S_x(2.1)$ 은 2년을 사는 확률과 그 뒤 0.1년을 사는 확률의 곱이고, 0.1년 쪽은 UDD 를 따른다.
+
+$$
+\begin{aligned}
+&S_x(2.1) = S_x(1)\,S_{x+1}(1)\,S_{x+2}(0.1) \quad (\because S_x(s+t) = S_x(s)\,S_{x+s}(t)) \\
+&\quad = (1 - 0.1)(1 - 0.2)(1 - 0.1 \times 0.3) \quad (\because \text{UDD: } F_{x+2}(0.1) = 0.1\,F_{x+2}(1)) \\
+&\quad = 0.9 \times 0.8 \times 0.97 = 0.72 \times 0.97 = 0.6984
+\end{aligned}
+$$
+
+따라서 구하는 값은 $1 - S_x(2.1) = 1 - 0.6984 = 0.3016$ 이다.
+
+답: ① (0.3016)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+피보험자 $(x)$가 사망 즉시 보험금 1을 지급하는 종신보험에 가입하였다. 아래의 조건을 이용하여 $P(Z \ge 0.9)$를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Z$는 보험금의 현재가치를 나타내는 확률변수임 \
+(나) $\delta = 0.05$ \
+(다) $q_x = 0.1,\ q_{x+1} = 0.2,\ q_{x+2} = 0.3$ \
+(라) UDD(${}_tq_x = t \cdot q_x$, $x$는 정수, $0 \le t \le 1$)를 가정함 \
+(마) $\ln 0.9 = -0.105$.
+:::
+
+① 0.30  ② 0.32  ③ 0.34  ④ 0.36
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| ${}_tq_x$ | $x$ 세인 사람이 $t$ 년 안에 죽을 확률 | $F_x(t) = \Pr(T_x \le t)$ |
+| $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
+| $P(\cdot)$ | 확률. 시험지의 $P$ 는 괄호 안이 사건이면 확률이고, 아래첨자가 붙으면 보험료다 | $\Pr(\cdot)$ |
+| $\ln$ | 자연로그 | $\log$ |
+| $\delta$ | 이력(force of interest). $v^t = e^{-\delta t}$ | $\delta = \log(1+i)$ |
+| $Z$ | 이 문항이 정한 현가 확률변수 | $Z_{\text{종신}}$ |
+:::
+
+`#`

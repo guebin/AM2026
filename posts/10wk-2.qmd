@@ -64,14 +64,14 @@ $F = 1 - S$ 를 넣으면 ② $= [1 - S_x(t+u)] - [1 - S_x(t)] + S_x(t+u) = S_x(
 |----|----------|--------|
 | ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
 | ${}_tq_x$ | $x$ 세인 사람이 $t$ 년 안에 죽을 확률 | $F_x(t) = \Pr(T_x \le t)$ |
-| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 로 쓴다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
+| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
 :::
 
 `#`
 
 `# 예제 2 (2021 1차 29번)` 확률변수 $T_0$ 가 신생아의 수명을 나타낼 때, $T_0$ 의 생존함수가
 
-$$S_0(t) = \left(1 - \dfrac{t}{100}\right)^2, \quad 0 \le t \le 100$$
+$$S_0(t) = \left(1 - \frac{t}{100}\right)^2, \quad 0 \le t \le 100$$
 
 이다. $T_0$ 의 분포에서 제3사분위수(quartile)를 구하시오.
 
@@ -81,12 +81,12 @@ $$S_0(t) = \left(1 - \dfrac{t}{100}\right)^2, \quad 0 \le t \le 100$$
 
 ![](attachments/261105-보험유진-분위수히스토그램.png){width=75% fig-align="center"}
 
-$\Pr(T_0 < t) = 0.75$ 이면 $\Pr(T_0 > t) = S_0(t) = 0.25$ 다. $\left(1 - \dfrac{t}{100}\right)^2 = 0.25$ 이므로 $1 - \dfrac{t}{100} = 0.5$ 에서 $t = 50$.
+$\Pr(T_0 < t) = 0.75$ 이면 $\Pr(T_0 > t) = S_0(t) = 0.25$ 다. $\left(1 - \frac{t}{100}\right)^2 = 0.25$ 이므로 $1 - \frac{t}{100} = 0.5$ 에서 $t = 50$.
 
 답: ③ 50
 
 ::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-확률변수 $X$가 신생아의 수명을 나타낼 때, $X$의 생존함수가 $s_X(x) = \left(1 - \dfrac{x}{100}\right)^2$, $0 \le x \le 100$ 이다. $X$의 분포에서 제3사분위수(quartile)를 구하시오.
+확률변수 $X$가 신생아의 수명을 나타낼 때, $X$의 생존함수가 $s_X(x) = \left(1 - \frac{x}{100}\right)^2$, $0 \le x \le 100$ 이다. $X$의 분포에서 제3사분위수(quartile)를 구하시오.
 
 ① 25  ② 40  ③ 50  ④ 75
 
@@ -102,8 +102,10 @@ $\Pr(T_0 < t) = 0.75$ 이면 $\Pr(T_0 > t) = S_0(t) = 0.25$ 다. $\left(1 - \dfr
 
 
 # 4. 사망력
+
+## A. 개념
  
-`-` 생존함수 복습: $S_x(t) = \dfrac{S_0(x+t)}{S_0(x)}$, $\ S_x(t+u) = S_x(t)\,S_{x+t}(u)$, $\ F_x(t) = 1 - S_x(t)$.
+`-` 생존함수 복습: $S_x(t) = \frac{S_0(x+t)}{S_0(x)}$, $\ S_x(t+u) = S_x(t)\,S_{x+t}(u)$, $\ F_x(t) = 1 - S_x(t)$.
 
 `-` 사력(force of mortality, 사망력): $x$ 세인 사람이 [$t$ 년 뒤까지 살아 있을 때, 그 순간]{style="color:#C62828"} 죽을 것 같은 느낌을 수치화 한 것. (확률은 아님, 그 비슷한 것) 
 $$
@@ -116,7 +118,7 @@ $$
 
 `-` 사력과 생존함수의 관계  $$S_x(t^\star) = \exp\left\{-\int_0^{t^\star} \mu_x(t)\,dt\right\}$$
 
-- $\int_0^{t^\star} \mu_x(t)\,dt$ 는 사력 곡선의 $0 \sim t^\star$ 의 넓이다. 그래서 $S_x(t^\star) = \exp\{-(\mu_x(t) \text{ 의 } 0 \sim t^\star \text{ 의 넓이})\}$ 로 읽는다. 넓이를 알면 적분 없이 $S_x(t^\star)$ 가 나온다.
+- $\int_0^{t^\star} \mu_x(t)\,dt$ 는 사력 곡선의 $0 \sim t^\star$ 의 넓이다. 그래서 $S_x(t^\star) = \exp\{-(\mu_x(t) \text{ 의 } 0 \sim t^\star \text{ 의 넓이})\}$ 이다. 넓이를 알면 적분 없이 $S_x(t^\star)$ 가 나온다.
 
 ![](attachments/261105-보험유진-사력넓이.png){width=75% fig-align="center"}
 
@@ -125,11 +127,11 @@ $$
 | $S_x(t)$ | $\log S_x(t)$ | $\mu_x(t)$ | 사력의 모양 |
 |---|---|---|---|
 | $e^{-ct}$ | $-ct$ | $c$ | 일정하다 |
-| $1 - \dfrac{t}{a}$ | $\log(a - t) - \log a$ | $\dfrac{1}{a - t}$ | 커진다 |
-| $\left(1 - \dfrac{t}{a}\right)^2$ | $2\log(a - t) - 2\log a$ | $\dfrac{2}{a - t}$ | 커진다 |
-| $\exp\left\{-At - \dfrac{B}{2}t^2\right\}$ | $-At - \dfrac{B}{2}t^2$ | $A + Bt$ | 직선으로 커진다 |
+| $1 - \frac{t}{a}$ | $\log(a - t) - \log a$ | $\frac{1}{a - t}$ | 커진다 |
+| $\left(1 - \frac{t}{a}\right)^2$ | $2\log(a - t) - 2\log a$ | $\frac{2}{a - t}$ | 커진다 |
+| $\exp\left\{-At - \frac{B}{2}t^2\right\}$ | $-At - \frac{B}{2}t^2$ | $A + Bt$ | 직선으로 커진다 |
 
-`-` $\mu_x(t) = \dfrac{F_x'(t)}{S_x(t)}$ 로 그려 보자.
+`-` $\mu_x(t) = \frac{F_x'(t)}{S_x(t)}$ 로 그려 보자.
 
 ![](attachments/261105-보험유진-사력모양-F.png){width=100% fig-align="center"}
 
@@ -156,7 +158,7 @@ $$
 
 ![](attachments/261105-보험유진-사력상수표.png){width=100% fig-align="center"}
 
-`-` case2: 드무아브르 법칙: $S_x(t) = 1 - \dfrac{t}{a}$, $0 \le t \le a$. 곧 $T_x$ 는 $(0, a)$ 의 균등분포다.
+`-` case2: 드무아브르 법칙: $S_x(t) = 1 - \frac{t}{a}$, $0 \le t \le a$. 곧 $T_x$ 는 $(0, a)$ 의 균등분포다.
 
 - $T_x$가 균등분포이므로 해마다 사망자수가 같음.
 
@@ -172,14 +174,14 @@ $$
 | 7년 | 300 | 100 | 33.3% |
 | 8년 | 200 | 100 | 50% |
 | 9년 | 100 | 100 | 100% |
-| $t$ 년 | $1000\left(1 - \dfrac{t}{10}\right)$ | 100 | $\dfrac{1}{10 - t}$ |
+| $t$ 년 | $1000\left(1 - \frac{t}{10}\right)$ | 100 | $\frac{1}{10 - t}$ |
 
 - 그해 죽는 사람은 그대로인데 남은 사람이 줄어서 비가 커진다. 그래서 $\mu_x(t)$ 가 커진다.
 
 ![](attachments/261105-보험유진-사력드무아브르표.png){width=100% fig-align="center"}
 
 
-# 5. 기출문제풀이
+## B. 기출문제
 
 `# 예제 3 (2025 1차 28번)` [사망률]{style="color:#C62828"}^[시험지 원문 그대로 썼음. 혼란의 여지가 있는 단어임.] $S_x(t) - S_x(t+1) = 0.10$ $(t = 0, 1, \cdots, 9)$ 일 때, $S_{x+5}(3)$ 을 구하시오.
 
@@ -221,10 +223,12 @@ $S_x(8) = S_x(5)\,S_{x+5}(3)$ 를 이용하면 $S_{x+5}(3) = 0.2 / 0.5 = 0.4$.
 | 시험지 | 뜻 | 우리 기호 |
 |----|----------|--------|
 | ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
-| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 로 쓴다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
+| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
 :::
 
-> Note: [시험지는 ${}_{t\vert}q_x$ 를 사망률이라 불렀는데 정확한 표현이 아니다. 다른 해 시험지는 사망률을 $q_x$ 에 쓴다.]{style="color:#C62828"}
+> Note: [시험지는 ${}_{t\vert}q_x$ 를 사망률이라 불렀는데 정확한 표현이 아니다. 다른 해 시험지에서는 사망률이 $q_x$ 다.]{style="color:#C62828"}
+
+`#`
 
 `# 예제 4 (2021 1차 28번)` $F_x(t)$ 가 $t$ 에 관해 미분 가능할 때, $\displaystyle\lim_{h \to 0+} \frac{F_x(h)}{h}$ 를 구하시오.
 
@@ -237,14 +241,14 @@ $$
 &\lim_{h \to 0+} \frac{F_x(h)}{h} = \lim_{h \to 0+} \frac{F_x(h) - F_x(0)}{h} \quad (\because F_x(0) = 0) \\
 &\quad = F_x'(0) \quad (\because \text{미분의 정의}) \\
 &\quad = \frac{F_x'(0)}{S_x(0)} \quad (\because S_x(0) = 1) \\
-&\quad = \mu_x(0) \quad \left(\because \mu_x(t) = \frac{F_x'(t)}{S_x(t)} \text{ 에 } t = 0 \text{ 을 넣는다}\right)
+&\quad = \mu_x(0) \quad \left(\because \mu_x(0) = \frac{F_x'(0)}{S_x(0)}\right)
 \end{aligned}
 $$
 
 답: ① $\mu_x(0)$
 
 ::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-${}_tq_x$가 $t$에 관해 미분 가능할 때, $\lim_{h \to 0+} \dfrac{{}_hq_x}{h}$를 구하시오.
+${}_tq_x$가 $t$에 관해 미분 가능할 때, $\lim_{h \to 0+} \frac{{}_hq_x}{h}$를 구하시오.
 
 ① $\mu_x$  ② $p_x$  ③ $q_x$  ④ $p_x\mu_x$
 
@@ -254,7 +258,7 @@ ${}_tq_x$가 $t$에 관해 미분 가능할 때, $\lim_{h \to 0+} \dfrac{{}_hq_x
 |----|----------|--------|
 | ${}_tq_x$ | $x$ 세인 사람이 $t$ 년 안에 죽을 확률 | $F_x(t) = \Pr(T_x \le t)$ |
 | $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
-| $\mu_x$ | $x$ 세의 사력(force of mortality). $\mu_x = \lim_{h \to 0+} \dfrac{1}{h}\Pr(T_0 \le x+h \mid T_0 > x)$ | $\mu_x(0)$ |
+| $\mu_x$ | $x$ 세의 사력(force of mortality). $\mu_x = \lim_{h \to 0+} \frac{1}{h}\Pr(T_0 \le x+h \mid T_0 > x)$ | $\mu_x(0)$ |
 :::
 
 `#`
@@ -267,7 +271,7 @@ ${}_tq_x$가 $t$에 관해 미분 가능할 때, $\lim_{h \to 0+} \dfrac{{}_hq_x
 
 $$
 \begin{aligned}
-&\lim_{h \to 0+} \frac{S_x(t) - S_x(t+h)}{h} = -\lim_{h \to 0+} \frac{S_x(t+h) - S_x(t)}{h} \quad (\because \text{분자의 부호를 바꾼다}) \\
+&\lim_{h \to 0+} \frac{S_x(t) - S_x(t+h)}{h} = -\lim_{h \to 0+} \frac{S_x(t+h) - S_x(t)}{h} \quad (\because S_x(t) - S_x(t+h) = -\{S_x(t+h) - S_x(t)\}) \\
 &\quad = -S_x'(t) \quad (\because \text{미분의 정의}) \\
 &\quad = F_x'(t) \quad (\because F_x(t) = 1 - S_x(t)) \\
 &\quad = S_x(t)\,\mu_x(t) \quad \left(\because \mu_x(t) = \frac{F_x'(t)}{S_x(t)}\right)
@@ -287,8 +291,8 @@ $\displaystyle\lim_{h\to0+}\frac{{}_{k\vert h}q_x}{h}$ 를 구하시오.
 |----|----------|--------|
 | ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
 | $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
-| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 로 쓴다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
-| $\mu_{x+t}$ | $x+t$ 세의 사력. 시험지는 사력을 나이 하나로 적는다 | $\mu_x(t)$ |
+| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
+| $\mu_{x+t}$ | $x+t$ 세의 사력. 시험지 기호의 아래첨자는 나이 하나다 | $\mu_x(t)$ |
 :::
 
 `#`
@@ -302,7 +306,7 @@ $$\mu_{40}(t) = \begin{cases} 0.01, & 0 \le t < 5, \\ 0.02, & 5 \le t. \end{case
 
 ① 0.70  ② 0.75  ③ 0.80  ④ 0.85
 
-`(풀이)` 사력이 $t = 5$ 에서 바뀌므로 적분을 둘로 나눈다.
+`(풀이)` 사력이 $t = 5$ 에서 바뀌므로 적분은 둘로 나뉜다.
 
 $$
 \begin{aligned}
@@ -337,7 +341,7 @@ $$\mu_{40+t} = \begin{cases} 0.01, & 0 \le t < 5, \\ 0.02, & 5 \le t. \end{cases
 | 시험지 | 뜻 | 우리 기호 |
 |----|----------|--------|
 | ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
-| $\mu_{x+t}$ | $x+t$ 세의 사력. 시험지는 사력을 나이 하나로 적는다 | $\mu_x(t)$ |
+| $\mu_{x+t}$ | $x+t$ 세의 사력. 시험지 기호의 아래첨자는 나이 하나다 | $\mu_x(t)$ |
 :::
 
 `#`
@@ -351,12 +355,12 @@ $$\mu_0(t) = A + Bt, \quad t \ge 0$$
 ::: {style="border: 1px solid #c8c8c8; padding: 16px 14px 0 14px; margin: 0.6em 0;"}
 (가) $S_0(2) = e^{-0.6}$
 
-(나) $-\dfrac{S_0'(2)}{S_0(2)} = 0.5$
+(나) $-\frac{S_0'(2)}{S_0(2)} = 0.5$
 :::
 
 ① 0.10  ② 0.30  ③ 0.50  ④ 0.70
 
-`(풀이)` (가) 의 $S_0(2)$ 를 사력으로 쓴다.
+`(풀이)` (가) 의 $S_0(2)$ 는 사력으로 정해진다.
 
 $$
 \begin{aligned}
@@ -367,7 +371,7 @@ $$
 
 (가) 에서 $2A + 2B = 0.6$, (나) 는 $\mu_0(2) = A + 2B = 0.5$. 풀면 $B = 0.2$, $A = 0.1$.
 
-`(넓이 풀이)` $\mu_0(t) = A + Bt$ 의 그래프를 그린다. $t = 0$ 의 높이가 $A$, $t = 2$ 의 높이가 $A + 2B$ 인 직선이다.
+`(넓이 풀이)` $\mu_0(t) = A + Bt$ 의 그래프는 $t = 0$ 의 높이가 $A$, $t = 2$ 의 높이가 $A + 2B$ 인 직선이다.
 
 ![](attachments/261105-보험유진-넓이예8-AB.png){width=75% fig-align="center"}
 
@@ -375,11 +379,11 @@ $$
 
 $$(\mu_0(t) \text{ 의 } 0 \sim 2 \text{ 의 넓이}) = \frac{2}{2}\{A + (A + 2B)\} = 2A + 2B = 0.6$$
 
-(나) 는 끝점의 높이가 $0.5$ 라는 말이다. 사력의 식 $\mu_0(t) = -\dfrac{S_0'(t)}{S_0(t)}$ 에 $t = 2$ 를 넣은 것이 (나) 의 왼쪽이기 때문이다.
+(나) 는 끝점의 높이가 $0.5$ 라는 말이다. 사력의 식 $\mu_0(t) = -\frac{S_0'(t)}{S_0(t)}$ 에 $t = 2$ 를 넣은 것이 (나) 의 왼쪽이기 때문이다.
 
 $$(\text{끝점의 높이}) = \mu_0(2) = A + 2B = 0.5$$
 
-두 식을 연립한다. 첫 식에서 둘째 식을 빼면 $A = 0.1$ 이고, $A + 2B = 0.5$ 에서 $B = 0.2$ 다.
+$2A + 2B = 0.6$ 에서 $A + 2B = 0.5$ 를 빼면 $A = 0.1$ 이고, $A + 2B = 0.5$ 에서 $B = 0.2$ 다.
 
 답: ① 0.10
 
@@ -399,8 +403,8 @@ $$(\text{끝점의 높이}) = \mu_0(2) = A + 2B = 0.5$$
 | 시험지 | 뜻 | 우리 기호 |
 |----|----------|--------|
 | ${}_tp_x$ | $x$ 세인 사람이 $t$ 년 뒤에도 살아 있을 확률 | $S_x(t) = \Pr(T_x > t)$ |
-| $\mu_x$ | $x$ 세의 사력(force of mortality). $\mu_x = \lim_{h \to 0+} \dfrac{1}{h}\Pr(T_0 \le x+h \mid T_0 > x)$. 이 문항의 $x$ 는 우리의 $t$ 다 | $\mu_0(t)$ |
-| $\left(-\dfrac{1}{{}_tp_0}\dfrac{d}{dt}\,{}_tp_0\right)\Big\vert_{t=2}$ | 괄호 안을 $t$ 의 식으로 계산한 뒤 $t = 2$ 를 넣는다 | $-\dfrac{S_0'(2)}{S_0(2)}$ |
+| $\mu_x$ | $x$ 세의 사력(force of mortality). $\mu_x = \lim_{h \to 0+} \frac{1}{h}\Pr(T_0 \le x+h \mid T_0 > x)$. 이 문항의 $x$ 는 우리의 $t$ 다 | $\mu_0(t)$ |
+| $\left(-\frac{1}{{}_tp_0}\frac{d}{dt}\,{}_tp_0\right)\Big\vert_{t=2}$ | 괄호 안을 $t$ 의 식으로 계산한 뒤 $t = 2$ 를 넣은 값 | $-\frac{S_0'(2)}{S_0(2)}$ |
 :::
 
 `#`

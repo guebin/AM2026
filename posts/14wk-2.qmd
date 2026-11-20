@@ -1,0 +1,676 @@
+---
+title: "**14wk-2**: 계리사 기출문제 풀이 (8)"
+author: 최규빈
+date: "12/03/2026 09:00"
+draft: true
+---
+
+# 1. 강의영상
+
+
+# 2. 생명연금
+
+## A. 개념
+
+`-` ★ 살아 있는 동안 받는 돈(연금)의 현가.
+
+- 끊김 없이 연 1: $Z_{\text{연금}} = \int_0^{T_x} v^t\,dt = \frac{1 - Z_{\text{종신}}}{\delta}$, $n$ 년까지는 $Z_{\text{유기연금}} = \frac{1 - Z_{\text{양로}}}{\delta}$
+- 매년 초에 1: $Z_{\text{기시연금}} = \sum_{k=0}^{\lfloor T_x \rfloor} v^k$, $\ \mathrm E[Z_{\text{기시연금}}] = \sum_{k \ge 0} v^k S_x(k)$
+- 매년 말에 1: 매년 초 것에서 1 을 뺀 것이다
+- $n$ 번까지(유기): $\mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^k S_x(k)$ · $u$ 년 거치: $\sum_{k \ge u} v^k S_x(k)$
+- 보증: 처음 $n$ 년은 생사와 관계없이 준다. $\sum_{k=0}^{n-1} v^k + \sum_{k \ge n} v^k S_x(k)$
+
+`-` 확정연금과 적립값.
+
+- 확정연금: $\sum_{k=0}^{n-1} v^k = \frac{1 - v^n}{1 - v}$ (매년 초), $\ \sum_{k=1}^{n} v^k$ (매년 말), $\ \int_0^n v^t\,dt = \frac{1 - v^n}{\delta}$ (끊김 없이).
+- 적립값: 확정연금 $\sum_{k=0}^{n-1} v^k$ (매년 초), $\ \sum_{k=1}^{n} v^k$ (매년 말), $\ \int_0^n v^t\,dt$ (끊김 없이) 에 각각 $(1+i)^n$ 을 곱한 것이다.
+
+`-` 해마다 1 을 $m$ 번에 나눠 주는 연금, 해마다 늘어나는 연금도 같은 꼴의 합이다(★ $Z_{\text{분기초연금}} = \frac14\sum_{k=0}^{\lfloor 4T_x\rfloor} v^{k/4}$ 처럼).
+
+`-` ★ 사망률이 일정할 때($F_x(1) = F_{x+1}(1) = \cdots = q$, $p = 1 - q$): $v^k S_x(k) = (vp)^k$ 이므로 연금의 EPV 는 등비급수다. 아래는 차례로 매년 초에 평생, 매년 초에 $n$ 번, 매년 말에 $n$ 번 주는 연금이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시연금}}] = \sum_{k \ge 0} (vp)^k = \frac{1}{1 - vp} = \frac{1+i}{q+i} \quad (\because 1 - vp = v(q+i)) \\
+&\mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} (vp)^k = \frac{1 - (vp)^n}{1 - vp} = \frac{1+i}{q+i}\{1 - (vp)^n\} \\
+&\sum_{k=1}^{n} v^k S_x(k) = \sum_{k=1}^{n} (vp)^k = \frac{vp\{1 - (vp)^n\}}{1 - vp} = \frac{p}{q+i}\{1 - (vp)^n\}
+\end{aligned}
+$$
+
+`-` ★ 사력이 일정할 때($\mu_x(t) = \mu$): $v^t S_x(t) = e^{-(\mu+\delta)t}$ 이므로 연금의 EPV 는 지수함수의 적분이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{연금}}] = \int_0^\infty v^t S_x(t)\,dt = \int_0^\infty e^{-(\mu+\delta)t}\,dt = \frac{1}{\mu+\delta} \\
+&\mathrm E[Z_{\text{유기연금}}] = \int_0^n v^t S_x(t)\,dt = \int_0^n e^{-(\mu+\delta)t}\,dt = \frac{1}{\mu+\delta}\{1 - e^{-(\mu+\delta)n}\}
+\end{aligned}
+$$
+
+- 분포: $Z_{\text{연금}} = \frac{1 - v^{T_x}}{\delta}$ 는 $T_x$ 가 클수록 크다. $0 < a < \frac{1}{\delta}$ 이면 $\Pr(Z_{\text{연금}} > a) = \Pr(v^{T_x} < 1 - \delta a) = (1 - \delta a)^{\frac{\mu}{\delta}}$.
+
+## B. 기출문제
+
+`# 예제 1 (2024 1차 37번)` 아래의 조건을 이용하여 $\Pr(Y > 10)$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Y$ 는 연액 1을 연속 지급하는 10년 보증기간부 종신연금의 현재가치임 \
+(나) $\mu_x(t) = 0.02$ \
+(다) $\delta = 0.05$
+:::
+
+① $\left(\frac{1}{2}\right)^{0.2}$ \
+② $\left(\frac{1}{2}\right)^{0.3}$ \
+③ $\left(\frac{1}{2}\right)^{0.4}$ \
+④ $\left(\frac{1}{2}\right)^{0.5}$
+
+`(풀이)` 구하는 것은 $\Pr(Y > 10)$ 이다. $Y$ 는 $T_x$ 로 정해지고, $T_x$ 의 생존함수는 사력 $\mu_x(t) = 0.02$ 에서 나온다.
+
+$$
+\begin{aligned}
+&S_x(t) = \exp\left\{-\int_0^t \mu_x(s)\,ds\right\} \\
+&\quad = \exp\left\{-\int_0^t 0.02\,ds\right\} \quad (\because \mu_x(t) = 0.02) \\
+&\quad = e^{-0.02t}
+\end{aligned}
+$$
+
+$Y$ 는 처음 10년은 생사와 관계없이 주고 10년 넘게 살면 죽을 때까지 주는 연금의 현가다.
+
+$$
+\begin{aligned}
+&Y = \int_0^{\max(T_x,\,10)} v^t\,dt \quad (\because \text{10년 안에 죽어도 10년까지는 준다}) \\
+&\quad = \int_0^{\max(T_x,\,10)} e^{-0.05t}\,dt \quad (\because v^t = e^{-\delta t},\ \delta = 0.05) \\
+&\quad = \frac{1 - e^{-0.05\max(T_x,\,10)}}{0.05}
+\end{aligned}
+$$
+
+10년 안에 죽으면 $Y = \frac{1 - e^{-0.05 \times 10}}{0.05} = 7.87$ 로 10 을 넘지 못한다. 따라서 $Y > 10$ 이려면 10년 넘게 살아야 한다.
+
+$$
+\begin{aligned}
+&\Pr(Y > 10) = \Pr\left(T_x > 10,\ \frac{1 - e^{-0.05\,T_x}}{0.05} > 10\right) \quad (\because T_x \le 10 \text{ 이면 } Y = 7.87) \\
+&\quad = \Pr\left(T_x > 10,\ 1 - e^{-0.05\,T_x} > 0.5\right) \\
+&\quad = \Pr(T_x > 10,\ T_x > 20\log 2) \quad \left(\because e^{-0.05\,T_x} < 0.5 \text{ 이면 } T_x > \frac{\log 2}{0.05} = 20\log 2\right) \\
+&\quad = \Pr(T_x > 20\log 2) \quad (\because 20\log 2 \approx 13.86 > 10) \\
+&\quad = S_x(20\log 2) \\
+&\quad = e^{-0.02 \times 20\log 2} \quad (\because S_x(t) = e^{-0.02t}) \\
+&\quad = e^{-0.4\log 2} = \left(e^{\log 2}\right)^{-0.4} = 2^{-0.4} \\
+&\quad = \left(\frac12\right)^{0.4} = 0.758
+\end{aligned}
+$$
+
+따라서 구하는 값은 $\left(\frac12\right)^{0.4} = 0.758$ 이다.
+
+답: ③ ($(1/2)^{0.4} = 0.758$)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $P(Y > 10)$을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Y$는 연액 1을 연속 지급하는 10년 보증기간부 종신연금의 현재가치임 \
+(나) $\mu = 0.02$ \
+(다) $\delta = 0.05$.
+:::
+
+① $\left(\frac{1}{2}\right)^{0.2}$ \
+② $\left(\frac{1}{2}\right)^{0.3}$ \
+③ $\left(\frac{1}{2}\right)^{0.4}$ \
+④ $\left(\frac{1}{2}\right)^{0.5}$
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $P(\cdot)$ | 확률. 시험지의 $P$ 는 괄호 안이 사건이면 확률이고, 아래첨자가 붙으면 보험료다 | $\Pr(\cdot)$ |
+| $\delta$ | 이력(force of interest). $v^t = e^{-\delta t}$ | $\delta = \log(1+i)$ |
+| $\mu$ | 이 문항의 일정한 사력 | $\mu_x(t)$ |
+:::
+
+`#`
+
+
+`# 예제 2 (2025 1차 35번)` 모든 $i \ge 0$ 에 대해서 아래 식 중 옳은 것을 고르시오. (단, $Z_{\text{분기초연금}}$ · $Z_{\text{분기말연금}}$ 은 살아 있는 동안 매 분기 초 · 매 분기 말에 $\frac14$ 씩 주는 연금의 현재가치)
+
+① $\mathrm E[Z_{\text{기시연금}}] \le \mathrm E[Z_{\text{분기초연금}}] \le \mathrm E[Z_{\text{연금}}] \le \mathrm E[Z_{\text{분기말연금}}] \le \mathrm E[Z_{\text{기시연금}}] - 1$ \
+② $\mathrm E[Z_{\text{분기초연금}}] \le \mathrm E[Z_{\text{기시연금}}] \le \mathrm E[Z_{\text{연금}}] \le \mathrm E[Z_{\text{분기말연금}}] \le \mathrm E[Z_{\text{기시연금}}] - 1$ \
+③ $\mathrm E[Z_{\text{기시연금}}] - 1 \le \mathrm E[Z_{\text{분기말연금}}] \le \mathrm E[Z_{\text{연금}}] \le \mathrm E[Z_{\text{분기초연금}}] \le \mathrm E[Z_{\text{기시연금}}]$ \
+④ $\mathrm E[Z_{\text{분기말연금}}] \le \mathrm E[Z_{\text{기시연금}}] - 1 \le \mathrm E[Z_{\text{연금}}] \le \mathrm E[Z_{\text{분기초연금}}] \le \mathrm E[Z_{\text{기시연금}}]$
+
+`(풀이)` 구하는 것은 다섯 연금 기댓값의 크기 순서다. 다섯 연금은 모두 살아 있는 동안 한 해에 1 을 주고(매년 말에 주는 것은 $Z_{\text{기시연금}} - 1 = \sum_{k=1}^{\lfloor T_x \rfloor} v^k$), $v \le 1$ 이라 같은 1 이면 일찍 줄수록 현가가 크다.
+
+- ① 틀리다. 늦게 줄수록 작다는 순서와 정반대이고, 양 끝이 $\mathrm E[Z_{\text{기시연금}}] \le \mathrm E[Z_{\text{기시연금}}] - 1$ 이라 성립할 수 없다.
+- ② 틀리다. 매년 초에 1 을 한꺼번에 주는 쪽이 끊김 없이 주는 쪽보다 일찍 주므로 $\mathrm E[Z_{\text{연금}}] \le \mathrm E[Z_{\text{기시연금}}]$ 인데 ② 는 그 반대이고, 부등식 안에 $\mathrm E[Z_{\text{기시연금}}] \le \cdots \le \mathrm E[Z_{\text{기시연금}}] - 1$ 이 들어 있어 성립할 수 없다.
+- ③ 옳다. 한 해 안의 구간마다 $v^t$ 가 줄어드는 함수라 오른쪽 끝 값 $\le$ 적분 $\le$ 왼쪽 끝 값이다. 그래서 $T_x$ 하나하나마다 $Z_{\text{기시연금}} - 1 \le Z_{\text{분기말연금}} \le Z_{\text{연금}} \le Z_{\text{분기초연금}} \le Z_{\text{기시연금}}$ 이고, 기댓값도 이 순서다.
+- ④ 틀리다. 분기 말에 $\frac14$ 씩 주면 매년 말에 1 을 한꺼번에 줄 때보다 일찍 받는 몫이 생기므로 $\mathrm E[Z_{\text{기시연금}}] - 1 \le \mathrm E[Z_{\text{분기말연금}}]$ 인데 ④ 는 그 반대다.
+
+따라서 옳은 것은 ③ 이다.
+
+답: ③
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+모든 $i \ge 0$ 에 대해서 아래 식 중 옳은 것을 고르시오.
+
+① $\ddot a_x \le \ddot a^{(4)}_x \le \bar a_x \le a^{(4)}_x \le a_x$ \
+② $\ddot a^{(4)}_x \le \ddot a_x \le \bar a_x \le a^{(4)}_x \le a_x$ \
+③ $a_x \le a^{(4)}_x \le \bar a_x \le \ddot a^{(4)}_x \le \ddot a_x$ \
+④ $a^{(4)}_x \le a_x \le \bar a_x \le \ddot a^{(4)}_x \le \ddot a_x$
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $\bar a_x$ | 살아 있는 동안 끊김 없이 연 1 을 주는 연금의 EPV | $\mathrm E[Z_{\text{연금}}]$, $Z_{\text{연금}} = \int_0^{T_x} v^t\,dt$ |
+| $\ddot a_x$ | 살아 있는 동안 매년 초에 1 을 주는 종신연금의 EPV | $\mathrm E[Z_{\text{기시연금}}]$, $Z_{\text{기시연금}} = \sum_{k=0}^{\lfloor T_x \rfloor} v^k$ |
+| $a_x$ | 살아 있는 동안 매년 말에 1 을 주는 종신연금의 EPV | $\mathrm E[Z_{\text{기시연금}}] - 1$ |
+| $\ddot a_x^{(m)}$ · $a_x^{(m)}$ | 해마다 1 을 $m$ 번에 나눠 주는 연금의 EPV. 점이 있으면 기초, 없으면 기말이다 | $\mathrm E[Z^{(m)}_{\text{기시연금}}]$ · $\mathrm E[Z^{(m)}_{\text{기말연금}}]$ |
+:::
+
+`#`
+
+
+`# 예제 3 (2025 1차 36번)` 피보험자 $(30)$ 이 최초 10년 동안은 10을, 이후 10년 동안은 20을, 마지막 10년 동안은 30의 연금을 기시급으로 받는다. 이 연금의 기대현가로서 옳은 것을 고르시오. (단, 괄호는 그 기댓값을 센 나이 · 햇수)
+
+① $20\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 30년) $+\ 10\,\mathrm E[Z_{\text{기시유기연금}}]$ (50세 · 10년) $\times\,(1 - v^{20}S_{30}(20))$ \
+② $10\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 10년) $+\ 20\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 30년) $+\ 10\,\mathrm E[Z_{\text{기시유기연금}}]$ (50세 · 10년) \
+③ $10\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 10년) $+\ 20\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 30년) $-\ 10\,v^{20}S_{30}(20)\,\mathrm E[Z_{\text{기시유기연금}}]$ (50세 · 10년) \
+④ $-10\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 10년) $+\ 20\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 30년) $+\ 10\,v^{20}S_{30}(20)\,\mathrm E[Z_{\text{기시유기연금}}]$ (50세 · 10년)
+
+`(풀이)` 구하는 것은 처음 10년 10 · 다음 10년 20 · 마지막 10년 30 을 매년 초에 주는 연금의 기대현가다. 이 연금은 30년 내내 20 을 주는 연금에서 처음 10년의 10 을 빼고 마지막 10년의 10 을 더한 것이고, 마지막 10년 몫은 20년을 살아야 시작하므로 50세로 센 값에 $v^{20}S_{30}(20)$ 을 곱한 것이다.
+
+- ① 틀리다. 처음 10년에도 20 을 주는 식이고, 마지막 10년 몫에 곱한 것이 $v^{20}S_{30}(20)$ 이 아니라 $1 - v^{20}S_{30}(20)$ 이다.
+- ② 틀리다. 처음 10년에 $10 + 20 = 30$ 을 주는 식이고, 마지막 10년 몫에 $v^{20}S_{30}(20)$ 이 없다.
+- ③ 틀리다. 처음 10년 30 · 다음 10년 20 · 마지막 10년 10 을 주는 식이라 문제와 거꾸로다.
+- ④ 옳다. $-10\,\mathrm E[Z_{\text{기시유기연금}}]$ (30세 · 10년) 은 처음 10년의 10 을 뺀 몫이고, 마지막 10년의 10 은 $\sum_{k=20}^{29} 10\,v^kS_{30}(k) = 10\,v^{20}S_{30}(20)\sum_{j=0}^{9} v^jS_{50}(j)$ ($\because S_{30}(20+j) = S_{30}(20)\,S_{50}(j)$), 곧 $10\,v^{20}S_{30}(20)\,\mathrm E[Z_{\text{기시유기연금}}]$ (50세 · 10년) 이다.
+
+따라서 옳은 것은 ④ 이다.
+
+답: ④
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+피보험자 (30) 이 최초 10년 동안은 10을, 이후 10년 동안은 20을, 마지막 10년 동안은 30의 연금을 기시급으로 받는다. 이 연금의 기대현가로서 옳은 것을 고르시오.
+
+① $20\ddot a_{30:\overline{30}\vert} + 10\ddot a_{50:\overline{10}\vert}(1 - {}_{20}E_{30})$ \
+② $10\ddot a_{30:\overline{10}\vert} + 20\ddot a_{30:\overline{30}\vert} + 10\ddot a_{50:\overline{10}\vert}$ \
+③ $10\ddot a_{30:\overline{10}\vert} + 20\ddot a_{30:\overline{30}\vert} - 10\,{}_{20}E_{30}\,\ddot a_{50:\overline{10}\vert}$ \
+④ $-10\ddot a_{30:\overline{10}\vert} + 20\ddot a_{30:\overline{30}\vert} + 10\,{}_{20}E_{30}\,\ddot a_{50:\overline{10}\vert}$
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| ${}_nE_x$ · $A_{x:\overline{n}\vert}^{\ \ \,1}$ | $n$ 년 뒤 살아 있으면 1 을 주는 생존보험의 EPV. 위의 1 이 $\overline{n}\vert$ 쪽에 있으면 만기가 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{생존}}] = v^n S_x(n)$ |
+| $\ddot a_{x:\overline{n}\vert}$ | 매년 초에 $n$ 번까지 주는 유기연금의 EPV | $\mathrm E[Z_{\text{기시유기연금}}]$ |
+:::
+
+`#`
+
+
+`# 예제 4 (2026 1차 34번)` $x$ 세 · 3년으로 센 $\mathrm E[Z_{\text{기시유기연금}}] = 2.5$, $v\,S_{x+1}(1) = 0.75$, $i = 0.1$ 일 때, $v^2(S_x(1) - S_x(2))$ 를 구하시오.
+
+① 0.129  ② 0.131  ③ 0.136  ④ 0.140
+
+`(풀이)` 구하는 것은 $v^2(S_x(1) - S_x(2))$ 이다. $S_x(2) = S_x(1)\,S_{x+1}(1)$ 이므로 이 값은 $v\,S_x(1)$ 과 $S_{x+1}(1)$ 로 정해지고, 둘은 $x$ 세 · 3년으로 센 $\mathrm E[Z_{\text{기시유기연금}}] = 2.5$ 와 $v\,S_{x+1}(1) = 0.75$ 에서 나온다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{2} v^kS_x(k) \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^kS_x(k)\right) \\
+&\quad = 1 + v\,S_x(1) + v^2\,S_x(1)\,S_{x+1}(1) \quad (\because S_x(2) = S_x(1)\,S_{x+1}(1)) \\
+&\quad = 1 + v\,S_x(1)\,\{1 + v\,S_{x+1}(1)\} \\
+&\quad = 1 + v\,S_x(1)\,(1 + 0.75) \quad (\because v\,S_{x+1}(1) = 0.75)
+\end{aligned}
+$$
+
+이 값이 2.5 이고 $v = \frac{1}{1 + i} = \frac{1}{1.1}$ 이므로 $v\,S_x(1)$ 과 $S_{x+1}(1)$ 은 아래와 같다.
+
+$$
+\begin{aligned}
+&v\,S_x(1) = \frac{2.5 - 1}{1 + 0.75} = \frac{1.5}{1.75} = \frac{6}{7} \\
+&S_{x+1}(1) = \frac{v\,S_{x+1}(1)}{v} = 0.75 \times 1.1 = 0.825
+\end{aligned}
+$$
+
+구하는 값은 이 둘의 식이다.
+
+$$
+\begin{aligned}
+&v^2(S_x(1) - S_x(2)) = v^2\,S_x(1)\,\{1 - S_{x+1}(1)\} \quad (\because S_x(2) = S_x(1)\,S_{x+1}(1)) \\
+&\quad = v\,S_x(1) \times v \times F_{x+1}(1) \quad (\because F_{x+1}(1) = 1 - S_{x+1}(1)) \\
+&\quad = \frac{6}{7} \times \frac{1}{1.1} \times (1 - 0.825) \\
+&\quad = \frac{6}{7} \times \frac{1}{1.1} \times 0.175 = 0.13636
+\end{aligned}
+$$
+
+따라서 구하는 값은 0.13636 이다.
+
+답: ③ (0.1364)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+$\ddot a_{x:\overline{3}\vert} = 2.5$, $a_{x+1:\overline{1}\vert} = 0.75$, $i = 0.1$ 일 때, ${}_{1\vert}A^{\,1}_{x:\overline{1}\vert}$ 을 구하시오.
+
+① 0.129  ② 0.131  ③ 0.136  ④ 0.140
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| ${}_{u\vert}A^{\,1}_{x:\overline{n}\vert}$ | $u$ 년 거치 $n$ 년 정기보험의 EPV | $\sum_{k=u}^{u+n-1} v^{k+1}(S_x(k) - S_x(k+1))$ |
+| $\ddot a_{x:\overline{n}\vert}$ | 매년 초에 $n$ 번까지 주는 유기연금의 EPV | $\mathrm E[Z_{\text{기시유기연금}}]$ |
+| $a_{x:\overline{n}\vert}$ | 매년 말에 $n$ 번까지 주는 유기연금의 EPV | $\sum_{k=1}^{n} v^k S_x(k)$ |
+:::
+
+`#`
+
+
+`# 예제 5 (2026 1차 35번)` 사망은 드므와브르(De Moivre) 법칙을 따른다고 가정하자. $i = 0.05$ 이고 $S_{45}(6) - S_{45}(11) = \frac{1}{10}$ 일 때, $v\,S_{30}(1) + v^2\,S_{30}(2)$ 를 구하시오.
+
+① 1.82  ② 1.84  ③ 1.86  ④ 1.88
+
+`(풀이)` 구하는 것은 $v\,S_{30}(1) + v^2\,S_{30}(2)$ 이다. 드므와브르 법칙에서 생존함수는 한계연령 $\omega$ 로 정해지고, $\omega$ 는 주어진 $S_{45}(6) - S_{45}(11) = \frac{1}{10}$ 에서 나온다.
+
+$$
+\begin{aligned}
+&S_{45}(t) = \frac{S_0(45+t)}{S_0(45)} \quad \left(\because S_x(t) = \frac{S_0(x+t)}{S_0(x)}\right) \\
+&\quad = \frac{1 - (45+t)/\omega}{1 - 45/\omega} \quad \left(\because \text{드므와브르: } S_0(t) = 1 - \frac{t}{\omega},\ 0 \le t \le \omega\right) \\
+&\quad = 1 - \frac{t}{\omega - 45}, \quad 0 \le t \le \omega - 45
+\end{aligned}
+$$
+
+따라서 $S_{45}(6) - S_{45}(11)$ 은 아래와 같다.
+
+$$
+\begin{aligned}
+&S_{45}(6) - S_{45}(11) = \left(1 - \frac{6}{\omega - 45}\right) - \left(1 - \frac{11}{\omega - 45}\right) \\
+&\quad = \frac{5}{\omega - 45} = \frac{1}{10}
+\end{aligned}
+$$
+
+따라서 $\omega - 45 = 50$, 곧 $\omega = 95$ 이다. 30세의 생존함수도 같은 꼴이다.
+
+$$
+\begin{aligned}
+&S_{30}(t) = \frac{S_0(30+t)}{S_0(30)} = 1 - \frac{t}{\omega - 30} \\
+&\quad = 1 - \frac{t}{65} \quad (\because \omega = 95)
+\end{aligned}
+$$
+
+따라서 $S_{30}(1) = \frac{64}{65}$, $S_{30}(2) = \frac{63}{65}$ 이고, $i = 0.05$ 이므로 $v = \frac{1}{1.05}$ 이다.
+
+$$
+\begin{aligned}
+&v\,S_{30}(1) + v^2\,S_{30}(2) = \frac{1}{1.05} \times \frac{64}{65} + \frac{1}{1.05^2} \times \frac{63}{65} \\
+&\quad = 0.93773 + 0.87912 = 1.8168
+\end{aligned}
+$$
+
+따라서 구하는 값은 1.8168 이다.
+
+답: ① (1.8168)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+사망은 드므와브르(De Moivre) 법칙을 따른다고 가정하자. $i = 0.05$ 이고 ${}_{6\vert 5}q_{45} = \frac{1}{10}$ 일 때, $a_{30:\overline{2}\vert}$ 를 구하시오.
+
+① 1.82  ② 1.84  ③ 1.86  ④ 1.88
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
+| $a_{x:\overline{n}\vert}$ | 매년 말에 $n$ 번까지 주는 유기연금의 EPV | $\sum_{k=1}^{n} v^k S_x(k)$ |
+:::
+
+`#`
+
+
+# 3. 연금과 보험의 관계
+
+## A. 개념
+
+`-` 연금과 보험은 한 식으로 묶인다(매년 초 · 사망한 해의 말).
+
+$$Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}, \qquad Z_{\text{기시유기연금}} = \frac{1 - Z_{\text{연말양로}}}{1 - v}, \qquad Z_{\text{연금}} = \frac{1 - Z_{\text{종신}}}{\delta}$$
+
+- 평균을 취하면 연금의 EPV 가 보험의 EPV 로 정해진다.
+
+`-` 점화식: $\mathrm E[Z_{\text{기시연금}}] = 1 + v\,S_x(1) \times$ ($x+1$ 세로 센 $\mathrm E[Z_{\text{기시연금}}]$).
+
+`-` 점화식: $\mathrm E[Z_{\text{연말종신}}] = v\,F_x(1) + v\,S_x(1) \times$ ($x+1$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$).
+
+`-` 분산: $\mathrm V[Z_{\text{기시연금}}] = \frac{\mathrm V[Z_{\text{연말종신}}]}{(1 - v)^2}$, 끊김 없는 쪽은 $\frac{\mathrm V[Z_{\text{종신}}]}{\delta^2}$.
+
+## B. 기출문제
+
+`# 예제 6 (2024 1차 36번)` 아래의 조건을 이용하여 $x$ 세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $S_x(1) = 0.95$ \
+(나) $v = 0.9$ \
+(다) $x+1$ 세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.25$
+:::
+
+① 6.58  ② 7.06  ③ 7.41  ④ 7.83
+
+`(풀이)` 구하는 것은 $x$ 세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 이다. 연금과 보험의 관계식에 따라 이 값은 $x$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 으로 정해지고, $\mathrm E[Z_{\text{연말종신}}]$ 은 점화식으로 (다) 의 $x+1$ 세 값과 이어진다. (다) 의 $x+1$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 을 $y$ 라 하자. 아래의 EPV 는 $y$ 말고는 모두 $x$ 세로 센 것이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{연말종신}}] = v\,F_x(1) + v\,S_x(1)\,y \quad (\because \text{점화식}) \\
+&\quad = 0.9 \times 0.05 + 0.9 \times 0.95 \times 0.25 \quad (\because F_x(1) = 1 - S_x(1) = 0.05,\ y = 0.25) \\
+&\quad = 0.045 + 0.21375 = 0.25875
+\end{aligned}
+$$
+
+따라서 연금과 보험의 관계식에서 $\mathrm E[Z_{\text{기시연금}}]$ 은 아래와 같다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시연금}}] = \frac{1 - \mathrm E[Z_{\text{연말종신}}]}{1 - v} \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \\
+&\quad = \frac{1 - 0.25875}{1 - 0.9} \\
+&\quad = \frac{0.74125}{0.1} = 7.4125
+\end{aligned}
+$$
+
+따라서 구하는 값은 7.4125 이다.
+
+답: ③ (7.4125)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $\ddot a_x$를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $p_x = 0.95$ \
+(나) $v = 0.9$ \
+(다) $A_{x+1} = 0.25$.
+:::
+
+① 6.58  ② 7.06  ③ 7.41  ④ 7.83
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
+| $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
+| $\ddot a_x$ | 살아 있는 동안 매년 초에 1 을 주는 종신연금의 EPV | $\mathrm E[Z_{\text{기시연금}}]$, $Z_{\text{기시연금}} = \sum_{k=0}^{\lfloor T_x \rfloor} v^k$ |
+:::
+
+`#`
+
+
+`# 예제 7 (2025 1차 37번)` 아래의 조건을 이용하여 $\sum_{k=1}^{n} v^kS_x(k)$ 를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $x$ 세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.30$ \
+(나) $x+n$ 세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.40$ \
+(다) $v^nS_x(n) = 0.35$ \
+(라) $i = 0.05$
+:::
+
+① 9.31  ② 9.64  ③ 9.89  ④ 10.01
+
+`(풀이)` 구하는 것은 $\sum_{k=1}^{n} v^kS_x(k)$ 이다. 이 값은 연금과 보험의 관계식으로 $x$ 세 · $n$ 년으로 센 $\mathrm E[Z_{\text{연말양로}}]$ 와 이어진다. 종신보험은 $n$ 년 안에 죽으면 정기보험과 같고, $n$ 년 넘게 살면 $x+n$ 세부터 다시 센 종신보험과 같다. (나) 의 $x+n$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 을 $y$ 라 하자. 아래의 EPV 는 $y$ 말고는 모두 $x$ 세로 센 것이고, 만기가 있는 것은 $n$ 년이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{연말정기}}] = \mathrm E[Z_{\text{연말종신}}] - v^nS_x(n)\,y \quad (\because \text{종신} = \text{정기} + \text{생존} \times \text{나중 종신}) \\
+&\quad = 0.30 - 0.35 \times 0.40 \quad (\because y = 0.40) \\
+&\quad = 0.30 - 0.14 = 0.16 \\
+&\mathrm E[Z_{\text{연말양로}}] = \mathrm E[Z_{\text{연말정기}}] + v^nS_x(n) \quad (\because Z_{\text{연말양로}} = Z_{\text{연말정기}} + Z_{\text{생존}},\ \mathrm E[Z_{\text{생존}}] = v^nS_x(n)) \\
+&\quad = 0.16 + 0.35 = 0.51
+\end{aligned}
+$$
+
+따라서 연금과 보험의 관계식에서 $\mathrm E[Z_{\text{기시유기연금}}]$ 은 아래와 같다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시유기연금}}] = \frac{1 - \mathrm E[Z_{\text{연말양로}}]}{1 - v} \quad \left(\because Z_{\text{기시유기연금}} = \frac{1 - Z_{\text{연말양로}}}{1 - v}\right) \\
+&\quad = (1 - 0.51) \times \frac{1.05}{0.05} \quad \left(\because 1 - v = 1 - \frac{1}{1.05} = \frac{0.05}{1.05}\right) \\
+&\quad = 0.49 \times 21 = 10.29
+\end{aligned}
+$$
+
+구하는 값은 매년 말에 $n$ 번 주는 연금이라, 매년 초에 $n$ 번 주는 것에서 맨 앞 1 을 빼고 맨 뒤 $v^nS_x(n)$ 을 더한 것이다.
+
+$$
+\begin{aligned}
+&\sum_{k=1}^{n} v^kS_x(k) = \sum_{k=0}^{n-1} v^kS_x(k) - v^0S_x(0) + v^nS_x(n) \\
+&\quad = \mathrm E[Z_{\text{기시유기연금}}] - 1 + v^nS_x(n) \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^kS_x(k)\right) \\
+&\quad = 10.29 - 1 + 0.35 = 9.64
+\end{aligned}
+$$
+
+따라서 구하는 값은 9.64 이다.
+
+답: ② (9.64)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $a_{x:\overline{n}\vert}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $A_x = 0.30$ \
+(나) $A_{x+n} = 0.40$ \
+(다) $A_{x:\overline{n}\vert}^{\ \ \,1} = 0.35$ \
+(라) $i = 0.05$
+:::
+
+① 9.31  ② 9.64  ③ 9.89  ④ 10.01
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
+| ${}_nE_x$ · $A_{x:\overline{n}\vert}^{\ \ \,1}$ | $n$ 년 뒤 살아 있으면 1 을 주는 생존보험의 EPV. 위의 1 이 $\overline{n}\vert$ 쪽에 있으면 만기가 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{생존}}] = v^n S_x(n)$ |
+| $a_{x:\overline{n}\vert}$ | 매년 말에 $n$ 번까지 주는 유기연금의 EPV | $\sum_{k=1}^{n} v^k S_x(k)$ |
+:::
+
+`#`
+
+
+`# 예제 8 (2026 1차 36번)` 아래의 조건을 이용하여 $v^{10}S_{45}(10)$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $\sum_{k=1}^{10} v^kS_{45}(k) = 6.5$ \
+(나) 45세 · 10년으로 센 $\mathrm E[Z_{\text{연말정기}}] = 0.08$ \
+(다) $1 - v = 0.04$
+:::
+
+① 0.6458  ② 0.7244  ③ 0.8092  ④ 0.8819
+
+`(풀이)` 구하는 것은 $v^{10}S_{45}(10)$ 이다. 45세 · 10년으로 센 $\mathrm E[Z_{\text{연말양로}}]$ 와 $\mathrm E[Z_{\text{기시유기연금}}]$ 은 모두 $v^{10}S_{45}(10)$ 의 식이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{연말양로}}] = \mathrm E[Z_{\text{연말정기}}] + \mathrm E[Z_{\text{생존}}] \quad (\because Z_{\text{연말양로}} = Z_{\text{연말정기}} + Z_{\text{생존}}) \\
+&\quad = 0.08 + v^{10}S_{45}(10) \quad (\because \mathrm E[Z_{\text{생존}}] = v^nS_x(n))
+\end{aligned}
+$$
+
+따라서 연금과 보험의 관계식에서 $\mathrm E[Z_{\text{기시유기연금}}]$ 은 아래와 같다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시유기연금}}] = \frac{1 - \mathrm E[Z_{\text{연말양로}}]}{1 - v} \quad \left(\because Z_{\text{기시유기연금}} = \frac{1 - Z_{\text{연말양로}}}{1 - v}\right) \\
+&\quad = \frac{1 - 0.08 - v^{10}S_{45}(10)}{0.04} \quad (\because 1 - v = 0.04) \\
+&\quad = 23 - 25\,v^{10}S_{45}(10)
+\end{aligned}
+$$
+
+주어진 $\sum_{k=1}^{10} v^kS_{45}(k)$ 는 매년 말에 10번 주는 연금이라, 매년 초에 10번 주는 것에서 맨 앞 1 을 빼고 맨 뒤 $v^{10}S_{45}(10)$ 을 더한 것이다.
+
+$$
+\begin{aligned}
+&\sum_{k=1}^{10} v^kS_{45}(k) = \sum_{k=0}^{9} v^kS_{45}(k) - v^0S_{45}(0) + v^{10}S_{45}(10) \\
+&\quad = \mathrm E[Z_{\text{기시유기연금}}] - 1 + v^{10}S_{45}(10) \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^kS_x(k)\right) \\
+&\quad = 23 - 25\,v^{10}S_{45}(10) - 1 + v^{10}S_{45}(10) \\
+&\quad = 22 - 24\,v^{10}S_{45}(10)
+\end{aligned}
+$$
+
+이것이 6.5 이므로 $22 - 24\,v^{10}S_{45}(10) = 6.5$ 이다.
+
+$$
+\begin{aligned}
+&v^{10}S_{45}(10) = \frac{22 - 6.5}{24} \\
+&\quad = \frac{15.5}{24} = 0.64583
+\end{aligned}
+$$
+
+따라서 구하는 값은 0.64583 이다.
+
+답: ① (0.6458)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 ${}_{10}E_{45}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $a_{45:\overline{10}\vert} = 6.5$ \
+(나) $A^{\,1}_{45:\overline{10}\vert} = 0.08$ \
+(다) $d = 0.04$
+:::
+
+① 0.6458  ② 0.7244  ③ 0.8092  ④ 0.8819
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $d$ | 할인율(rate of discount) | $1 - v = iv$ |
+| $A^{\,1}_{x:\overline{n}\vert}$ | 사망한 해의 말에 1 을 주는 $n$ 년 정기보험의 EPV. $x$ 위의 1 은 사망이 만기보다 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{연말정기}}]$ |
+| ${}_nE_x$ · $A_{x:\overline{n}\vert}^{\ \ \,1}$ | $n$ 년 뒤 살아 있으면 1 을 주는 생존보험의 EPV. 위의 1 이 $\overline{n}\vert$ 쪽에 있으면 만기가 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{생존}}] = v^n S_x(n)$ |
+| $a_{x:\overline{n}\vert}$ | 매년 말에 $n$ 번까지 주는 유기연금의 EPV | $\sum_{k=1}^{n} v^k S_x(k)$ |
+:::
+
+`#`
+
+
+`# 예제 9 (2026 1차 37번)` 아래의 조건을 이용하여 50세 · 10년으로 센 $\frac{\mathrm E[Z_{\text{기시유기연금}}]}{v^{10}S_{50}(10)}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) 50세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.5$ \
+(나) 60세로 센 $\mathrm E[Z_{\text{연말종신}}] = 0.6$ \
+(다) $v^{10}S_{50}(10) = 0.6249$ \
+(라) $1 - v = 0.04$
+:::
+
+① 9.4913  ② 9.6235  ③ 9.8982  ④ 10.0032
+
+`(풀이)` 구하는 것은 50세 · 10년으로 센 $\frac{\mathrm E[Z_{\text{기시유기연금}}]}{v^{10}S_{50}(10)}$ 이다. 분모는 (다) 의 0.6249 이고, 분자 $\mathrm E[Z_{\text{기시유기연금}}]$ 은 50세 · 60세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 으로 정해진다. 연금과 보험의 관계식은 아래와 같다.
+
+$$\mathrm E[Z_{\text{기시연금}}] = \frac{1 - \mathrm E[Z_{\text{연말종신}}]}{1 - v} \qquad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right)$$
+
+$1 - v = 0.04$ 이므로 50세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 은 $\frac{1 - 0.5}{0.04} = 12.5$ 이고, 60세로 센 것은 $\frac{1 - 0.6}{0.04} = 10$ 이다.
+
+10년 유기연금은 종신연금에서 10년 뒤부터 받는 몫을 뺀 것이다. 10년 뒤부터의 몫은 10년을 살아야 시작하므로 60세로 센 값에 $v^{10}S_{50}(10)$ 을 곱한 것이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{9} v^kS_{50}(k) \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^kS_x(k)\right) \\
+&\quad = \sum_{k \ge 0} v^kS_{50}(k) - \sum_{k \ge 10} v^kS_{50}(k) \\
+&\quad = \sum_{k \ge 0} v^kS_{50}(k) - v^{10}S_{50}(10)\sum_{j \ge 0} v^jS_{60}(j) \quad (\because S_{50}(10+j) = S_{50}(10)\,S_{60}(j)) \\
+&\quad = 12.5 - 0.6249 \times 10 \quad \left(\because \mathrm E[Z_{\text{기시연금}}] = \sum_{k \ge 0} v^kS_x(k)\right) \\
+&\quad = 12.5 - 6.249 = 6.251
+\end{aligned}
+$$
+
+따라서 분자는 6.251 이고 분모는 0.6249 이다.
+
+$$
+\begin{aligned}
+&\frac{\mathrm E[Z_{\text{기시유기연금}}]}{v^{10}S_{50}(10)} = \frac{6.251}{0.6249} \\
+&\quad = 10.0032
+\end{aligned}
+$$
+
+따라서 구하는 값은 10.0032 이다.
+
+답: ④ (10.0032)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $\ddot s_{50:\overline{10}\vert}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $A_{50} = 0.5$ \
+(나) $A_{60} = 0.6$ \
+(다) ${}_{10}E_{50} = 0.6249$ \
+(라) $d = 0.04$
+:::
+
+① 9.4913  ② 9.6235  ③ 9.8982  ④ 10.0032
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $d$ | 할인율(rate of discount) | $1 - v = iv$ |
+| $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
+| ${}_nE_x$ · $A_{x:\overline{n}\vert}^{\ \ \,1}$ | $n$ 년 뒤 살아 있으면 1 을 주는 생존보험의 EPV. 위의 1 이 $\overline{n}\vert$ 쪽에 있으면 만기가 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{생존}}] = v^n S_x(n)$ |
+| $\ddot s_{x:\overline{n}\vert}$ | 매년 초 유기연금의 $n$ 년 뒤 생존자 몫 적립값 | $\frac{\mathrm E[Z_{\text{기시유기연금}}]}{v^n\,S_x(n)}$ |
+:::
+
+`#`
+
+
+`# 예제 10 (2026 1차 38번)` 아래의 조건을 이용하여 $\mathrm{Cov}(Z_{\text{연말종신}}, Z_{\text{기시연금}})$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $\mathrm E[Z_{\text{연말종신}}] = 0.4$ \
+(나) $\mathrm E[Z_{\text{연말종신}}^2] = 0.25$ \
+(다) $1 - v = 0.03$ \
+(라) $Z_{\text{연말종신}}$ 은 $(x)$ 가 가입한 보험금 1인 기말급 종신보험의 현재가치를 나타내는 확률변수임 \
+(마) $Z_{\text{기시연금}}$ 은 $(x)$ 가 가입한 연금액 1인 기시급 종신연금의 현재가치를 나타내는 확률변수임
+:::
+
+① $-3$  ② $-2$  ③ 2  ④ 3
+
+`(풀이)` 구하는 것은 $\mathrm{Cov}(Z_{\text{연말종신}}, Z_{\text{기시연금}})$ 이다. 연금과 보험의 관계식에 따라 $Z_{\text{기시연금}}$ 은 $Z_{\text{연말종신}}$ 의 일차식이므로, 이 공분산은 $\mathrm V[Z_{\text{연말종신}}]$ 으로 정해진다.
+
+$$
+\begin{aligned}
+&\mathrm V[Z_{\text{연말종신}}] = \mathrm E[Z_{\text{연말종신}}^2] - \mathrm E[Z_{\text{연말종신}}]^2 \\
+&\quad = 0.25 - 0.4^2 \\
+&\quad = 0.25 - 0.16 = 0.09
+\end{aligned}
+$$
+
+따라서 공분산은 아래와 같다.
+
+$$
+\begin{aligned}
+&\mathrm{Cov}(Z_{\text{연말종신}}, Z_{\text{기시연금}}) = \mathrm{Cov}\left(Z_{\text{연말종신}}, \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \\
+&\quad = -\frac{1}{1 - v}\,\mathrm{Cov}(Z_{\text{연말종신}}, Z_{\text{연말종신}}) \quad (\because \mathrm{Cov}(X, a + bX) = b\,\mathrm{Cov}(X, X)) \\
+&\quad = -\frac{\mathrm V[Z_{\text{연말종신}}]}{1 - v} \quad (\because \mathrm{Cov}(X, X) = \mathrm V[X]) \\
+&\quad = -\frac{0.09}{0.03} = -3
+\end{aligned}
+$$
+
+따라서 구하는 값은 $-3$ 이다.
+
+답: ① ($-3$)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+아래의 조건을 이용하여 $Cov(Z, Y)$ 를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $A_x = 0.4$ \
+(나) ${}^2A_x = 0.25$ \
+(다) $d = 0.03$ \
+(라) $Z$ 는 $(x)$ 가 가입한 보험금 1인 기말급 종신보험의 현재가치를 나타내는 확률변수임 \
+(마) $Y$ 는 $(x)$ 가 가입한 연금액 1인 기시급 종신연금의 현재가치를 나타내는 확률변수임
+:::
+
+① $-3$  ② $-2$  ③ 2  ④ 3
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $Cov$ | 공분산 | $\mathrm{Cov}$ |
+| $d$ | 할인율(rate of discount) | $1 - v = iv$ |
+| $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
+| ${}^2A_x$ | 왼쪽 위의 2 는 $v$ 대신 $v^2$ 로 셈한다는 뜻이다. ${}^2A_{x:\overline{n}\vert}$ · ${}^2A^{\,1}_{x:\overline{n}\vert}$ 도 같다 | $\mathrm E[Z_{\text{연말종신}}^2]$ · $\mathrm E[Z_{\text{연말양로}}^2]$ · $\mathrm E[Z_{\text{연말정기}}^2]$ |
+| $Z$ | 이 문항이 정한 현가 확률변수 | $Z_{\text{연말종신}}$ |
+| $Y$ | 이 문항이 정한 확률변수 | $Z_{\text{기시연금}}$ |
+:::
+
+`#`

@@ -148,9 +148,16 @@ window.Quarto = {
    
   <ul>
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
-  <li><a href="#기출문제" id="toc-기출문제" class="nav-link" data-scroll-target="#기출문제">2. 기출문제</a></li>
-  <li><a href="#남은-수명의-평균" id="toc-남은-수명의-평균" class="nav-link" data-scroll-target="#남은-수명의-평균">3. 남은 수명의 평균</a></li>
-  <li><a href="#기출문제-1" id="toc-기출문제-1" class="nav-link" data-scroll-target="#기출문제-1">4. 기출문제</a></li>
+  <li><a href="#생명표-cfm-udd" id="toc-생명표-cfm-udd" class="nav-link" data-scroll-target="#생명표-cfm-udd">2. 생명표 (CFM, UDD)</a>
+  <ul class="collapse">
+  <li><a href="#a.-개념" id="toc-a.-개념" class="nav-link" data-scroll-target="#a.-개념">A. 개념</a></li>
+  <li><a href="#b.-기출문제" id="toc-b.-기출문제" class="nav-link" data-scroll-target="#b.-기출문제">B. 기출문제</a></li>
+  </ul></li>
+  <li><a href="#남은-수명의-평균" id="toc-남은-수명의-평균" class="nav-link" data-scroll-target="#남은-수명의-평균">3. 남은 수명의 평균</a>
+  <ul class="collapse">
+  <li><a href="#a.-개념-1" id="toc-a.-개념-1" class="nav-link" data-scroll-target="#a.-개념-1">A. 개념</a></li>
+  <li><a href="#b.-기출문제-1" id="toc-b.-기출문제-1" class="nav-link" data-scroll-target="#b.-기출문제-1">B. 기출문제</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -192,15 +199,21 @@ window.Quarto = {
 <h1>1. 강의영상</h1>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLWEnO2JRto6s&amp;si=K-JFbqTg_WSKCZ-y" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
-<section id="기출문제" class="level1">
-<h1>2. 기출문제</h1>
+<section id="생명표-cfm-udd" class="level1">
+<h1>2. 생명표 (CFM, UDD)</h1>
+<section id="a.-개념" class="level2">
+<h2 class="anchored" data-anchor-id="a.-개념">A. 개념</h2>
+<p>pass</p>
+</section>
+<section id="b.-기출문제" class="level2">
+<h2 class="anchored" data-anchor-id="b.-기출문제">B. 기출문제</h2>
 <p><code># 예제 1 (2020 1차 39번)</code> 다음 두 조건을 만족하는 <span class="math inline">\(F_{50}(1)\)</span> 의 값을 구하시오.</p>
 <div style="border: 1px solid #c8c8c8; padding: 16px 14px 0 14px; margin: 0.6em 0;">
 <p>(가) <span class="math inline">\(F_{50.6}(0.2) = 0.1\)</span></p>
 <p>(나) 연령 <span class="math inline">\([x, x+1)\)</span> 에서 단수부분에 대해 사망자 수가 균등분포(UDD)를 따름</p>
 </div>
 <p>① 0.370  ② 0.375  ③ 0.380  ④ 0.385</p>
-<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(F_{50}(1)\)</span> 이고, 이것을 <span class="math inline">\(q\)</span> 라 하자. (가) 의 <span class="math inline">\(F_{50.6}(0.2)\)</span> 를 <span class="math inline">\(q\)</span> 로 쓴다.</p>
+<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(F_{50}(1)\)</span> 이고, 이것을 <span class="math inline">\(q\)</span> 라 하자. (가) 의 <span class="math inline">\(F_{50.6}(0.2)\)</span> 는 UDD 에서 <span class="math inline">\(q\)</span> 로 정해진다.</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;F_{50.6}(0.2) = 1 - S_{50.6}(0.2) \\
@@ -209,7 +222,7 @@ window.Quarto = {
 &amp;\quad = \frac{0.2q}{1 - 0.6q}
 \end{aligned}
 \]</span></p>
-<p>(가) 에서 이것이 <span class="math inline">\(0.1\)</span> 이므로 <span class="math inline">\(0.2q = 0.1 - 0.06q\)</span>, 곧 <span class="math inline">\(0.26q = 0.1\)</span> 이고 <span class="math inline">\(q = \dfrac{0.1}{0.26} = 0.3846153\cdots \approx 0.385\)</span>.</p>
+<p>(가) 에서 이것이 <span class="math inline">\(0.1\)</span> 이므로 <span class="math inline">\(0.2q = 0.1 - 0.06q\)</span>, 곧 <span class="math inline">\(0.26q = 0.1\)</span> 이고 <span class="math inline">\(q = \frac{0.1}{0.26} = 0.3846153\cdots \approx 0.385\)</span>.</p>
 <p><code>(풀이2)</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -262,7 +275,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td>UDD</td>
-<td>사망의 균등분포(uniform distribution of deaths). 시험지는 단수부분에 대해 사망자수가 균등하게 분포한다고 쓴다</td>
+<td>사망의 균등분포(uniform distribution of deaths). 시험지에서는 단수부분에 대해 사망자수가 균등하게 분포한다는 가정이다</td>
 <td><span class="math inline">\(F_x(t) = t\,F_x(1)\)</span> (<span class="math inline">\(x\)</span> 는 정수, <span class="math inline">\(0 \le t \le 1\)</span>)</td>
 </tr>
 </tbody>
@@ -281,7 +294,7 @@ window.Quarto = {
 &amp;\quad = 0.3 \times 0.1 = 0.03
 \end{aligned}
 \]</span></p>
-<p><code>(풀이2)</code> 그림으로 푼다.</p>
+<p><code>(풀이2)</code></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="attachments/261112-보험유진-예제10그림풀이.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
@@ -329,7 +342,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td><span class="math inline">\({}_{u\vert t}q_x\)</span></td>
-<td><span class="math inline">\(x\)</span> 세인 사람이 <span class="math inline">\(u\)</span> 년은 살고 그다음 <span class="math inline">\(t\)</span> 년 안에 죽을 확률. <span class="math inline">\(t = 1\)</span> 이면 <span class="math inline">\({}_{u\vert}q_x\)</span> 로 쓴다</td>
+<td><span class="math inline">\(x\)</span> 세인 사람이 <span class="math inline">\(u\)</span> 년은 살고 그다음 <span class="math inline">\(t\)</span> 년 안에 죽을 확률. <span class="math inline">\(t = 1\)</span> 이면 <span class="math inline">\({}_{u\vert}q_x\)</span> 이다</td>
 <td><span class="math inline">\(S_x(u) - S_x(u+t) = \Pr(u &lt; T_x \le u+t)\)</span></td>
 </tr>
 </tbody>
@@ -345,7 +358,7 @@ window.Quarto = {
 (다) <span class="math inline">\(F_x^{\text{UDD}}(t)\)</span> 는 연령 <span class="math inline">\([x, x+1)\)</span> 에서 단수 부분에 대해 사망자 수의 균등분포(UDD)를 가정할 때 <span class="math inline">\((x)\)</span> 가 <span class="math inline">\(t\)</span> 년 이내에 사망할 확률</p>
 </div>
 <p>① 0.055  ② 0.077  ③ 0.099  ④ 0.122</p>
-<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(F_x^{\text{CFM}}(0.5) - F_x^{\text{UDD}}(0.5)\)</span> 이다. 둘을 따로 구한다.</p>
+<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(F_x^{\text{CFM}}(0.5) - F_x^{\text{UDD}}(0.5)\)</span> 이다. 둘은 각각 아래와 같다.</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;F_x^{\text{CFM}}(0.5) = 1 - S_x(0.5) \\
@@ -413,7 +426,7 @@ window.Quarto = {
 </tr>
 <tr class="odd">
 <td>UDD</td>
-<td>사망의 균등분포(uniform distribution of deaths). 시험지는 단수부분에 대해 사망자수가 균등하게 분포한다고 쓴다</td>
+<td>사망의 균등분포(uniform distribution of deaths). 시험지에서는 단수부분에 대해 사망자수가 균등하게 분포한다는 가정이다</td>
 <td><span class="math inline">\(F_x(t) = t\,F_x(1)\)</span> (<span class="math inline">\(x\)</span> 는 정수, <span class="math inline">\(0 \le t \le 1\)</span>)</td>
 </tr>
 <tr class="even">
@@ -440,7 +453,7 @@ window.Quarto = {
 <th><span class="math inline">\(t\)</span></th>
 <th><span class="math inline">\(N\,S_0(t)\)</span></th>
 <th><span class="math inline">\(N\,(S_0(t) - S_0(t+1))\)</span></th>
-<th><span class="math inline">\(\dfrac{S_0(t+1)}{S_0(t)}\)</span></th>
+<th><span class="math inline">\(\frac{S_0(t+1)}{S_0(t)}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -469,14 +482,14 @@ window.Quarto = {
 <p><span class="math display">\[
 S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\because S_{10}(2) = \frac{S_0(12)}{S_0(10)}\right)
 \]</span></p>
-<p>따라서 <span class="math inline">\(N S_0(10)\)</span> 을 구한다. 11세 줄의 <span class="math inline">\(S_{11}(1) = 0.98\)</span> 은 11세까지 산 사람 가운데 12세까지 사는 비율이다.</p>
+<p><span class="math inline">\(N S_0(10)\)</span> 은 표의 아래 줄부터 차례로 정해진다. 11세 줄의 <span class="math inline">\(S_{11}(1) = 0.98\)</span> 은 11세까지 산 사람 가운데 12세까지 사는 비율이다.</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;N S_0(11) = \frac{N S_0(12)}{S_{11}(1)} = \frac{810}{0.98} = 826.5306\cdots \\
 &amp;N S_0(10) = N S_0(11) + N\,(S_0(10) - S_0(11)) = 826.5306\cdots + 70 = 896.5306\cdots
 \end{aligned}
 \]</span></p>
-<p>따라서 <span class="math inline">\(S_{10}(2) = \dfrac{810}{896.5306\cdots} = 0.9034828\cdots \approx 0.9035\)</span>.</p>
+<p>따라서 <span class="math inline">\(S_{10}(2) = \frac{810}{896.5306\cdots} = 0.9034828\cdots \approx 0.9035\)</span>.</p>
 <p>답: ④ 0.9035</p>
 <div class="callout callout-style-default callout-note callout-titled" title="실제 기출은 이러하다">
 <div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -550,7 +563,7 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 <tr class="odd">
 <td><span class="math inline">\(l_x\)</span></td>
 <td>생명표(life table). 시작 나이 <span class="math inline">\(x_0\)</span> 의 사람 수 <span class="math inline">\(l_{x_0}\)</span> (기수, radix) 를 정하고 <span class="math inline">\(l_{x_0+t} = l_{x_0}\,{}_tp_{x_0}\)</span> 로 만든 함수다. <span class="math inline">\(x\)</span> 세인 <span class="math inline">\(l_x\)</span> 명 가운데 <span class="math inline">\(x+t\)</span> 세까지 살아 있을 사람 수의 기댓값이 <span class="math inline">\(l_{x+t}\)</span> 이다</td>
-<td>시작 나이가 0 이면 <span class="math inline">\(l_x = N\,S_0(x)\)</span> (<span class="math inline">\(N = l_0\)</span>). 언제나 <span class="math inline">\(\dfrac{l_{x+t}}{l_x} = S_x(t)\)</span></td>
+<td>시작 나이가 0 이면 <span class="math inline">\(l_x = N\,S_0(x)\)</span> (<span class="math inline">\(N = l_0\)</span>). 언제나 <span class="math inline">\(\frac{l_{x+t}}{l_x} = S_x(t)\)</span></td>
 </tr>
 <tr class="even">
 <td><span class="math inline">\(d_x\)</span></td>
@@ -564,8 +577,11 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 </div>
 <p><code>#</code></p>
 </section>
+</section>
 <section id="남은-수명의-평균" class="level1">
 <h1>3. 남은 수명의 평균</h1>
+<section id="a.-개념-1" class="level2">
+<h2 class="anchored" data-anchor-id="a.-개념-1">A. 개념</h2>
 <p><code>-</code> 아래의 표를 살펴보자.</p>
 <table class="caption-top table">
 <thead>
@@ -602,8 +618,8 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 \end{aligned}
 \]</span></p>
 </section>
-<section id="기출문제-1" class="level1">
-<h1>4. 기출문제</h1>
+<section id="b.-기출문제-1" class="level2">
+<h2 class="anchored" data-anchor-id="b.-기출문제-1">B. 기출문제</h2>
 <p><code># 예제 5 (2021 1차 27번)</code> 연령 <span class="math inline">\([x, x+1)\)</span> 에서 단수부분에 대해 사망자 수가 균등하게 분포한다(UDD)고 가정할 때, 다음의 생명표를 이용하여 <span class="math inline">\(\mathrm E[T_{90}]\)</span> 을 구하시오.</p>
 <table class="caption-top table">
 <thead>
@@ -628,7 +644,7 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 </tbody>
 </table>
 <p>① 2.23  ② 2.57  ③ 2.83  ④ 3.12</p>
-<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(\mathrm E[T_{90}]\)</span> 이다. 94세에 다 죽으므로 0 ~ 4 년만 적분한다. UDD 면 정수 나이 사이에서 <span class="math inline">\(S_{90}(k+t) = S_{90}(k)\,\{1 - t\,F_{90+k}(1)\}\)</span> 가 <span class="math inline">\(t\)</span> 의 직선이라 한 해의 적분은 사다리꼴 넓이다. 표의 사람 수로는 <span class="math inline">\(S_{90}(k) = \dfrac{N S_0(90+k)}{N S_0(90)} = \dfrac{N S_0(90+k)}{1100}\)</span> 이다.</p>
+<p><code>(풀이1)</code> 구하는 것은 <span class="math inline">\(\mathrm E[T_{90}]\)</span> 이다. 94세에 다 죽으므로 적분 구간은 0 ~ 4 년이다. UDD 면 정수 나이 사이에서 <span class="math inline">\(S_{90}(k+t) = S_{90}(k)\,\{1 - t\,F_{90+k}(1)\}\)</span> 가 <span class="math inline">\(t\)</span> 의 직선이라 한 해의 적분은 사다리꼴 넓이다. 표의 사람 수로는 <span class="math inline">\(S_{90}(k) = \frac{N S_0(90+k)}{N S_0(90)} = \frac{N S_0(90+k)}{1100}\)</span> 이다.</p>
 <p><span class="math display">\[
 \begin{aligned}
 &amp;\mathrm E[T_{90}] = \int_0^4 S_{90}(t)\,dt = \sum_{k=0}^{3} \int_k^{k+1} S_{90}(t)\,dt \\
@@ -703,11 +719,11 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 <tr class="even">
 <td><span class="math inline">\(l_x\)</span></td>
 <td>생명표(life table). 시작 나이 <span class="math inline">\(x_0\)</span> 의 사람 수 <span class="math inline">\(l_{x_0}\)</span> (기수, radix) 를 정하고 <span class="math inline">\(l_{x_0+t} = l_{x_0}\,{}_tp_{x_0}\)</span> 로 만든 함수다. <span class="math inline">\(x\)</span> 세인 <span class="math inline">\(l_x\)</span> 명 가운데 <span class="math inline">\(x+t\)</span> 세까지 살아 있을 사람 수의 기댓값이 <span class="math inline">\(l_{x+t}\)</span> 이다</td>
-<td>시작 나이가 0 이면 <span class="math inline">\(l_x = N\,S_0(x)\)</span> (<span class="math inline">\(N = l_0\)</span>). 언제나 <span class="math inline">\(\dfrac{l_{x+t}}{l_x} = S_x(t)\)</span></td>
+<td>시작 나이가 0 이면 <span class="math inline">\(l_x = N\,S_0(x)\)</span> (<span class="math inline">\(N = l_0\)</span>). 언제나 <span class="math inline">\(\frac{l_{x+t}}{l_x} = S_x(t)\)</span></td>
 </tr>
 <tr class="odd">
 <td>UDD</td>
-<td>사망의 균등분포(uniform distribution of deaths). 시험지는 단수부분에 대해 사망자수가 균등하게 분포한다고 쓴다</td>
+<td>사망의 균등분포(uniform distribution of deaths). 시험지에서는 단수부분에 대해 사망자수가 균등하게 분포한다는 가정이다</td>
 <td><span class="math inline">\(F_x(t) = t\,F_x(1)\)</span> (<span class="math inline">\(x\)</span> 는 정수, <span class="math inline">\(0 \le t \le 1\)</span>)</td>
 </tr>
 </tbody>
@@ -718,6 +734,7 @@ S_{10}(2) = \frac{N S_0(12)}{N S_0(10)} = \frac{810}{N S_0(10)} \qquad \left(\be
 <p><code>#</code></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

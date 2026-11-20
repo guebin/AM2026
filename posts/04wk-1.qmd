@@ -31,7 +31,7 @@ $i = 0.05$ 다. $(x)$ 의 남은 수명 $T_x$ 가 확률 0.2 로 2년, 0.5 로 1
 `(a)` $\mathrm{E}[Z]$ 를 구하라.
 
 ::: {.callout-note collapse="true" title="풀이"}
-$v = \dfrac{1}{1.05}$ 이다. $T_x$ 의 확률분포표는 아래와 같다.
+$v = \frac{1}{1.05}$ 이다. $T_x$ 의 확률분포표는 아래와 같다.
 
 | $t$ | 2 | 10 | 30 |
 |---|---|---|---|
@@ -280,8 +280,8 @@ $$
 먼저 두 값을 식으로 쓰자.
 
 - $T_x$ 는 각각 반반의 확률로 $a$, $b$ 다.
-- $\mathrm{E}[T_x] = \dfrac{a+b}{2}$ 이므로 $v^{\mathrm{E}[T_x]} = v^{\frac{a+b}{2}}$ 다.
-- $\mathrm{E}[Z] = \mathrm{E}[v^{T_x}] = \dfrac{v^a + v^b}{2}$ 다.
+- $\mathrm{E}[T_x] = \frac{a+b}{2}$ 이므로 $v^{\mathrm{E}[T_x]} = v^{\frac{a+b}{2}}$ 다.
+- $\mathrm{E}[Z] = \mathrm{E}[v^{T_x}] = \frac{v^a + v^b}{2}$ 다.
 
 그러니 보여야 할 것은 아래다.
 
