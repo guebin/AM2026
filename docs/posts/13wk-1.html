@@ -151,7 +151,7 @@ window.Quarto = {
    
   <ul>
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
-  <li><a href="#vlfloor-t_x-rfloor-1" id="toc-vlfloor-t_x-rfloor-1" class="nav-link" data-scroll-target="#vlfloor-t_x-rfloor-1">2. <span class="math inline">\(v^{\lfloor T_x \rfloor + 1}\)</span></a>
+  <li><a href="#연말에-지급하는-보험" id="toc-연말에-지급하는-보험" class="nav-link" data-scroll-target="#연말에-지급하는-보험">2. 연말에 지급하는 보험</a>
   <ul class="collapse">
   <li><a href="#a.-개념" id="toc-a.-개념" class="nav-link" data-scroll-target="#a.-개념">A. 개념</a></li>
   <li><a href="#b.-기출문제" id="toc-b.-기출문제" class="nav-link" data-scroll-target="#b.-기출문제">B. 기출문제</a></li>
@@ -196,8 +196,8 @@ window.Quarto = {
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
 </section>
-<section id="vlfloor-t_x-rfloor-1" class="level1">
-<h1>2. <span class="math inline">\(v^{\lfloor T_x \rfloor + 1}\)</span></h1>
+<section id="연말에-지급하는-보험" class="level1">
+<h1>2. 연말에 지급하는 보험</h1>
 <section id="a.-개념" class="level2">
 <h2 class="anchored" data-anchor-id="a.-개념">A. 개념</h2>
 <p><code>-</code> 복습: <span class="math inline">\(x = 60\)</span>, <span class="math inline">\(n = 10\)</span>, <span class="math inline">\(i = 0.2\)</span> 일 때 네 <span class="math inline">\(Z\)</span> 를 <span class="math inline">\(T_{60}\)</span> 의 함수로 그리면 아래와 같다. 가로 점선은 <span class="math inline">\(v^{10} = 0.162\)</span> 이다.</p>
@@ -223,13 +223,6 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 <p><img src="attachments/261124-보험소미-연속연말Zi20.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
 </figure>
 </div>
-<p>@@@ <code>-</code> 보험별로 <span class="math inline">\(Z\)</span>를 보면,</p>
-<ul>
-<li>종신: <span class="math inline">\(Z_{\text{종신}} = v^{T_x}\)</span>, <span class="math inline">\(\ \color{red}{Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}}\)</span></li>
-<li>정기: <span class="math inline">\(Z_{\text{정기}} = v^{T_x}\, I(T_x &lt; n)\)</span>, <span class="math inline">\(\ \color{red}{Z_{\text{연말정기}} = v^{\lfloor T_x \rfloor + 1}\, I(T_x &lt; n)}\)</span></li>
-<li>양로: <span class="math inline">\(Z_{\text{양로}} = v^{\min(T_x,\ n)}\)</span>, <span class="math inline">\(\ \color{red}{Z_{\text{연말양로}} = v^{\min(\lfloor T_x \rfloor + 1,\ n)}}\)</span></li>
-<li>생존: <span class="math inline">\(Z_{\text{생존}} = v^n\, I(T_x \ge n)\)</span> (만기에 주므로 연속과 연말이 같다)</li>
-</ul>
 <p><code>-</code> UDD(<span class="math inline">\(F_x(t) = t\,F_x(1)\)</span>, <span class="math inline">\(x\)</span> 는 정수, <span class="math inline">\(0 \le t \le 1\)</span>) 하에서 아래가 성립한다. <span class="math display">\[
 \begin{aligned}
 &amp;\mathrm E[Z_{\text{종신}}] = \frac{i}{\log(1+i)}\,\mathrm E[Z_{\text{연말종신}}] \\
@@ -237,11 +230,6 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 &amp;\mathrm E[Z_{\text{양로}}] = \frac{i}{\log(1+i)}\,\mathrm E[Z_{\text{연말정기}}] + \mathrm E[Z_{\text{생존}}]
 \end{aligned}
 \]</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="attachments/261124-보험유진-UDD배수-종신확대.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
-</div>
 <p>(proof) <span class="math inline">\(U = T_x - \lfloor T_x \rfloor\)</span> 라 하자. UDD 면 <span class="math inline">\(U\)</span> 는 <span class="math inline">\((0, 1)\)</span> 의 균등분포이고 <span class="math inline">\(\lfloor T_x \rfloor\)</span> 와 독립이다.</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -252,7 +240,12 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 \end{aligned}
 \]</span></p>
 <p>정기도 <span class="math inline">\(Z_{\text{정기}} = Z_{\text{연말정기}} \times (1+i)^{1-U}\)</span> 이라(<span class="math inline">\(n\)</span> 은 정수) 같은 방식이다. 양로는 <span class="math inline">\(Z_{\text{양로}} = Z_{\text{정기}} + Z_{\text{생존}}\)</span> 이고, 만기에 주는 <span class="math inline">\(Z_{\text{생존}}\)</span> 은 연속과 연말이 같아 곱하지 않는다.</p>
-<p><code>-</code> <span class="math inline">\(\frac{i}{\log(1+i)}\)</span>의 의미:</p>
+<p><code>-</code> 그림으로 이해</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="attachments/261124-보험유진-UDD배수-종신렌즈4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
 </section>
 <section id="b.-기출문제" class="level2">
 <h2 class="anchored" data-anchor-id="b.-기출문제">B. 기출문제</h2>
@@ -273,7 +266,7 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 &amp;\quad = \Pr(T_x \ge 10) = S_x(10)
 \end{aligned}
 \]</span> 따라서 구하는 값은 <span class="math inline">\(S_x(10)\)</span> 이다.</p>
-<p><code>(풀이2)</code> <span class="math inline">\(x\)</span> 세인 사람이 100 명 있다고 치고, 모두에게 보험금 1 원을 준다고 하자. 연이율 <span class="math inline">\(i = 0\)</span> 이면 <span class="math inline">\(v = 1\)</span> 이라 1 원은 언제 받아도 1 원이다.</p>
+<p><code>(풀이2)</code> <span class="math inline">\(x\)</span> 세인 사람이 100 명 있다고 치고, 가입자를 받는다고 상상하자. (늘 그랫듯 가입 종이의 뒷면에는 <span class="math inline">\(Z\)</span>값이 있다고 상상하자) 연이율 <span class="math inline">\(i = 0\)</span> 이므로 사망시점에 주는 돈의 가치는 지금의 돈의 가치와 같다. 따라서 보험금이 1원이면 보험료도 1원이어야 한다.</p>
 <ul>
 <li>연말종신: 100 명 모두 언젠가 죽으므로 모두 1 원을 받는다. <span class="math inline">\(\text{sum}(Z_{\text{연말종신}}) = 100\)</span> 이다.</li>
 <li>연말정기 (<span class="math inline">\(n = 10\)</span>): 10년 안에 죽은 사람만 1 원을 받는다. <span class="math inline">\(\text{sum}(Z_{\text{연말정기}}) =\)</span> <span class="math inline">\((10년 안에 죽은 사람 수)\)</span> 이다.</li>
@@ -457,7 +450,7 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 </colgroup>
 <thead>
 <tr class="header">
-<th><span class="math inline">\(T_{70}\)</span></th>
+<th><span class="math inline">\(\lfloor T_{70} \rfloor + 1\)</span></th>
 <th>1</th>
 <th>2</th>
 <th>3</th>
@@ -489,7 +482,7 @@ Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}, \qquad Z_{\text{연말정
 <td><span class="math inline">\(0.9\,p_9\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(T_{71}\)</span></td>
+<td><span class="math inline">\(\lfloor T_{71} \rfloor + 1\)</span></td>
 <td></td>
 <td>1</td>
 <td>2</td>
