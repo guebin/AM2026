@@ -8,352 +8,349 @@ draft: true
 # 1. 강의영상
 
 
-# 2. 순보험료
+# 2. 손실과 책임준비금
 
 ## A. 개념
 
-`-` 수지상등: 급부의 EPV = 보험료의 EPV.
+`-` 손실: 보험회사가 내줄 돈의 현가 빼기 받을 돈의 현가.
 
-- 일시납: $P = S\,\mathrm E[Z]$
-- 매년 초에 평생 내는 연납: $P = \frac{S\,\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]}$ (시험지 $P_x$)
-- $n$ 년만 내면 나누는 것이 $\mathrm E[Z_{\text{기시유기연금}}]$ (시험지 ${}_nP_x$)
-- 끊김 없이 내면: $P = \frac{S\,\mathrm E[Z_{\text{종신}}]}{\mathrm E[Z_{\text{연금}}]}$
+- 연말 종신 · 매년 초 연납: $L = S\,Z_{\text{연말종신}} - P\,Z_{\text{기시연금}} = \left(S + \frac{P}{1-v}\right)Z_{\text{연말종신}} - \frac{P}{1-v}$
+- 수지상등이면 $\mathrm E[L] = 0$, $\ \mathrm V[L] = \left(S + \frac{P}{1-v}\right)^2 \mathrm V[Z_{\text{연말종신}}]$
 
-`-` ★ 사망률이 일정할 때($F_x(1) = F_{x+1}(1) = \cdots = q$, $p = 1 - q$), 사망한 해의 말에 1 을 주는 종신보험의 매년 초 평생납 순보험료는 $vq$ 다.
+`-` ★ 책임준비금 $R_t$: 시각 $t$ 에 아직 살아 있을 때 앞으로의 손실의 기댓값(시험지 ${}_tV$).
 
-$$
-\begin{aligned}
-&\frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]} = \frac{q/(q+i)}{(1+i)/(q+i)} \quad \left(\because \mathrm E[Z_{\text{연말종신}}] = \sum_{k \ge 0} v^{k+1} p^k q = \frac{q}{q+i},\ \mathrm E[Z_{\text{기시연금}}] = \sum_{k \ge 0} (vp)^k = \frac{1+i}{q+i}\right) \\
-&\quad = \frac{q}{1+i} = vq
-\end{aligned}
-$$
+- 장래법: $R_t$ = ($x+t$ 세로 센 급부의 EPV) $-$ ($x+t$ 세로 센 보험료의 EPV). 연말 종신 · 매년 초 연납이면 급부의 EPV 는 $S\,\mathrm E[Z_{\text{연말종신}}]$, 보험료의 EPV 는 $P\,\mathrm E[Z_{\text{기시연금}}]$ 이므로 $R_t = S\,\mathrm E[Z_{\text{연말종신}}] - P\,\mathrm E[Z_{\text{기시연금}}]$ 이다(기댓값은 $x+t$ 세로 센 것이다).
+- 점화식(연말 지급 · 비용 없음): $(R_t + P)(1+i) = F_{x+t}(1)\,S + S_{x+t}(1)\,R_{t+1}$
 
-- 해마다 위험이 같으므로 해마다 1년 정기보험의 EPV $vq$ 를 내는 것과 같다.
-- $n$ 년 정기보험을 $n$ 년 동안 내도 $vq$ 다. $\mathrm E[Z_{\text{연말정기}}] = \frac{q}{q+i}\{1 - (vp)^n\}$ 와 $\mathrm E[Z_{\text{기시유기연금}}] = \frac{1+i}{q+i}\{1 - (vp)^n\}$ 에서 $1 - (vp)^n$ 이 약분되기 때문이다.
+`-` 보험료를 돌려주는 계약 · 특수 급부: 낸 보험료(의 합)도 급부에 들어가고, 식의 꼴은 같다.
 
-`-` ★ 사력이 일정할 때($\mu_x(t) = \mu$, 이력 $\delta = \log(1+i)$, $v^t = e^{-\delta t}$), 죽는 순간 1 을 주는 종신보험의 끊김 없이 내는 순보험료는 $\mu$ 다.
+`-` ★ 사망률이 일정할 때($F_x(1) = F_{x+1}(1) = \cdots = q$)와 사력이 일정할 때($\mu_x(t) = \mu$, 이력 $\delta = \log(1+i)$), 보험금 1 인 종신보험의 수지상등 순보험료는 각각 $P = vq$ (사망한 해의 말 · 매년 초) 와 $P = \mu$ (죽는 순간 · 끊김 없이) 이다.
+
+- 손실의 분산: 사망한 해의 말에 주고 매년 초에 내면 $L = \left(1 + \frac{P}{1-v}\right)Z_{\text{연말종신}} - \frac{P}{1-v}$ 이고, 죽는 순간 주고 끊김 없이 내면 $L = \left(1 + \frac{P}{\delta}\right)Z_{\text{종신}} - \frac{P}{\delta}$ 이다. 상수는 분산에 들지 않으므로 아래와 같다.
 
 $$
 \begin{aligned}
-&\frac{\mathrm E[Z_{\text{종신}}]}{\mathrm E[Z_{\text{연금}}]} = \frac{\mu/(\mu+\delta)}{1/(\mu+\delta)} \quad \left(\because \mathrm E[Z_{\text{종신}}] = \int_0^\infty e^{-\delta t}\,\mu e^{-\mu t}\,dt = \frac{\mu}{\mu+\delta},\ \mathrm E[Z_{\text{연금}}] = \int_0^\infty e^{-(\mu+\delta)t}\,dt = \frac{1}{\mu+\delta}\right) \\
-&\quad = \mu
+&\frac{\mathrm V[L]}{\mathrm V[Z_{\text{연말종신}}]} = \left(1 + \frac{vq}{1 - v}\right)^2 = \left(\frac{q+i}{i}\right)^2 \quad (\because P = vq,\ 1 - v = iv) \\
+&\frac{\mathrm V[L]}{\mathrm V[Z_{\text{종신}}]} = \left(1 + \frac{\mu}{\delta}\right)^2 = \left(\frac{\mu+\delta}{\delta}\right)^2 \quad (\because P = \mu)
 \end{aligned}
 $$
 
-`-` ★ 모아 보기. 사망률이 일정하면 $F_x(1) = F_{x+1}(1) = \cdots = q$, $p = 1 - q$ 이고, 사력이 일정하면 $\mu_x(t) = \mu$ 이다.
+- 책임준비금: 몇 해가 지나도 앞날이 처음과 같으므로 $x+t$ 세로 센 EPV 도 처음과 같고, $R_t = 0$ 이다(아래 기댓값은 모두 $x+t$ 세로 센 것이다).
 
-| | 사망률이 일정 (사망한 해의 말 · 매년 초) | 사력이 일정 (죽는 순간 · 끊김 없이) |
-|---|---|---|
-| 종신 | $\frac{q}{q+i}$ | $\frac{\mu}{\mu+\delta}$ |
-| 생존 ($n$ 년) | $(vp)^n$ | $e^{-(\mu+\delta)n}$ |
-| 정기 ($n$ 년) | $\frac{q}{q+i}\{1 - (vp)^n\}$ | $\frac{\mu}{\mu+\delta}\{1 - e^{-(\mu+\delta)n}\}$ |
-| 양로 ($n$ 년) | $\frac{q}{q+i} + \frac{i}{q+i}(vp)^n$ | $\frac{\mu}{\mu+\delta} + \frac{\delta}{\mu+\delta}e^{-(\mu+\delta)n}$ |
-| 종신연금 | $\frac{1+i}{q+i}$ | $\frac{1}{\mu+\delta}$ |
-| 유기연금 ($n$ 년) | $\frac{1+i}{q+i}\{1 - (vp)^n\}$ | $\frac{1}{\mu+\delta}\{1 - e^{-(\mu+\delta)n}\}$ |
-| 평생납 순보험료 | $vq$ | $\mu$ |
-| 보험의 2차 적률 | $i$ 자리에 $(1+i)^2 - 1$, $v$ 자리에 $v^2$ | $\delta$ 자리에 $2\delta$ |
+$$
+\begin{aligned}
+&R_t = \mathrm E[Z_{\text{연말종신}}] - vq\,\mathrm E[Z_{\text{기시연금}}] = \frac{q}{q+i} - vq \times \frac{1+i}{q+i} = 0 \\
+&R_t = \mathrm E[Z_{\text{종신}}] - \mu\,\mathrm E[Z_{\text{연금}}] = \frac{\mu}{\mu+\delta} - \mu \times \frac{1}{\mu+\delta} = 0
+\end{aligned}
+$$
 
 ## B. 기출문제
 
-`# 예제 1 (2024 1차 38번)` $S_x(k) - S_x(k+1) = c\,(0.95)^k$, $k = 0, 1, \ldots$ 이고 $i = 0.03$ 일 때, $1000\,\frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]}$ 을 구하시오. (단, $c$ 는 상수)
+`# 예제 1 (2024 1차 40번)` 피보험자 $(x)$ 가 보험금 1, 전기납입 완전연속 종신보험에 가입하였다. 아래의 조건을 이용하여 $\frac{\mathrm V[L]}{\mathrm V[Z_{\text{종신}}]}$ 을 구하시오.
 
-① 45.1  ② 46.7  ③ 48.5  ④ 50.3
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Z_{\text{종신}}$ 은 사망보험금의 현재가치를 나타내는 확률변수임 \
+(나) $L = Z_{\text{종신}} - P\,Z_{\text{연금}}$ 은 보험사의 순미래손실의 현재가치를 나타내는 확률변수임 \
+(다) $\mu_x(t) = 0.03$ \
+(라) $\delta = 0.06$
+:::
 
-`(풀이)` 구하는 것은 $1000\,\frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]}$, 곧 매년 초에 평생 내는 연납 순보험료의 1000배다. 분자와 분모는 모두 상수 $c$ 로 정해지고, $\lfloor T_x \rfloor$ 의 확률을 모두 더하면 1 이다.
+① 2.00  ② 2.25  ③ 2.50  ④ 2.75
 
-$$
-\begin{aligned}
-&1 = \sum_{k \ge 0} \Pr(\lfloor T_x \rfloor = k) \\
-&\quad = \sum_{k \ge 0} \{S_x(k) - S_x(k+1)\} \quad (\because \Pr(\lfloor T_x \rfloor = k) = S_x(k) - S_x(k+1)) \\
-&\quad = \sum_{k \ge 0} c\,(0.95)^k = \frac{c}{1 - 0.95} = \frac{c}{0.05}
-\end{aligned}
-$$
-
-그래서 $c = 0.05$ 이다(곧 $S_x(k) = \sum_{j \ge k} 0.05 \times 0.95^j = 0.95^k$). $v = \frac{1}{1.03}$ 이므로 $\mathrm E[Z_{\text{연말종신}}]$ 은 아래와 같다.
+`(풀이)` 구하는 것은 $\frac{\mathrm V[L]}{\mathrm V[Z_{\text{종신}}]}$ 이다. 이력이 $\delta = 0.06$ 이므로 $v^t = e^{-0.06t}$ 이고, $L$ 은 $Z_{\text{종신}}$ 의 일차식이다.
 
 $$
 \begin{aligned}
-&\mathrm E[Z_{\text{연말종신}}] = \sum_{k \ge 0} v^{k+1}\{S_x(k) - S_x(k+1)\} \quad (\because Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}) \\
-&\quad = \sum_{k \ge 0} v^{k+1} \times 0.05 \times 0.95^k \\
-&\quad = \frac{0.05\,v}{1 - 0.95\,v} \quad \left(\because \sum_{k \ge 0} v^{k+1}\,0.95^k = \frac{v}{1 - 0.95\,v}\right) \\
-&\quad = \frac{0.05}{1.03 - 0.95} \quad \left(\because v = \frac{1}{1.03}\right) \\
-&\quad = \frac{0.05}{0.08} = 0.625
+&L = Z_{\text{종신}} - P\,Z_{\text{연금}} \\
+&\quad = Z_{\text{종신}} - P\,\frac{1 - Z_{\text{종신}}}{0.06} \quad \left(\because Z_{\text{연금}} = \int_0^{T_x} e^{-0.06t}\,dt = \frac{1 - e^{-0.06T_x}}{0.06} = \frac{1 - Z_{\text{종신}}}{0.06}\right) \\
+&\quad = \left(1 + \frac{P}{0.06}\right) Z_{\text{종신}} - \frac{P}{0.06}
 \end{aligned}
 $$
 
-$\mathrm E[Z_{\text{기시연금}}]$ 은 $\mathrm E[Z_{\text{연말종신}}]$ 으로 정해진다.
+상수 $\frac{P}{0.06}$ 은 분산에 들지 않는다.
 
 $$
 \begin{aligned}
-&\mathrm E[Z_{\text{기시연금}}] = \frac{1 - \mathrm E[Z_{\text{연말종신}}]}{1 - v} \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \\
-&\quad = \frac{1 - 0.625}{0.03/1.03} \quad \left(\because 1 - v = 1 - \frac{1}{1.03} = \frac{0.03}{1.03}\right) \\
-&\quad = 0.375 \times \frac{1.03}{0.03} = 12.875
+&\mathrm V[L] = \mathrm V\left[\left(1 + \frac{P}{0.06}\right) Z_{\text{종신}} - \frac{P}{0.06}\right] \\
+&\quad = \left(1 + \frac{P}{0.06}\right)^2 \mathrm V[Z_{\text{종신}}] \quad (\because \mathrm V[aX + b] = a^2\,\mathrm V[X])
 \end{aligned}
 $$
 
-따라서 구하는 값은 $1000 \times \frac{0.625}{12.875} = 48.54$ 이다.
+따라서 구하는 비는 $\left(1 + \frac{P}{0.06}\right)^2$ 이다. 시험지는 보험료를 주지 않는다 — 수지상등 순보험료로 보면 확정답안과 맞는다. 그 보험료에 필요한 생존함수는 사력 $\mu_x(t) = 0.03$ 으로 정해진다.
 
-답: ③ (48.54)
+$$
+\begin{aligned}
+&S_x(t) = \exp\left\{-\int_0^t \mu_x(s)\,ds\right\} \\
+&\quad = \exp\left\{-\int_0^t 0.03\,ds\right\} \quad (\because \mu_x(t) = 0.03) \\
+&\quad = e^{-0.03t}
+\end{aligned}
+$$
+
+따라서 $F_x'(t) = -\frac{d}{dt}S_x(t) = 0.03\,e^{-0.03t}$ 이다.
+
+$$
+\begin{aligned}
+&\mathrm E[Z_{\text{종신}}] = \int_0^\infty v^t\,F_x'(t)\,dt \\
+&\quad = \int_0^\infty e^{-0.06t} \times 0.03\,e^{-0.03t}\,dt \quad (\because v^t = e^{-0.06t},\ F_x'(t) = 0.03\,e^{-0.03t}) \\
+&\quad = 0.03 \int_0^\infty e^{-0.09t}\,dt = \frac{0.03}{0.09} = \frac13
+\end{aligned}
+$$
+
+수지상등이면 $\mathrm E[L] = \mathrm E[Z_{\text{종신}}] - P\,\mathrm E[Z_{\text{연금}}] = 0$ 이다.
+
+$$
+\begin{aligned}
+&P = \frac{\mathrm E[Z_{\text{종신}}]}{\mathrm E[Z_{\text{연금}}]} \\
+&\quad = \frac{\mathrm E[Z_{\text{종신}}]}{(1 - \mathrm E[Z_{\text{종신}}])/0.06} \quad \left(\because Z_{\text{연금}} = \frac{1 - Z_{\text{종신}}}{0.06}\right) \\
+&\quad = \frac{1/3}{(1 - 1/3)/0.06} = \frac{1/3}{1/0.09} = 0.03
+\end{aligned}
+$$
+
+따라서 구하는 값은 $\frac{\mathrm V[L]}{\mathrm V[Z_{\text{종신}}]} = \left(1 + \frac{0.03}{0.06}\right)^2 = 1.5^2 = 2.25$ 이다.
+
+답: ② (2.25)
 
 ::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-${}_{k\vert}q_x = c\,(0.95)^k$, $k = 0, 1, \ldots$이고 $i = 0.03$일 때, $1000P_x$를 구하시오. (단, $c$는 상수)
+피보험자 $(x)$가 보험금 1, 전기납입 완전연속 종신보험에 가입하였다. 아래의 조건을 이용하여 $\frac{Var({}_0L)}{Var(Z)}$을 구하시오.
 
-① 45.1  ② 46.7  ③ 48.5  ④ 50.3
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $Z$는 사망보험금의 현재가치를 나타내는 확률변수임 \
+(나) ${}_0L$은 보험사의 순미래손실의 현재가치를 나타내는 확률변수임 \
+(다) $\mu = 0.03$ \
+(라) $\delta = 0.06$.
+:::
+
+① 2.00  ② 2.25  ③ 2.50  ④ 2.75
 
 **시험지의 기호**
 
 | 시험지 | 뜻 | 우리 기호 |
 |----|----------|--------|
-| ${}_{u\vert t}q_x$ | $x$ 세인 사람이 $u$ 년은 살고 그다음 $t$ 년 안에 죽을 확률. $t = 1$ 이면 ${}_{u\vert}q_x$ 이다 | $S_x(u) - S_x(u+t) = \Pr(u < T_x \le u+t)$ |
-| $P_x$ | 사망한 해의 말에 1 을 주는 종신보험의 매년 초 평생납 순보험료 | $\frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]}$ |
+| $E$ · $Var$ | 평균 · 분산 | $\mathrm E$ · $\mathrm V$ |
+| $\delta$ | 이력(force of interest). $v^t = e^{-\delta t}$ | $\delta = \log(1+i)$ |
+| ${}_tL$ | 시각 $t$ 에 살아 있을 때 앞으로의 손실. 급부의 현가 빼기 보험료의 현가이고 ${}_0L$ 은 발행시 손실이다 | $L$ |
+| $Z$ | 이 문항이 정한 현가 확률변수 | $Z_{\text{종신}}$ |
+| $\mu$ | 이 문항의 일정한 사력 | $\mu_x(t)$ |
 :::
 
 `#`
 
 
-`# 예제 2 (2024 1차 39번)` 아래의 조건을 이용하여 $x+10$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$ 을 구하시오.
+`# 예제 2 (2025 1차 39번)` 피보험자 $(75)$ 가 15년 만기 생사혼합보험에 가입하였다. 아래의 조건을 이용하여 연납평준순보험료를 구하시오.
 
 ::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) $\frac{\mathrm E[Z_{\text{연말양로}}]}{\mathrm E[Z_{\text{기시유기연금}}]} = 0.079$ ($n = 10$) \
-(나) $\frac{\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]} = 0.008$ ($n = 10$) \
-(다) $\frac{\sum_{t \ge 10} v^t\,S_x(t)}{\mathrm E[Z_{\text{기시유기연금}}]} = 0.825$ ($n = 10$) \
-(라) $1 - v = 0.05$
+(가) 사망보험금은 기말급 1000 \
+(나) 만기보험금은 기납입순보험료의 합 (이자는 없음) \
+(다) $1 - v = 0.04$ \
+(라) 75세 · 15년으로 센 $\mathrm E[Z_{\text{연말양로}}] = 0.70$ \
+(마) $v^{15}S_{75}(15) = 0.11$
 :::
 
-① 0.36  ② 0.42  ③ 0.48  ④ 0.51
+① 80.35  ② 90.75  ③ 100.85  ④ 110.25
 
-`(풀이)` 구하는 것은 $x+10$ 세로 센 $\mathrm E[Z_{\text{연말종신}}]$, 곧 $\mathrm E[v^{\lfloor T_{x+10} \rfloor + 1}]$ 이다. $Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}$ 이므로 $x+10$ 세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 을 알면 되고, 이것을 $y$ 라 하자. 아래의 EPV 는 $y$ 말고는 모두 $x$ 세 · 10년으로 센 것이다. 10년 거치 연금 $\sum_{t \ge 10} v^t\,S_x(t)$ 는 10년을 산 뒤 $x+10$ 세에 시작하는 연금이다.
-
-$$
-\begin{aligned}
-&\sum_{t \ge 10} v^t\,S_x(t) = \sum_{s \ge 0} v^{10+s}\,S_x(10+s) \\
-&\quad = v^{10}\,S_x(10) \sum_{s \ge 0} v^s\,S_{x+10}(s) \quad (\because S_x(10+s) = S_x(10)\,S_{x+10}(s)) \\
-&\quad = \mathrm E[Z_{\text{생존}}]\,y \quad \left(\because \mathrm E[Z_{\text{생존}}] = v^n S_x(n),\ \mathrm E[Z_{\text{기시연금}}] = \sum_{k \ge 0} v^k S_x(k)\right)
-\end{aligned}
-$$
-
-주어진 세 값은 모두 $\mathrm E[Z_{\text{기시유기연금}}]$ 로 나눈 꼴(10년 동안 매년 초에 내는 순보험료)이다. $\mathrm E[Z_{\text{생존}}]$ 을 $\mathrm E[Z_{\text{기시유기연금}}]$ 로 나눈 값은 아래와 같다.
+`(풀이)` 구하는 것은 연납평준순보험료 $P$ 이다. 수지상등식에는 75세 · 15년으로 센 $\mathrm E[Z_{\text{연말정기}}]$ 와 $\mathrm E[Z_{\text{기시유기연금}}]$ 이 들어간다.
 
 $$
 \begin{aligned}
-&\frac{\mathrm E[Z_{\text{생존}}]}{\mathrm E[Z_{\text{기시유기연금}}]} = \frac{\mathrm E[Z_{\text{연말양로}}] - \mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]} \quad (\because Z_{\text{연말양로}} = Z_{\text{연말정기}} + Z_{\text{생존}}) \\
-&\quad = \frac{\mathrm E[Z_{\text{연말양로}}]}{\mathrm E[Z_{\text{기시유기연금}}]} - \frac{\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]} \\
-&\quad = 0.079 - 0.008 = 0.071
+&\mathrm E[Z_{\text{연말정기}}] = \mathrm E[Z_{\text{연말양로}}] - \mathrm E[Z_{\text{생존}}] \quad (\because Z_{\text{연말양로}} = Z_{\text{연말정기}} + Z_{\text{생존}}) \\
+&\quad = 0.70 - v^{15}S_{75}(15) \quad (\because \mathrm E[Z_{\text{생존}}] = v^n S_x(n)) \\
+&\quad = 0.70 - 0.11 = 0.59
 \end{aligned}
 $$
 
-따라서 $y$ 는 아래와 같다.
+보험료는 살아 있는 동안 매년 초에 15번까지 내므로 그 EPV 는 $P\,\mathrm E[Z_{\text{기시유기연금}}]$ 이다.
 
 $$
 \begin{aligned}
-&y = \frac{\sum_{t \ge 10} v^t\,S_x(t)}{\mathrm E[Z_{\text{생존}}]} \quad \left(\because \sum_{t \ge 10} v^t\,S_x(t) = \mathrm E[Z_{\text{생존}}]\,y\right) \\
-&\quad = \frac{\sum_{t \ge 10} v^t\,S_x(t) \,/\, \mathrm E[Z_{\text{기시유기연금}}]}{\mathrm E[Z_{\text{생존}}] \,/\, \mathrm E[Z_{\text{기시유기연금}}]} \\
-&\quad = \frac{0.825}{0.071} = 11.620
+&\mathrm E[Z_{\text{기시유기연금}}] = \frac{1 - \mathrm E[Z_{\text{연말양로}}]}{1 - v} \quad \left(\because Z_{\text{기시유기연금}} = \frac{1 - Z_{\text{연말양로}}}{1 - v}\right) \\
+&\quad = \frac{1 - 0.70}{0.04} = 7.5
 \end{aligned}
 $$
 
-$x+10$ 세에서도 $Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}$ 이다.
+급부는 15년 안에 죽으면 그해 말에 1000, 15년을 살면 낸 보험료의 합 $15P$ 이다. 따라서 수지상등식 $\mathrm E[L] = 0$ 은 $P\,\mathrm E[Z_{\text{기시유기연금}}] = 1000\,\mathrm E[Z_{\text{연말정기}}] + 15P\,\mathrm E[Z_{\text{생존}}]$ 이고, $P$ 가 양쪽에 있다.
 
 $$
 \begin{aligned}
-&\mathrm E[v^{\lfloor T_{x+10} \rfloor + 1}] = 1 - (1 - v)\,y \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \\
-&\quad = 1 - 0.05 \times 11.620 \\
-&\quad = 0.419
+&P = \frac{1000\,\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}] - 15\,\mathrm E[Z_{\text{생존}}]} \\
+&\quad = \frac{1000 \times 0.59}{7.5 - 15 \times 0.11} \\
+&\quad = \frac{590}{5.85} \approx 100.85
 \end{aligned}
 $$
 
-따라서 구하는 값은 $0.419$ 이다.
+따라서 구하는 연납평준순보험료는 100.85 이다.
 
-답: ② (0.419)
+답: ③ (100.85)
 
 ::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-아래의 조건을 이용하여 $A_{x+10}$을 구하시오.
+피보험자 (75) 가 15년 만기 생사혼합보험에 가입하였다. 아래의 조건을 이용하여 연납평준순보험료를 구하시오.
 
 ::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) $P_{x:\overline{10}\vert} = 0.079$ \
-(나) $P^{\,1}_{x:\overline{10}\vert} = 0.008$ \
-(다) $P({}_{10\vert}\ddot a_x) = 0.825$ \
-(라) $d = 0.05$.
+(가) 사망보험금은 기말급 1000 \
+(나) 만기보험금은 기납입순보험료의 합 (이자는 없음) \
+(다) $d = 0.04$ \
+(라) $A_{75:\overline{15}\vert} = 0.70$ \
+(마) $A_{75:\overline{15}\vert}^{\ \ \,1} = 0.11$
 :::
 
-① 0.36  ② 0.42  ③ 0.48  ④ 0.51
+① 80.35  ② 90.75  ③ 100.85  ④ 110.25
 
 **시험지의 기호**
 
 | 시험지 | 뜻 | 우리 기호 |
 |----|----------|--------|
 | $d$ | 할인율(rate of discount) | $1 - v = iv$ |
+| $A_{x:\overline{n}\vert}$ | 사망한 해의 말 또는 만기 $n$ 에 1 을 주는 양로보험의 EPV | $\mathrm E[Z_{\text{연말양로}}]$ |
+| ${}_nE_x$ · $A_{x:\overline{n}\vert}^{\ \ \,1}$ | $n$ 년 뒤 살아 있으면 1 을 주는 생존보험의 EPV. 위의 1 이 $\overline{n}\vert$ 쪽에 있으면 만기가 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{생존}}] = v^n S_x(n)$ |
+:::
+
+`#`
+
+
+`# 예제 3 (2025 1차 40번)` 피보험자 $(x)$ 가 완전이산(fully discrete) 종신보험에 가입하였다. 아래의 조건을 이용하여 이자율 $i$ 를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $x$ 세로 센 $P = \frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]} = \frac{4}{11}$ \
+(나) $R_t = 0.5$ \
+(다) $x+t$ 세로 센 $\mathrm E[Z_{\text{기시연금}}] = 1.1$
+:::
+
+① 0.04  ② 0.05  ③ 0.10  ④ 0.25
+
+`(풀이)` 구하는 것은 이자율 $i$ 이다. $x$ 세로 센 $\mathrm E[Z_{\text{기시연금}}]$ 을 $y$ 라 하자. (가) 의 $P$ 는 $y$ 와 $1 - v$ 로 정해진다(아래 $P$ 의 식에서 기댓값은 모두 $x$ 세로 센 것이다).
+
+$$
+\begin{aligned}
+&P = \frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]} \\
+&\quad = \frac{1 - (1 - v)\,y}{y} \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v}\right) \\
+&\quad = \frac{1}{y} - (1 - v)
+\end{aligned}
+$$
+
+책임준비금 $R_t$ 는 $x+t$ 세로 센 급부의 EPV 에서 $x+t$ 세로 센 보험료의 EPV 를 뺀 것이다. 아래 $R_t$ 의 식에서 기댓값은 모두 $x+t$ 세로 센 것이고, (다) 에서 $\mathrm E[Z_{\text{기시연금}}] = 1.1$ 이다.
+
+$$
+\begin{aligned}
+&R_t = \mathrm E[Z_{\text{연말종신}}] - P\,\mathrm E[Z_{\text{기시연금}}] \\
+&\quad = \{1 - (1 - v) \times 1.1\} - P \times 1.1 \quad (\because \mathrm E[Z_{\text{연말종신}}] = 1 - (1 - v)\,\mathrm E[Z_{\text{기시연금}}],\ \mathrm E[Z_{\text{기시연금}}] = 1.1) \\
+&\quad = 1 - 1.1\,\{(1 - v) + P\} \\
+&\quad = 1 - \frac{1.1}{y} \quad \left(\because P = \frac{1}{y} - (1 - v)\right)
+\end{aligned}
+$$
+
+(나) 에서 $R_t = 0.5$ 이다.
+
+$$
+\begin{aligned}
+&y = \frac{1.1}{1 - R_t} \quad \left(\because R_t = 1 - \frac{1.1}{y}\right) \\
+&\quad = \frac{1.1}{1 - 0.5} = 2.2
+\end{aligned}
+$$
+
+(가) 에서 $P = \frac{4}{11}$ 이다.
+
+$$
+\begin{aligned}
+&1 - v = \frac{1}{y} - P \quad \left(\because P = \frac{1}{y} - (1 - v)\right) \\
+&\quad = \frac{1}{2.2} - \frac{4}{11} = \frac{5}{11} - \frac{4}{11} = \frac{1}{11} \\
+&i = \frac{1 - v}{v} \quad (\because 1 - v = iv) \\
+&\quad = \frac{1/11}{10/11} = 0.10
+\end{aligned}
+$$
+
+따라서 구하는 이자율은 $i = 0.10$ 이다.
+
+답: ③ (0.10)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+피보험자 $(x)$ 가 완전이산(fully discrete) 종신보험에 가입하였다. 아래의 조건을 이용하여 이자율 $i$ 를 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $P_x = \frac{4}{11}$ \
+(나) ${}_tV_x = 0.5$ \
+(다) $\ddot a_{x+t} = 1.1$
+:::
+
+① 0.04  ② 0.05  ③ 0.10  ④ 0.25
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $\ddot a_x$ | 살아 있는 동안 매년 초에 1 을 주는 종신연금의 EPV | $\mathrm E[Z_{\text{기시연금}}]$, $Z_{\text{기시연금}} = \sum_{k=0}^{\lfloor T_x \rfloor} v^k$ |
+| $P_x$ | 사망한 해의 말에 1 을 주는 종신보험의 매년 초 평생납 순보험료 | $\frac{\mathrm E[Z_{\text{연말종신}}]}{\mathrm E[Z_{\text{기시연금}}]}$ |
+| ${}_tV$ | 시각 $t$ 의 순보험료식 책임준비금. 시각 $t$ 에 살아 있을 때 앞으로의 손실의 기댓값이고, 아래첨자 $x$ · $x:\overline{n}\vert$ 는 보험의 꼴을 뜻한다 | $R_t$ |
+:::
+
+`#`
+
+
+`# 예제 4 (2026 1차 40번)` 피보험자 $(x)$ 가 보험금 1인 완전이산종신보험(fully discrete whole life insurance)에 가입하였다. 아래의 조건을 이용하여 $\frac{\mathrm E[L_0^*]}{\mathrm V[L_0^*]}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $\mathrm E[Z_{\text{연말종신}}] = 0.5$ \
+(나) $\mathrm E[Z_{\text{연말종신}}^2] = 0.3$ \
+(다) $1 - v = 0.04$ \
+(라) $L_0^*$ 은 연납보험료 $P = 0.05$ 를 적용한 보험사 순미래손실의 현재가치를 나타내는 확률변수임
+:::
+
+① $-0.4116$  ② $-0.4353$  ③ $-0.4772$  ④ $-0.4939$
+
+`(풀이)` 구하는 것은 $\frac{\mathrm E[L_0^*]}{\mathrm V[L_0^*]}$ 이다. 보험금은 사망한 해의 말에 1 이고 보험료는 매년 초 $P = 0.05$ 이므로, $L_0^*$ 는 $Z_{\text{연말종신}}$ 의 일차식이다.
+
+$$
+\begin{aligned}
+&L_0^* = Z_{\text{연말종신}} - 0.05\,Z_{\text{기시연금}} \\
+&\quad = Z_{\text{연말종신}} - 0.05 \times \frac{1 - Z_{\text{연말종신}}}{0.04} \quad \left(\because Z_{\text{기시연금}} = \frac{1 - Z_{\text{연말종신}}}{1 - v},\ 1 - v = 0.04\right) \\
+&\quad = \left(1 + \frac{0.05}{0.04}\right) Z_{\text{연말종신}} - \frac{0.05}{0.04} \\
+&\quad = 2.25\,Z_{\text{연말종신}} - 1.25
+\end{aligned}
+$$
+
+평균에서는 상수 $-1.25$ 가 그대로 남는다.
+
+$$
+\begin{aligned}
+&\mathrm E[L_0^*] = 2.25\,\mathrm E[Z_{\text{연말종신}}] - 1.25 \\
+&\quad = 2.25 \times 0.5 - 1.25 = -0.125
+\end{aligned}
+$$
+
+분산에서는 상수 $-1.25$ 가 빠진다.
+
+$$
+\begin{aligned}
+&\mathrm V[L_0^*] = 2.25^2\,\mathrm V[Z_{\text{연말종신}}] \quad (\because \mathrm V[aX + b] = a^2\,\mathrm V[X]) \\
+&\quad = 2.25^2 \left(\mathrm E[Z_{\text{연말종신}}^2] - \mathrm E[Z_{\text{연말종신}}]^2\right) \\
+&\quad = 2.25^2 \times (0.3 - 0.5^2) \\
+&\quad = 5.0625 \times 0.05 = 0.253125
+\end{aligned}
+$$
+
+따라서 구하는 값은 $\frac{\mathrm E[L_0^*]}{\mathrm V[L_0^*]} = \frac{-0.125}{0.253125} \approx -0.4938$ 이다.
+
+답: ④ ($-0.4938$)
+
+::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
+피보험자 $(x)$ 가 보험금 1인 완전이산종신보험(fully discrete whole life insurance)에 가입하였다. 아래의 조건을 이용하여 $\frac{E({}_0L^*)}{Var({}_0L^*)}$ 을 구하시오.
+
+::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
+(가) $A_x = 0.5$ \
+(나) ${}^2A_x = 0.3$ \
+(다) $d = 0.04$ \
+(라) ${}_0L^*$ 은 연납보험료 $P = 0.05$ 를 적용한 보험사 순미래손실의 현재가치를 나타내는 확률변수임
+:::
+
+① $-0.4116$  ② $-0.4353$  ③ $-0.4772$  ④ $-0.4939$
+
+**시험지의 기호**
+
+| 시험지 | 뜻 | 우리 기호 |
+|----|----------|--------|
+| $E$ · $Var$ | 평균 · 분산 | $\mathrm E$ · $\mathrm V$ |
+| $d$ | 할인율(rate of discount) | $1 - v = iv$ |
 | $A_x$ | 사망한 해의 말에 1 을 주는 종신보험의 EPV | $\mathrm E[Z_{\text{연말종신}}]$, $Z_{\text{연말종신}} = v^{\lfloor T_x \rfloor + 1}$ |
-| ${}_{u\vert}\ddot a_x$ | $u$ 년 거치 연금의 EPV. 매년 초에 준다 | $\sum_{t \ge u} v^t S_x(t)$ |
-| $P_{x:\overline{n}\vert}$ | $n$ 년 양로보험의 매년 초 순보험료 | $\frac{\mathrm E[Z_{\text{연말양로}}]}{\mathrm E[Z_{\text{기시유기연금}}]}$ |
-| $P^{\,1}_{x:\overline{n}\vert}$ | $n$ 년 정기보험의 매년 초 순보험료 | $\frac{\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]}$ |
-| $P({}_{n\vert}\ddot a_x)$ | $n$ 년 거치 연금을 거치 기간 동안 내는 매년 초 순보험료 | $\frac{\sum_{t \ge n} v^t S_x(t)}{\mathrm E[Z_{\text{기시유기연금}}]}$ |
-:::
-
-`#`
-
-
-`# 예제 3 (2025 1차 38번)` 피보험자 $(x)$ 가 기말급 1000인 3년 만기 완전이산(fully discrete) 정기보험에 가입하였다. 아래의 조건을 이용하여 $S_{x+2}(1)$ 을 구하시오.
-
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) $S_x(1) = 0.975$ \
-(나) $i = 0.06$ \
-(다) $1000\,\mathrm E[Z_{\text{연말정기}}] = 152.85$ ($n = 3$) \
-(라) $1000\,\frac{\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]} = 56.05$ ($n = 3$)
-:::
-
-① 0.870  ② 0.880  ③ 0.895  ④ 0.910
-
-`(풀이)` 구하는 것은 $S_{x+2}(1) = 1 - F_{x+2}(1)$ 이다. $F_{x+2}(1)$ 은 $\mathrm E[Z_{\text{연말정기}}]$ 의 식에 들어 있고, 그 식에 함께 들어 있는 $S_x(2)$ 는 $\mathrm E[Z_{\text{기시유기연금}}]$ 으로 정해진다. 아래의 EPV 는 모두 $x$ 세 · 3년으로 센 것이고, $v = \frac{1}{1.06}$ 이다.
-
-$$
-\begin{aligned}
-&\mathrm E[Z_{\text{기시유기연금}}] = \frac{1000\,\mathrm E[Z_{\text{연말정기}}]}{1000\,\mathrm E[Z_{\text{연말정기}}] / \mathrm E[Z_{\text{기시유기연금}}]} \\
-&\quad = \frac{152.85}{56.05} = 2.72703
-\end{aligned}
-$$
-
-따라서 $S_x(2)$ 는 아래와 같다.
-
-$$
-\begin{aligned}
-&S_x(2) = \frac{\mathrm E[Z_{\text{기시유기연금}}] - 1 - v\,S_x(1)}{v^2} \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{2} v^k S_x(k) = 1 + v\,S_x(1) + v^2\,S_x(2)\right) \\
-&\quad = \left(2.72703 - 1 - \frac{0.975}{1.06}\right) \times 1.06^2 \\
-&\quad = 0.80722 \times 1.1236 = 0.90699
-\end{aligned}
-$$
-
-그러면 $\mathrm E[Z_{\text{연말정기}}]$ 는 $F_{x+2}(1)$ 의 일차식이다.
-
-$$
-\begin{aligned}
-&\mathrm E[Z_{\text{연말정기}}] = \sum_{k=0}^{2} v^{k+1}\{S_x(k) - S_x(k+1)\} \quad (\because Z_{\text{연말정기}} = v^{\lfloor T_x \rfloor + 1}\ (T_x < 3),\ 0\ (\text{그 밖})) \\
-&\quad = v\,F_x(1) + v^2\,S_x(1)\,F_{x+1}(1) + v^3\,S_x(2)\,F_{x+2}(1) \quad (\because S_x(k) - S_x(k+1) = S_x(k)\,F_{x+k}(1)) \\
-&\quad = \frac{1 - 0.975}{1.06} + \frac{0.975 - 0.90699}{1.06^2} + \frac{0.90699}{1.06^3}\,F_{x+2}(1) \quad (\because S_x(1)\,F_{x+1}(1) = S_x(1) - S_x(2)) \\
-&\quad = 0.023585 + 0.060529 + 0.76153\,F_{x+2}(1)
-\end{aligned}
-$$
-
-$1000\,\mathrm E[Z_{\text{연말정기}}] = 152.85$ 에서 $\mathrm E[Z_{\text{연말정기}}] = 0.15285$ 이므로 $F_{x+2}(1)$ 은 아래와 같다.
-
-$$
-\begin{aligned}
-&F_{x+2}(1) = \frac{0.15285 - 0.023585 - 0.060529}{0.76153} \quad (\because 0.15285 = 0.023585 + 0.060529 + 0.76153\,F_{x+2}(1)) \\
-&\quad = \frac{0.068736}{0.76153} = 0.0903
-\end{aligned}
-$$
-
-따라서 구하는 값은 $S_{x+2}(1) = 1 - 0.0903 = 0.9097$ 이다.
-
-답: ④ (0.9097)
-
-::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-피보험자 $(x)$ 가 기말급 1000인 3년 만기 완전이산(fully discrete) 정기보험에 가입하였다. 아래의 조건을 이용하여 $p_{x+2}$ 를 구하시오.
-
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) $p_x = 0.975$ \
-(나) $i = 0.06$ \
-(다) $1000A^{\,1}_{x:\overline{3}\vert} = 152.85$ \
-(라) $1000P^{\,1}_{x:\overline{3}\vert} = 56.05$
-:::
-
-① 0.870  ② 0.880  ③ 0.895  ④ 0.910
-
-**시험지의 기호**
-
-| 시험지 | 뜻 | 우리 기호 |
-|----|----------|--------|
-| $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
-| $A^{\,1}_{x:\overline{n}\vert}$ | 사망한 해의 말에 1 을 주는 $n$ 년 정기보험의 EPV. $x$ 위의 1 은 사망이 만기보다 먼저라야 준다는 뜻이다 | $\mathrm E[Z_{\text{연말정기}}]$ |
-| $P^{\,1}_{x:\overline{n}\vert}$ | $n$ 년 정기보험의 매년 초 순보험료 | $\frac{\mathrm E[Z_{\text{연말정기}}]}{\mathrm E[Z_{\text{기시유기연금}}]}$ |
-:::
-
-`#`
-
-
-`# 예제 4 (2026 1차 39번)` 피보험자 $(x)$ 는 아래와 같은 3년 만기 전기납 생사혼합보험에 가입하였다. 연납평준순보험료 $P$ 를 구하시오.
-
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) 보험료는 기시연납 \
-(나) 사망보험금은 기말급 100 \
-(다) 만기 생존보험금은 $100 + 3P$ \
-(라) $F_x(1) = 0.1$, $F_{x+1}(1) = 0.2$, $F_{x+2}(1) = 0.3$ \
-(마) $v = 0.9$
-:::
-
-① 56.52  ② 57.72  ③ 58.92  ④ 60.12
-
-`(풀이)` 구하는 것은 연납평준순보험료 $P$ 이고, $P$ 는 수지상등(급부의 EPV = 보험료의 EPV)으로 정해진다. 보험료는 매년 초에 $P$ 를 3번까지 내고, 급부는 3년 안에 죽으면 사망한 해의 말에 100, 3년을 살면 그때 $100 + 3P$ 이므로 $\mathrm E[Z_{\text{기시유기연금}}]$ · $\mathrm E[Z_{\text{연말정기}}]$ · $\mathrm E[Z_{\text{생존}}]$ ($x$ 세 · 3년) 이 필요하다. 생존함수는 아래와 같다.
-
-$$
-\begin{aligned}
-&S_x(1) = 1 - F_x(1) = 1 - 0.1 = 0.9 \\
-&S_x(2) = S_x(1)\,S_{x+1}(1) = 0.9 \times (1 - 0.2) = 0.72 \\
-&S_x(3) = S_x(2)\,S_{x+2}(1) = 0.72 \times (1 - 0.3) = 0.504
-\end{aligned}
-$$
-
-보험료 쪽은 매년 초에 3번까지 낸다($v = 0.9$).
-
-$$
-\begin{aligned}
-&\mathrm E[Z_{\text{기시유기연금}}] = 1 + v\,S_x(1) + v^2\,S_x(2) \quad \left(\because \mathrm E[Z_{\text{기시유기연금}}] = \sum_{k=0}^{n-1} v^k S_x(k)\right) \\
-&\quad = 1 + 0.9 \times 0.9 + 0.81 \times 0.72 \\
-&\quad = 1 + 0.81 + 0.5832 = 2.3932
-\end{aligned}
-$$
-
-사망보험금 쪽은 사망한 해의 말에 준다.
-
-$$
-\begin{aligned}
-&\mathrm E[Z_{\text{연말정기}}] = v\{1 - S_x(1)\} + v^2\{S_x(1) - S_x(2)\} + v^3\{S_x(2) - S_x(3)\} \quad \left(\because \mathrm E[Z_{\text{연말정기}}] = \sum_{k=0}^{n-1} v^{k+1}\{S_x(k) - S_x(k+1)\}\right) \\
-&\quad = 0.9 \times 0.1 + 0.81 \times 0.18 + 0.729 \times 0.216 \\
-&\quad = 0.09 + 0.1458 + 0.157464 = 0.393264
-\end{aligned}
-$$
-
-만기 생존보험금 쪽은 3년을 살면 3년 뒤에 준다.
-
-$$
-\begin{aligned}
-&\mathrm E[Z_{\text{생존}}] = v^3\,S_x(3) \quad (\because \mathrm E[Z_{\text{생존}}] = v^n S_x(n)) \\
-&\quad = 0.729 \times 0.504 = 0.367416
-\end{aligned}
-$$
-
-따라서 수지상등에서 $P$ 는 아래와 같다.
-
-$$
-\begin{aligned}
-&P = \frac{100\,\mathrm E[Z_{\text{연말정기}}] + 100\,\mathrm E[Z_{\text{생존}}]}{\mathrm E[Z_{\text{기시유기연금}}] - 3\,\mathrm E[Z_{\text{생존}}]} \quad \left(\because P\,\mathrm E[Z_{\text{기시유기연금}}] = 100\,\mathrm E[Z_{\text{연말정기}}] + (100 + 3P)\,\mathrm E[Z_{\text{생존}}]\right) \\
-&\quad = \frac{39.3264 + 36.7416}{2.3932 - 1.102248} \\
-&\quad = \frac{76.068}{1.290952} = 58.92
-\end{aligned}
-$$
-
-따라서 구하는 값은 $P = 58.92$ 이다.
-
-답: ③ (58.92)
-
-::: {.callout-note collapse="true" title="실제 기출은 이러하다"}
-피보험자 $(x)$ 는 아래와 같은 3년 만기 전기납 생사혼합보험에 가입하였다. 연납평준순보험료 $P$ 를 구하시오.
-
-::: {style="border: 1px solid #c8c8c8; padding: 10px 14px; margin: 0.6em 0;"}
-(가) 보험료는 기시연납 \
-(나) 사망보험금은 기말급 100 \
-(다) 만기 생존보험금은 $100 + 3P$ \
-(라) $q_x = 0.1$, $q_{x+1} = 0.2$, $q_{x+2} = 0.3$ \
-(마) $v = 0.9$
-:::
-
-① 56.52  ② 57.72  ③ 58.92  ④ 60.12
-
-**시험지의 기호**
-
-| 시험지 | 뜻 | 우리 기호 |
-|----|----------|--------|
-| $p_x$ · $q_x$ | 기간이 1년이면 왼쪽 아래첨자를 뗀다. $p_x = {}_1p_x$, $q_x = {}_1q_x$ | $S_x(1)$ · $F_x(1)$ |
+| ${}^2A_x$ | 왼쪽 위의 2 는 $v$ 대신 $v^2$ 로 셈한다는 뜻이다. ${}^2A_{x:\overline{n}\vert}$ · ${}^2A^{\,1}_{x:\overline{n}\vert}$ 도 같다 | $\mathrm E[Z_{\text{연말종신}}^2]$ · $\mathrm E[Z_{\text{연말양로}}^2]$ · $\mathrm E[Z_{\text{연말정기}}^2]$ |
+| ${}_tL$ | 시각 $t$ 에 살아 있을 때 앞으로의 손실. 급부의 현가 빼기 보험료의 현가이고 ${}_0L$ 은 발행시 손실이다 | $L$ |
 :::
 
 `#`
